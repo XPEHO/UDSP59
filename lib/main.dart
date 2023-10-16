@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:udsp59/views/home_page.dart';
+
+bool appInDebugMode = true;
 
 void main() {
   runApp(const App());
@@ -13,73 +17,17 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'UDSP59 Formation',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF251438),
+            primary: const Color(0xFF251438),
+            secondary: const Color(0xFFCF6C28),
+            tertiary: const Color(0xFFCB2738),
+          ),
           useMaterial3: true,
-          fontFamily: 'Roboto',
+          textTheme: GoogleFonts.robotoTextTheme(),
           scaffoldBackgroundColor: const Color(0xFFECF0F8)),
       home: const HomePage(),
       debugShowCheckedModeBanner: false,
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(130),
-        child: AppBar(
-          backgroundColor: Colors.transparent,
-          flexibleSpace: Padding(
-            padding: const EdgeInsets.only(top: 40, left: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/logo.png',
-                  height: 120,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "UDSP59",
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "FORMATION",
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
-      body: Container(
-        color: Colors.pink,
-        child: const Column(
-          children: [
-            Text(""),
-          ],
-        ),
-      ),
     );
   }
 }
