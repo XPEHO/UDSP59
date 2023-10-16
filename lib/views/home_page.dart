@@ -5,7 +5,7 @@ import 'package:udsp59/features/title_widget.dart';
 List<Map> modules = [
   {
     "title": "Protection/Alerte",
-    "icon": "assets/icons/",
+    "icon": Icons.health_and_safety,
     "content": {
       "Repérer le danger": [
         "Supprimer le danger de manière définitive",
@@ -22,7 +22,7 @@ List<Map> modules = [
   },
   {
     "title": "Malaise",
-    "icon": "assets/icons/",
+    "icon": Icons.mood_bad,
     "content": {
       "Mettre la victime au repos": [
         "Allongée",
@@ -38,7 +38,7 @@ List<Map> modules = [
   },
   {
     "title": "Inconscience",
-    "icon": "assets/icons/",
+    "icon": Icons.airline_seat_flat,
     "content": {
       "Apprécier la conscience": [],
       "Basculer la tête en arrière": [],
@@ -55,7 +55,7 @@ List<Map> modules = [
   },
   {
     "title": "Réanimation Cardio-pulmonaire",
-    "icon": "assets/icons/",
+    "icon": Icons.heart_broken,
     "content": {
       "Apprécier la conscience": [],
       "Basculer la tête en arrière": [],
@@ -79,7 +79,7 @@ List<Map> modules = [
   },
   {
     "title": "Défibrillateur",
-    "icon": "assets/icons/",
+    "icon": Icons.monitor_heart,
     "content": {
       "Allumer l'appareil": [],
       "Suivre les instructions": [],
@@ -94,7 +94,7 @@ List<Map> modules = [
   },
   {
     "title": "Traumatismes",
-    "icon": "assets/icons/",
+    "icon": Icons.personal_injury,
     "content": {
       "Demander à la victime de ne pas bouger": [],
       "Contacter les secours": [
@@ -109,7 +109,7 @@ List<Map> modules = [
   },
   {
     "title": "Brûlure",
-    "icon": "assets/icons/",
+    "icon": Icons.local_fire_department,
     "content": {
       "Refroidir avec de l'eau tempérée": [
         "Jusqu'à disparition de la douleur pour les brûlures simples",
@@ -126,7 +126,7 @@ List<Map> modules = [
   },
   {
     "title": "Hémorragie",
-    "icon": "assets/icons/",
+    "icon": Icons.bloodtype,
     "content": {
       "Appuyer à l'endroit qui saigne": [],
       "Allonger la victime": [],
@@ -221,7 +221,7 @@ class HomePage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             const ModuleListWidget(),
           ],
