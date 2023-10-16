@@ -19,10 +19,10 @@ class ModuleListElementWidget extends StatelessWidget {
         }
       },
       child: Container(
-        height: 100,
-        width: 150,
+        height: 115,
+        constraints: BoxConstraints(maxWidth: 175),
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.fromLTRB(15, 16, 10, 12),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -36,24 +36,30 @@ class ModuleListElementWidget extends StatelessWidget {
           ],
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              module["title"],
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Text(
+                module["title"],
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Icon(
+                  size: 26,
                   Icons.arrow_forward,
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
                 Icon(
-                  Icons.fire_extinguisher,
+                  size: 45,
+                  module["icon"] as IconData,
                   color: Theme.of(context).colorScheme.secondary,
                 )
               ],
