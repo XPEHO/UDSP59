@@ -29,7 +29,7 @@ class App extends StatelessWidget {
       locale: context.locale,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
-      title: 'UDSP59 Formation',
+      onGenerateTitle: (context) => tr("appTitle"),
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: const Color(0xFF251438),
