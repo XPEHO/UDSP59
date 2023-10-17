@@ -1,152 +1,40 @@
+import 'dart:convert';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:udsp59/features/module_list_widget.dart';
-import 'package:udsp59/features/title_widget.dart';
+import 'package:flutter/services.dart';
+import 'package:udsp59/entities/module.dart';
+import 'package:udsp59/features/modules_carousel.dart';
+import 'package:udsp59/features/title_header.dart';
 
-List<Map> modules = [
-  {
-    "title": "Protection/Alerte",
-    "icon": Icons.health_and_safety,
-    "content": {
-      "Repérer le danger": [
-        "Supprimer le danger de manière définitive",
-        "Réaliser un dégagement d'urgence",
-        "Réaliser un balisage de sécurité",
-      ],
-      "Contacter les secours": [
-        "18",
-        "112",
-        "15",
-      ],
-      "Ne raccrochez jamais avant accord des secours": [],
-    }
-  },
-  {
-    "title": "Malaise",
-    "icon": Icons.mood_bad,
-    "content": {
-      "Mettre la victime au repos": [
-        "Allongée",
-        "Demi-assise si difficulté à respirer",
-      ],
-      "Contacter les secours": [
-        "18",
-        "112",
-        "15",
-      ],
-      "Ne raccrochez jamais avant accord des secours": [],
-    }
-  },
-  {
-    "title": "Inconscience",
-    "icon": Icons.airline_seat_flat,
-    "content": {
-      "Apprécier la conscience": [],
-      "Basculer la tête en arrière": [],
-      "Apprécier la respiration pendant 10 secondes": [],
-      "Mettre en PLS si la victime est inconsciente et respire": [],
-      "Contacter les secours": [
-        "18",
-        "112",
-        "15",
-      ],
-      "Ne raccrochez jamais avant accord des secours": [],
-      "Couvrir et surveiller la victime": [],
-    }
-  },
-  {
-    "title": "Réanimation Cardio-pulmonaire",
-    "icon": Icons.heart_broken,
-    "content": {
-      "Apprécier la conscience": [],
-      "Basculer la tête en arrière": [],
-      "Apprécier la respiration pendant 10 secondes": [],
-      "Si la respiration est absente, contacter les secours": [
-        "18",
-        "112",
-        "15",
-      ],
-      "Ne raccrochez jamais avant accord des secours": [],
-      "Poser un défibrillateur s'il est visuellement disponible": [],
-      "Si adulte, effectuer": [
-        "30 compressions",
-        "2 insufflations",
-      ],
-      "Si enfant, effectuer": [
-        "15 compressions",
-        "2 insufflations",
-      ],
-    }
-  },
-  {
-    "title": "Défibrillateur",
-    "icon": Icons.monitor_heart,
-    "content": {
-      "Allumer l'appareil": [],
-      "Suivre les instructions": [],
-      "Contacter les secours": [
-        "18",
-        "112",
-        "15",
-      ],
-      "Ne raccrochez jamais avant accord des secours": [],
-      "Laisser l'appareil en place jusqu'à l'arrivée des secours": [],
-    }
-  },
-  {
-    "title": "Traumatismes",
-    "icon": Icons.personal_injury,
-    "content": {
-      "Demander à la victime de ne pas bouger": [],
-      "Contacter les secours": [
-        "18",
-        "112",
-        "15",
-      ],
-      "Ne raccrochez jamais avant accord des secours": [],
-      "Maintenez la tête sans la déplacer si atteinte tête, nuque ou dos": [],
-      "Couvrir et surveiller la victime": [],
-    }
-  },
-  {
-    "title": "Brûlure",
-    "icon": Icons.local_fire_department,
-    "content": {
-      "Refroidir avec de l'eau tempérée": [
-        "Jusqu'à disparition de la douleur pour les brûlures simples",
-        "Jusqu'à l'arrivée des secours pour les brûlures graves",
-      ],
-      "Contacter les secours en cas de brûlures graves": [
-        "18",
-        "112",
-        "15",
-      ],
-      "Ne raccrochez jamais avant accord des secours": [],
-      "Aucun produit ne doit être appliqué sans avis médical": [],
-    }
-  },
-  {
-    "title": "Hémorragie",
-    "icon": Icons.bloodtype,
-    "content": {
-      "Appuyer à l'endroit qui saigne": [],
-      "Allonger la victime": [],
-      "Contacter les secours": [
-        "18",
-        "112",
-        "15",
-      ],
-      "Ne raccrochez jamais avant accord des secours": [],
-      "Si c'est une plaie grave sans hémoragie, position": [
-        "Plaie thorax => demi-assise",
-        "Plaie abdomen => allongée, jambes relevées",
-        "Plaie oeil => allongée, tête calée, yeux fermés",
-      ],
-    }
-  }
-];
-
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<Module> modules = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getModulesFromJson();
+  }
+
+  // Fetch modules from the json file
+  Future<void> getModulesFromJson() async {
+    String json = await rootBundle.loadString("assets/modules.json");
+    List<dynamic> jsonList = await jsonDecode(json);
+    List<Module> modulesList = [];
+    for (var jsonElt in jsonList) {
+      modulesList.add(Module.fromJson(jsonElt));
+    }
+
+    setState(() {
+      modules = modulesList;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -154,12 +42,12 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const TitleWidget(),
+            const TitleHeader(),
             const SizedBox(
               height: 40,
             ),
             Text(
-              "Une URGENCE ?",
+              tr("homeEmergency"),
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
@@ -170,7 +58,7 @@ class HomePage extends StatelessWidget {
               height: 5,
             ),
             Text(
-              "Appelez directement en cliquant\nsur ce bouton",
+              tr("homeClickEmergency"),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 15,
@@ -190,7 +78,7 @@ class HomePage extends StatelessWidget {
             ),
             RichText(
               text: TextSpan(
-                text: "En attendant, vous\npouvez peut-être",
+                text: tr("homeWaiting"),
                 style: TextStyle(
                   fontSize: 24,
                   height: 1.25,
@@ -199,7 +87,7 @@ class HomePage extends StatelessWidget {
                 ),
                 children: [
                   TextSpan(
-                    text: " AGIR",
+                    text: " ${tr("homeWaitingAct")}",
                     style: TextStyle(
                       fontSize: 24,
                       height: 1.25,
@@ -223,7 +111,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const ModuleListWidget(),
+            ModulesCarousel(modules: modules),
           ],
         ),
       ),

@@ -1,11 +1,22 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:udsp59/views/home_page.dart';
 
-bool appInDebugMode = true;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
 
-void main() {
-  runApp(const App());
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [
+        Locale('fr'),
+      ],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('fr'),
+      child: const App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
@@ -15,6 +26,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: context.locale,
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
       title: 'UDSP59 Formation',
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(

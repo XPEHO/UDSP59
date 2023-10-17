@@ -1,0 +1,208 @@
+[
+    {
+        "title": "Protection/Alerte",
+        "icon": 58117,
+        "content": [
+            [
+                "Repérer le danger",
+                "Supprimer le danger de manière définitive",
+                "Réaliser un dégagement d'urgence",
+                "Réaliser un balisage de sécurité"
+            ],
+            [
+                "Contacter les secours",
+                "18",
+                "112",
+                "15"
+            ],
+            [
+                "Ne raccrochez jamais avant accord des secours"
+            ]
+        ]
+    },
+    {
+        "title": "Malaise",
+        "icon": 58367,
+        "content": [
+            [
+                "Mettre la victime au repos",
+                "Allongée",
+                "Demi-assise si difficulté à respirer"
+            ],
+            [
+                "Contacter les secours",
+                "18",
+                "112",
+                "15"
+            ],
+            [
+                "Ne raccrochez jamais avant accord des secours"
+            ]
+        ]
+    },
+    {
+        "title": "Inconscience",
+        "icon": 57445,
+        "content": [
+            [
+                "Apprécier la conscience"
+            ],
+            [
+                "Basculer la tête en arrière"
+            ],
+            [
+                "Apprécier la respiration pendant 10 secondes"
+            ],
+            [
+                "Mettre en PLS si la victime est inconsciente et respire"
+            ],
+            [
+                "Contacter les secours",
+                "18",
+                "112",
+                "15"
+            ],
+            [
+                "Ne raccrochez jamais avant accord des secours"
+            ],
+            [
+                "Couvrir et surveiller la victime"
+            ]
+        ]
+    },
+    {
+        "title": "Réanimation Cardio-pulmonaire",
+        "icon": 984342,
+        "content": [
+            [
+                "Apprécier la conscience"
+            ],
+            [
+                "Basculer la tête en arrière"
+            ],
+            [
+                "Apprécier la respiration pendant 10 secondes"
+            ],
+            [
+                "Si la respiration est absente, contacter les secours",
+                "18",
+                "112",
+                "15"
+            ],
+            [
+                "Ne raccrochez jamais avant accord des secours"
+            ],
+            [
+                "Poser un défibrillateur s'il est visuellement disponible"
+            ],
+            [
+                "Si adulte, effectuer",
+                "30 compressions",
+                "2 insufflations"
+            ],
+            [
+                "Si enfant, effectuer",
+                "15 compressions",
+                "2 insufflations"
+            ]
+        ]
+    },
+    {
+        "title": "Défibrillateur",
+        "icon": 984381,
+        "content": [
+            [
+                "Allumer l'appareil"
+            ],
+            [
+                "Suivre les instructions"
+            ],
+            [
+                "Contacter les secours",
+                "18",
+                "112",
+                "15"
+            ],
+            [
+                "Ne raccrochez jamais avant accord des secours"
+            ],
+            [
+                "Laisser l'appareil en place jusqu'à l'arrivée des secours"
+            ]
+        ]
+    },
+    {
+        "title": "Traumatismes",
+        "icon": 58525,
+        "content": [
+            [
+                "Demander à la victime de ne pas bouger"
+            ],
+            [
+                "Contacter les secours",
+                "18",
+                "112",
+                "15"
+            ],
+            [
+                "Ne raccrochez jamais avant accord des secours"
+            ],
+            [
+                "Maintenir la tête sans la déplacer si atteinte tête, nuque ou dos"
+            ],
+            [
+                "Couvrir et surveiller la victime"
+            ]
+        ]
+    },
+    {
+        "title": "Brûlure",
+        "icon": 58258,
+        "content": [
+            [
+                "Refroidir avec de l'eau tempérée",
+                "Jusqu'à disparition de la douleur pour les brûlures simples",
+                "Jusqu'à l'arrivée des secours pour les brûlures graves"
+            ],
+            [
+                "Contacter les secours",
+                "18",
+                "112",
+                "15"
+            ],
+            [
+                "Ne raccrochez jamais avant accord des secours"
+            ],
+            [
+                "Aucun produit ne doit être appliqué sans avis médical"
+            ]
+        ]
+    },
+    {
+        "title": "Hémorragie",
+        "icon": 57571,
+        "content": [
+            [
+                "Appuyer à l'endroit qui saigne"
+            ],
+            [
+                "Allonger la victime"
+            ],
+            [
+                "Contacter les secours",
+                "18",
+                "112",
+                "15"
+            ],
+            [
+                "Ne raccrochez jamais avant accord des secours"
+            ],
+            [
+                "Si c'est une plaie grave sans hémoragie, position",
+                "Plaie thorax => demi-assise",
+                "Plaie abdomen => allongée, jambes relevées",
+                "Plaie oeil => allongée, tête calée, yeux fermés"
+            ]
+        ]
+    }
+]
