@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/rendering/object.dart';
 import 'package:udsp59/entities/module.dart';
 
 class ModulesCarouselElement extends StatelessWidget {
