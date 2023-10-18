@@ -15,6 +15,7 @@ class ModulesCarouselElement extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         debugPrint('User want to acceed page of the module ${module.title}');
+        Navigator.pushNamed(context, '/module', arguments: module);
       },
       child: Container(
         height: 115,
