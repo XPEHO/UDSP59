@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:udsp59/styles/text_style.dart';
 
 class PageHeader extends StatelessWidget implements PreferredSizeWidget {
   final String pageTitle;
@@ -16,11 +17,7 @@ class PageHeader extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: Text(
         tr(pageTitle),
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.primary,
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
-        ),
+        style: textStylePageTitle(),
       ),
       centerTitle: true,
       iconTheme:
