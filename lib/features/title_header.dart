@@ -43,6 +43,7 @@ class TitleHeader extends StatelessWidget {
               ),
               onPressed: () {
                 debugPrint("User want to acceed about page");
+                Navigator.pushNamed(context, '/about');
               },
               child: const Icon(Icons.info_rounded),
             ),

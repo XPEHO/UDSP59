@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/title_header.dart';
@@ -17,27 +15,9 @@ class _HomePageState extends State<HomePage> {
   List<Module> modules = [];
 
   @override
-  void initState() {
-    super.initState();
-    getModulesFromJson();
-  }
-
-  // Fetch modules from the json file
-  Future<void> getModulesFromJson() async {
-    String json = await rootBundle.loadString("assets/modules.json");
-    List<dynamic> jsonList = await jsonDecode(json);
-    List<Module> modulesList = [];
-    for (var jsonElt in jsonList) {
-      modulesList.add(Module.fromJson(jsonElt));
-    }
-
-    setState(() {
-      modules = modulesList;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    modules = ModalRoute.of(context)!.settings.arguments as List<Module>;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
