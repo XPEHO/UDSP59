@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udsp59/entities/module.dart';
+import 'package:udsp59/styles/text_style.dart';
 
 class ModulesCarouselElement extends StatelessWidget {
   final Module module;
@@ -42,10 +43,7 @@ class ModulesCarouselElement extends StatelessWidget {
               padding: const EdgeInsets.only(right: 20),
               child: Text(
                 module.title,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: textStyleModule(),
               ),
             ),
             Row(

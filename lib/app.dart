@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:udsp59/styles/theme.dart';
 import 'package:udsp59/views/about_page.dart';
 import 'package:udsp59/views/home_page.dart';
 import 'package:udsp59/views/loading.dart';
@@ -17,16 +17,7 @@ class App extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       onGenerateTitle: (context) => tr("appTitle"),
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xFF251438),
-            primary: const Color(0xFF251438),
-            secondary: const Color(0xFFCF6C28),
-            tertiary: const Color(0xFFCB2738),
-          ),
-          useMaterial3: true,
-          textTheme: GoogleFonts.robotoTextTheme(),
-          scaffoldBackgroundColor: const Color(0xFFECF0F8)),
+      theme: udsp59Theme,
       initialRoute: '/',
       routes: {
         '/': (context) => const Loading(),

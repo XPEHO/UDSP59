@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/title_header.dart';
+import 'package:udsp59/styles/text_style.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,11 +29,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Text(
               tr("homeEmergency"),
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-                color: Theme.of(context).colorScheme.tertiary,
-              ),
+              style: textStyleHookTitle(),
             ),
             const SizedBox(
               height: 5,
@@ -40,12 +37,7 @@ class _HomePageState extends State<HomePage> {
             Text(
               tr("homeClickEmergency"),
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 15,
-                height: 1.25,
-                fontWeight: FontWeight.w400,
-                color: Theme.of(context).colorScheme.secondary,
-              ),
+              style: textStyleHookSubtitle(),
             ),
             const SizedBox(
               height: 40,
@@ -59,18 +51,11 @@ class _HomePageState extends State<HomePage> {
             RichText(
               text: TextSpan(
                 text: tr("homeWaiting"),
-                style: TextStyle(
-                  fontSize: 24,
-                  height: 1.25,
-                  fontWeight: FontWeight.w400,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
+                style: textStylePageSubtitle(),
                 children: [
                   TextSpan(
                     text: " ${tr("homeWaitingAct")}",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: textStylePageSubtitleImportant(),
                   ),
                   const TextSpan(
                     text: " !",

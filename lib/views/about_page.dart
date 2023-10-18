@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:udsp59/features/page_header.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:udsp59/styles/text_style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
@@ -20,11 +21,7 @@ class AboutPage extends StatelessWidget {
           children: [
             Text(
               tr('aboutSubtitle1'),
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w400,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+              style: textStylePageSubtitle(),
             ),
             const SizedBox(
               height: 15,
@@ -36,36 +33,25 @@ class AboutPage extends StatelessWidget {
                   RichText(
                     text: TextSpan(
                       text: tr("aboutPart1Span1"),
-                      style: TextStyle(
-                        fontSize: 15,
-                        height: 1.25,
-                        fontWeight: FontWeight.w300,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                      style: textStyleParagraph(),
                       children: [
                         TextSpan(
                           text: tr("aboutPart1Span2"),
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: textStyleParagraphImportant(),
                         ),
                         TextSpan(
                           text: tr("aboutPart1Span3"),
                         ),
                         TextSpan(
                           text: " ${tr("aboutPart1Span4")}",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: textStyleParagraphImportant(),
                         ),
                         TextSpan(
                           text: " ${tr("aboutPart1Span5")}",
                         ),
                         TextSpan(
                           text: " ${tr("aboutPart1Span6")}",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: textStyleParagraphImportant(),
                         ),
                         TextSpan(
                           text: tr("aboutPart1Span7"),
@@ -80,36 +66,25 @@ class AboutPage extends StatelessWidget {
                   RichText(
                     text: TextSpan(
                       text: tr("aboutPart2Span1"),
-                      style: TextStyle(
-                        fontSize: 15,
-                        height: 1.25,
-                        fontWeight: FontWeight.w300,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                      style: textStyleParagraph(),
                       children: [
                         TextSpan(
                           text: " ${tr("aboutPart2Span2")}",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: textStyleParagraphImportant(),
                         ),
                         TextSpan(
                           text: " ${tr("aboutPart2Span3")}",
                         ),
                         TextSpan(
                           text: " ${tr("aboutPart2Span4")}",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: textStyleParagraphImportant(),
                         ),
                         TextSpan(
                           text: tr("aboutPart2Span5"),
                         ),
                         TextSpan(
                           text: " ${tr("aboutPart2Span6")}",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: textStyleParagraphImportant(),
                         ),
                         TextSpan(
                           text: tr("aboutPart2Span7"),
@@ -124,27 +99,18 @@ class AboutPage extends StatelessWidget {
                   RichText(
                     text: TextSpan(
                       text: tr("aboutPart3Span1"),
-                      style: TextStyle(
-                        fontSize: 15,
-                        height: 1.25,
-                        fontWeight: FontWeight.w300,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
+                      style: textStyleParagraph(),
                       children: [
                         TextSpan(
                           text: tr("aboutPart3Span2"),
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: textStyleParagraphImportant(),
                         ),
                         TextSpan(
                           text: " ${tr("aboutPart3Span3")}",
                         ),
                         TextSpan(
                           text: " ${tr("aboutPart3Span4")}",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                          ),
+                          style: textStyleParagraphImportant(),
                         ),
                         TextSpan(
                           text: " ${tr("aboutPart3Span5")}",
@@ -161,11 +127,7 @@ class AboutPage extends StatelessWidget {
             ),
             Text(
               tr('aboutSubtitle2'),
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w400,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+              style: textStylePageSubtitle(),
             ),
             const SizedBox(
               height: 15,
