@@ -68,21 +68,12 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   TextSpan(
                     text: " ${tr("homeWaitingAct")}",
-                    style: TextStyle(
-                      fontSize: 24,
-                      height: 1.25,
+                    style: const TextStyle(
                       fontWeight: FontWeight.w500,
-                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  TextSpan(
+                  const TextSpan(
                     text: " !",
-                    style: TextStyle(
-                      fontSize: 24,
-                      height: 1.25,
-                      fontWeight: FontWeight.w400,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
                   ),
                 ],
               ),
