@@ -13,7 +13,7 @@ class ModulesCarouselElement extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         debugPrint('User want to acceed page of the module ${module.title}');
         Navigator.pushNamed(context, '/module', arguments: module);
