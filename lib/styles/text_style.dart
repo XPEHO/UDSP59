@@ -57,6 +57,14 @@ TextStyle textStyleModule() {
   );
 }
 
+TextStyle textStyleNumerotation() {
+  return const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: Color(0xFFCF6C28),
+  );
+}
+
 TextStyle textStyleParagraph() {
   return const TextStyle(
     fontSize: 15,

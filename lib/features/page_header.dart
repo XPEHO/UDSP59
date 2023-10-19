@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:udsp59/styles/text_style.dart';
 
-class PageHeader extends StatelessWidget implements PreferredSizeWidget {
+class PageHeader extends StatelessWidget {
   final String pageTitle;
 
   const PageHeader({
@@ -10,25 +10,31 @@ class PageHeader extends StatelessWidget implements PreferredSizeWidget {
     required this.pageTitle,
   });
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      title: Text(
-        tr(pageTitle),
-        style: textStylePageTitle(),
-      ),
-      centerTitle: true,
-      iconTheme:
-          IconThemeData(color: Theme.of(context).colorScheme.primary, size: 40),
-      leading: IconButton(
-        icon: const Icon(Icons.navigate_before),
-        onPressed: () => Navigator.pop(context),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.navigate_before),
+            color: Theme.of(context).colorScheme.primary,
+            iconSize: 40,
+            onPressed: () => Navigator.pop(context),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 40),
+              child: Text(
+                tr(pageTitle),
+                style: textStylePageTitle(),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
-
-  @override
-  Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
 }
