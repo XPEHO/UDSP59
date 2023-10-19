@@ -24,9 +24,6 @@ class ModuleAccordion extends StatelessWidget {
             index: index,
           );
         },
-        /*children: module.content
-            .map((modulePart) => ModuleAccordionElement(modulePart: modulePart))
-            .toList(),*/
       ),
     );
   }
