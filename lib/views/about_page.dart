@@ -2,9 +2,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:udsp59/features/page_header.dart';
+import 'package:udsp59/features/mixed_paragraph.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:udsp59/features/url_linked_icon.dart';
 import 'package:udsp59/styles/text_style.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -30,95 +31,37 @@ class AboutPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 children: [
-                  RichText(
-                    text: TextSpan(
-                      text: tr("aboutPart1Span1"),
-                      style: textStyleParagraph(),
-                      children: [
-                        TextSpan(
-                          text: tr("aboutPart1Span2"),
-                          style: textStyleParagraphImportant(),
-                        ),
-                        TextSpan(
-                          text: tr("aboutPart1Span3"),
-                        ),
-                        TextSpan(
-                          text: " ${tr("aboutPart1Span4")}",
-                          style: textStyleParagraphImportant(),
-                        ),
-                        TextSpan(
-                          text: " ${tr("aboutPart1Span5")}",
-                        ),
-                        TextSpan(
-                          text: " ${tr("aboutPart1Span6")}",
-                          style: textStyleParagraphImportant(),
-                        ),
-                        TextSpan(
-                          text: tr("aboutPart1Span7"),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.justify,
-                  ),
+                  MixedParagraph(context, textKeys: const [
+                    'aboutPart1Span1',
+                    'aboutPart1Span2_b',
+                    'aboutPart1Span3',
+                    'aboutPart1Span4_sb',
+                    'aboutPart1Span5_s',
+                    'aboutPart1Span6_sb',
+                    'aboutPart1Span7',
+                  ]),
                   const SizedBox(
                     height: 10,
                   ),
-                  RichText(
-                    text: TextSpan(
-                      text: tr("aboutPart2Span1"),
-                      style: textStyleParagraph(),
-                      children: [
-                        TextSpan(
-                          text: " ${tr("aboutPart2Span2")}",
-                          style: textStyleParagraphImportant(),
-                        ),
-                        TextSpan(
-                          text: " ${tr("aboutPart2Span3")}",
-                        ),
-                        TextSpan(
-                          text: " ${tr("aboutPart2Span4")}",
-                          style: textStyleParagraphImportant(),
-                        ),
-                        TextSpan(
-                          text: tr("aboutPart2Span5"),
-                        ),
-                        TextSpan(
-                          text: " ${tr("aboutPart2Span6")}",
-                          style: textStyleParagraphImportant(),
-                        ),
-                        TextSpan(
-                          text: tr("aboutPart2Span7"),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.justify,
-                  ),
+                  MixedParagraph(context, textKeys: const [
+                    'aboutPart2Span1',
+                    'aboutPart2Span2_sb',
+                    'aboutPart2Span3_s',
+                    'aboutPart2Span4_sb',
+                    'aboutPart2Span5',
+                    'aboutPart2Span6_sb',
+                    'aboutPart2Span7',
+                  ]),
                   const SizedBox(
                     height: 10,
                   ),
-                  RichText(
-                    text: TextSpan(
-                      text: tr("aboutPart3Span1"),
-                      style: textStyleParagraph(),
-                      children: [
-                        TextSpan(
-                          text: tr("aboutPart3Span2"),
-                          style: textStyleParagraphImportant(),
-                        ),
-                        TextSpan(
-                          text: " ${tr("aboutPart3Span3")}",
-                        ),
-                        TextSpan(
-                          text: " ${tr("aboutPart3Span4")}",
-                          style: textStyleParagraphImportant(),
-                        ),
-                        TextSpan(
-                          text: " ${tr("aboutPart3Span5")}",
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.justify,
-                  ),
+                  MixedParagraph(context, textKeys: const [
+                    'aboutPart3Span1',
+                    'aboutPart3Span2_b',
+                    'aboutPart3Span3_s',
+                    'aboutPart3Span4_sb',
+                    'aboutPart3Span5_s',
+                  ]),
                 ],
               ),
             ),
@@ -135,97 +78,37 @@ class AboutPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                GestureDetector(
-                  onTap: () async {
-                    final Uri url = Uri.parse(
-                        'https://www.facebook.com/people/UDSP59-Formation/100076222514271/');
-                    if (await canLaunchUrl(url)) {
-                      if (!await launchUrl(
-                        url,
-                        mode: LaunchMode.inAppWebView,
-                      )) {
-                        throw Exception('Could not launch $url');
-                      }
-                    }
-                  },
-                  child: Icon(
-                    FontAwesomeIcons.facebookF,
-                    size: 30,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
+                UrlLinkedIcon(
+                  context,
+                  icon: FontAwesomeIcons.facebookF,
+                  url:
+                      'https://www.facebook.com/people/UDSP59-Formation/100076222514271/',
+                  size: 30,
                 ),
-                GestureDetector(
-                  onTap: () async {
-                    final Uri url = Uri.parse(
-                        'https://www.instagram.com/udsp59formation?igshid=MzRIODBiNWFIZA==');
-                    if (await canLaunchUrl(url)) {
-                      if (!await launchUrl(
-                        url,
-                        mode: LaunchMode.inAppWebView,
-                      )) {
-                        throw Exception('Could not launch $url');
-                      }
-                    }
-                  },
-                  child: Icon(
-                    FontAwesomeIcons.instagram,
-                    size: 35,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
+                UrlLinkedIcon(
+                  context,
+                  icon: FontAwesomeIcons.instagram,
+                  url:
+                      'https://www.instagram.com/udsp59formation?igshid=MzRIODBiNWFIZA==',
+                  size: 35,
                 ),
-                GestureDetector(
-                  onTap: () async {
-                    final Uri url = Uri(
-                      scheme: 'mailto',
-                      path: 'contact@udsp59formation.fr',
-                    );
-                    if (await canLaunchUrl(url)) {
-                      if (!await launchUrl(url)) {
-                        throw Exception('Could not launch $url');
-                      }
-                    }
-                  },
-                  child: Icon(
-                    FontAwesomeIcons.paperPlane,
-                    size: 30,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
+                UrlLinkedIcon(
+                  context,
+                  icon: FontAwesomeIcons.paperPlane,
+                  url: 'mailto:contact@udsp59formation.fr',
+                  size: 30,
                 ),
-                GestureDetector(
-                  onTap: () async {
-                    final Uri url = Uri(
-                      scheme: 'tel',
-                      path: '112',
-                    );
-                    if (await canLaunchUrl(url)) {
-                      if (!await launchUrl(url)) {
-                        throw Exception('Could not launch $url');
-                      }
-                    }
-                  },
-                  child: Icon(
-                    FontAwesomeIcons.phone,
-                    size: 30,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
+                UrlLinkedIcon(
+                  context,
+                  icon: FontAwesomeIcons.phone,
+                  url: 'tel:112',
+                  size: 30,
                 ),
-                GestureDetector(
-                  onTap: () async {
-                    final Uri url = Uri.parse('https://udsp59formation.fr/');
-                    if (await canLaunchUrl(url)) {
-                      if (!await launchUrl(
-                        url,
-                        mode: LaunchMode.externalApplication,
-                      )) {
-                        throw Exception('Could not launch $url');
-                      }
-                    }
-                  },
-                  child: Icon(
-                    Icons.language,
-                    size: 35,
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
+                UrlLinkedIcon(
+                  context,
+                  icon: Icons.language,
+                  url: 'https://udsp59formation.fr/',
+                  size: 35,
                 ),
               ],
             )
