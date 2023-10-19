@@ -85,42 +85,40 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                   child: Text(widget.modulePart[0],
                       style: textStyleParagraphImportant()),
                 ),
-                widget.modulePart.length > 1
-                    ? Icon(isOpen ? Icons.expand_less : Icons.expand_more)
-                    : Container(),
+                if (widget.modulePart.length > 1)
+                  Icon(isOpen ? Icons.expand_less : Icons.expand_more),
               ],
             ),
-            widget.modulePart.length > 1
-                ? SizeTransition(
-                    sizeFactor: CurvedAnimation(
-                      parent: _animationController,
-                      curve: Curves.easeInOut,
+            if (widget.modulePart.length > 1)
+              SizeTransition(
+                sizeFactor: CurvedAnimation(
+                  parent: _animationController,
+                  curve: Curves.easeInOut,
+                ),
+                axis: Axis.vertical,
+                child: Container(
+                  margin: const EdgeInsets.only(
+                    top: 10,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 5),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: widget.modulePart
+                          .sublist(1)
+                          .map(
+                            (moduleSubpart) => Text(
+                              "•   $moduleSubpart",
+                              style: textStyleParagraph(),
+                              textAlign: TextAlign.start,
+                            ),
+                          )
+                          .toList(),
                     ),
-                    axis: Axis.vertical,
-                    child: Container(
-                      margin: const EdgeInsets.only(
-                        top: 10,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 5),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: widget.modulePart
-                              .sublist(1)
-                              .map(
-                                (moduleSubpart) => Text(
-                                  "•   $moduleSubpart",
-                                  style: textStyleParagraph(),
-                                  textAlign: TextAlign.start,
-                                ),
-                              )
-                              .toList(),
-                        ),
-                      ),
-                    ),
-                  )
-                : Container(),
+                  ),
+                ),
+              ),
           ],
         ),
       ),
