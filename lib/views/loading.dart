@@ -29,7 +29,7 @@ class _LoadingState extends State<Loading> {
     // If loaded, go to home page
     if (!context.mounted) return;
     debugPrint("Modules loaded");
-    //Navigator.pushReplacementNamed(context, '/home', arguments: modules);
+    Navigator.pushReplacementNamed(context, '/home', arguments: modules);
   }
 
   @override
