@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:udsp59/entities/module.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -30,7 +29,7 @@ class _LoadingState extends State<Loading> {
     // If loaded, go to home page
     if (!context.mounted) return;
     debugPrint("Modules loaded");
-    Navigator.pushReplacementNamed(context, '/home', arguments: modules);
+    //Navigator.pushReplacementNamed(context, '/home', arguments: modules);
   }
 
   @override
@@ -44,9 +43,13 @@ class _LoadingState extends State<Loading> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
       body: Center(
-        child: SpinKitSpinningLines(
-          color: Theme.of(context).colorScheme.secondary,
-          size: 200.0,
+        child: SizedBox(
+          height: 70,
+          width: 70,
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(
+                Theme.of(context).colorScheme.secondary),
+          ),
         ),
       ),
     );

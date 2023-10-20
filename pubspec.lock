@@ -177,14 +177,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      sha256: d57953e10f9f8327ce64a508a355f0b1ec902193f66288e8cb5070e7c47eeb2d
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.6"
   dart_style:
     dependency: transitive
     description:
@@ -267,14 +259,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_spinkit:
-    dependency: "direct main"
-    description:
-      name: flutter_spinkit
-      sha256: b39c753e909d4796906c5696a14daf33639a76e017136c8d82bf3e620ce5bb8e
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.2.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -293,14 +277,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "10.6.0"
-  foundation:
-    dependency: "direct main"
-    description:
-      name: foundation
-      sha256: "6f1fda07bd2a422145724b0f94ee68fabac95fabff982d5f334fe1a38cbed6a7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.5"
   freezed:
     dependency: "direct main"
     description:

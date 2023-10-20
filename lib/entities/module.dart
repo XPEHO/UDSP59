@@ -7,7 +7,7 @@ part 'module.g.dart';
 class Module with _$Module {
   const factory Module({
     required String title,
-    required int icon,
+    required String icon,
     required List<List<String>> content,
   }) = _Module;
 
