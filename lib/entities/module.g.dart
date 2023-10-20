@@ -8,7 +8,7 @@ part of 'module.dart';
 
 _$ModuleImpl _$$ModuleImplFromJson(Map<String, dynamic> json) => _$ModuleImpl(
       title: json['title'] as String,
-      icon: json['icon'] as int,
+      icon: json['icon'] as String,
       content: (json['content'] as List<dynamic>)
           .map((e) => (e as List<dynamic>).map((e) => e as String).toList())
           .toList(),

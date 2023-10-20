@@ -21,7 +21,7 @@ Module _$ModuleFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Module {
   String get title => throw _privateConstructorUsedError;
-  int get icon => throw _privateConstructorUsedError;
+  String get icon => throw _privateConstructorUsedError;
   List<List<String>> get content => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +34,7 @@ abstract class $ModuleCopyWith<$Res> {
   factory $ModuleCopyWith(Module value, $Res Function(Module) then) =
       _$ModuleCopyWithImpl<$Res, Module>;
   @useResult
-  $Res call({String title, int icon, List<List<String>> content});
+  $Res call({String title, String icon, List<List<String>> content});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$ModuleCopyWithImpl<$Res, $Val extends Module>
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -78,7 +78,7 @@ abstract class _$$ModuleImplCopyWith<$Res> implements $ModuleCopyWith<$Res> {
       __$$ModuleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, int icon, List<List<String>> content});
+  $Res call({String title, String icon, List<List<String>> content});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$$ModuleImplCopyWithImpl<$Res>
       icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       content: null == content
           ? _value._content
           : content // ignore: cast_nullable_to_non_nullable
@@ -128,7 +128,7 @@ class _$ModuleImpl implements _Module {
   @override
   final String title;
   @override
-  final int icon;
+  final String icon;
   final List<List<String>> _content;
   @override
   List<List<String>> get content {
@@ -174,7 +174,7 @@ class _$ModuleImpl implements _Module {
 abstract class _Module implements Module {
   const factory _Module(
       {required final String title,
-      required final int icon,
+      required final String icon,
       required final List<List<String>> content}) = _$ModuleImpl;
 
   factory _Module.fromJson(Map<String, dynamic> json) = _$ModuleImpl.fromJson;
@@ -182,7 +182,7 @@ abstract class _Module implements Module {
   @override
   String get title;
   @override
-  int get icon;
+  String get icon;
   @override
   List<List<String>> get content;
   @override

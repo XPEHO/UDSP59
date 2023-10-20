@@ -1,7 +1,7 @@
 [
     {
         "title": "Protection/Alerte",
-        "icon": 58117,
+        "icon": "protect",
         "content": [
             [
                 "Repérer le danger",
@@ -22,7 +22,7 @@
     },
     {
         "title": "Malaise",
-        "icon": 58367,
+        "icon": "malaise",
         "content": [
             [
                 "Mettre la victime au repos",
@@ -42,7 +42,7 @@
     },
     {
         "title": "Inconscience",
-        "icon": 57445,
+        "icon": "unconscious",
         "content": [
             [
                 "Apprécier la conscience"
@@ -72,7 +72,7 @@
     },
     {
         "title": "Réanimation Cardio-pulmonaire",
-        "icon": 984342,
+        "icon": "reanimation",
         "content": [
             [
                 "Apprécier la conscience"
@@ -109,7 +109,7 @@
     },
     {
         "title": "Défibrillateur",
-        "icon": 984381,
+        "icon": "defibrillator",
         "content": [
             [
                 "Allumer l'appareil"
@@ -133,7 +133,7 @@
     },
     {
         "title": "Traumatismes",
-        "icon": 58525,
+        "icon": "trauma",
         "content": [
             [
                 "Demander à la victime de ne pas bouger"
@@ -157,7 +157,7 @@
     },
     {
         "title": "Brûlure",
-        "icon": 58258,
+        "icon": "burn",
         "content": [
             [
                 "Refroidir avec de l'eau tempérée",
@@ -180,7 +180,7 @@
     },
     {
         "title": "Hémorragie",
-        "icon": 57571,
+        "icon": "bleeding",
         "content": [
             [
                 "Appuyer à l'endroit qui saigne"

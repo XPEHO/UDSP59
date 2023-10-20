@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/styles/text_style.dart';
 
+Map<String, IconData> moduleIcons = {
+  "protect": Icons.health_and_safety,
+  "malaise": Icons.mood_bad,
+  "unconscious": Icons.airline_seat_flat,
+  "reanimation": Icons.heart_broken,
+  "defibrillator": Icons.monitor_heart,
+  "trauma": Icons.personal_injury,
+  "burn": Icons.local_fire_department,
+  "bleeding": Icons.bloodtype,
+};
+
 class ModulesCarouselElement extends StatelessWidget {
   final Module module;
 
@@ -54,11 +65,13 @@ class ModulesCarouselElement extends StatelessWidget {
                   Icons.arrow_forward,
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
-                Icon(
-                  size: 45,
-                  IconData(module.icon, fontFamily: 'MaterialIcons'),
-                  color: Theme.of(context).colorScheme.secondary,
-                )
+                moduleIcons[module.icon] != null
+                    ? Icon(
+                        size: 45,
+                        moduleIcons[module.icon],
+                        color: Theme.of(context).colorScheme.secondary,
+                      )
+                    : Container(),
               ],
             ),
           ],
