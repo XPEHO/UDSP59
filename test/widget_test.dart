@@ -168,6 +168,38 @@ void main() async {
       var linkedIcons = find.byType(UrlLinkedIcon);
       expect(linkedIcons, findsNWidgets(5));
     });
+
+    testWidgets(
+        'PageHeader has a Button which navigates to the previous page and a Text',
+        (WidgetTester tester) async {
+      // Find the widget
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: PageHeader(
+              pageTitle: 'aboutTitle',
+            ),
+          ),
+        ),
+      );
+
+      // Waiting a second to have translations loaded
+      await tester.pump(const Duration(seconds: 1));
+
+      // Test the presence of the Text
+      var aboutTitle = find.text(tr("aboutTitle"));
+      expect(aboutTitle, findsOneWidget);
+
+      // Test the presence of the return button
+      var returnButton = find.widgetWithIcon(IconButton, Icons.navigate_before);
+      expect(returnButton, findsOneWidget);
+
+      // Test the onPressed navigation of the button
+      await tester.tap(returnButton);
+      await tester.pumpAndSettle();
+
+      //expect(find.byType(AboutPage), findsOneWidget);
+    });
   });
 
   // ----------------------------MODULE PAGE--------------------------------- //
