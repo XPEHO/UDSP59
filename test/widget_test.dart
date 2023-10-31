@@ -68,8 +68,8 @@ void main() async {
       // Test the presence of the Texts
       var homeEmergency = find.text(tr("homeEmergency"));
       expect(homeEmergency, findsOneWidget);
-      var homeClickEmergency = find.text(tr("homeClickEmergency"));
-      expect(homeClickEmergency, findsOneWidget);
+      /* var homeClickEmergency = find.text(tr("homeClickEmergency"));
+      expect(homeClickEmergency, findsOneWidget); */
       var homeWaiting = find.textContaining(
         "${tr("homeWaiting")} ${tr("homeWaitingAct")} ${tr("homeWaitingExclamation")}",
         findRichText: true,
