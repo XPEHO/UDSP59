@@ -78,12 +78,12 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                   padding: const EdgeInsets.only(right: 10),
                   child: Text(
                     "${widget.index + 1}",
-                    style: textStyleNumerotation(),
+                    style: textStyleNumerotation(context),
                   ),
                 ),
                 Expanded(
                   child: Text(widget.modulePart[0],
-                      style: textStyleParagraphImportant()),
+                      style: textStyleParagraphImportant(context)),
                 ),
                 if (widget.modulePart.length > 1)
                   Icon(isOpen ? Icons.expand_less : Icons.expand_more),
@@ -110,7 +110,7 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                           .map(
                             (moduleSubpart) => Text(
                               "•   $moduleSubpart",
-                              style: textStyleParagraph(),
+                              style: textStyleParagraph(context),
                               textAlign: TextAlign.start,
                             ),
                           )

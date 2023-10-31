@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 tr("homeEmergency"),
-                style: textStyleHookTitle(),
+                style: textStyleHookTitle(context),
               ),
               const SizedBox(
                 height: 5,
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 tr("homeClickEmergency"),
                 textAlign: TextAlign.center,
-                style: textStyleHookSubtitle(),
+                style: textStyleHookSubtitle(context),
               ),
               const SizedBox(
                 height: 40,
@@ -54,11 +54,11 @@ class _HomePageState extends State<HomePage> {
               RichText(
                 text: TextSpan(
                   text: tr("homeWaiting"),
-                  style: textStylePageSubtitle(),
+                  style: textStylePageSubtitle(context),
                   children: [
                     TextSpan(
                       text: " ${tr("homeWaitingAct")}",
-                      style: textStylePageSubtitleImportant(),
+                      style: textStylePageSubtitleImportant(context),
                     ),
                     TextSpan(
                       text: " ${tr("homeWaitingExclamation")}",

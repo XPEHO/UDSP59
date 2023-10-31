@@ -31,7 +31,7 @@ class ModulesCarouselElement extends StatelessWidget {
       },
       child: Container(
         height: 115,
-        constraints: const BoxConstraints(minWidth: 155, maxWidth: 175),
+        width: module.title == "Réanimation Cardio-pulmonaire" ? 178 : 155,
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
         padding: const EdgeInsets.fromLTRB(15, 16, 10, 12),
         decoration: BoxDecoration(
@@ -54,7 +54,7 @@ class ModulesCarouselElement extends StatelessWidget {
               padding: const EdgeInsets.only(right: 20),
               child: Text(
                 module.title,
-                style: textStyleModule(),
+                style: textStyleModule(context),
               ),
             ),
             Row(

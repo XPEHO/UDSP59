@@ -14,8 +14,8 @@ class ModulesCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: 135,
+      width: MediaQuery.of(context).size.width < 1443 ? double.infinity : 1443,
+      height: 136,
       child: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         scrollDirection: Axis.horizontal,
