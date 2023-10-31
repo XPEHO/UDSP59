@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-TextStyle textStyleAppTitle() {
-  return const TextStyle(
-    fontSize: 32,
+TextStyle textStyleAppTitle(BuildContext context) {
+  return TextStyle(
+    fontSize: MediaQuery.of(context).size.width > 380 ? 32 : 22,
     fontWeight: FontWeight.bold,
-    color: Color(0xFF251438),
+    color: const Color(0xFF251438),
   );
 }
 
-TextStyle textStyleHookTitle() {
+TextStyle textStyleHookTitle(BuildContext context) {
   return const TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w600,
@@ -16,7 +16,7 @@ TextStyle textStyleHookTitle() {
   );
 }
 
-TextStyle textStyleHookSubtitle() {
+TextStyle textStyleHookSubtitle(BuildContext context) {
   return const TextStyle(
     fontSize: 15,
     height: 1.25,
@@ -25,7 +25,7 @@ TextStyle textStyleHookSubtitle() {
   );
 }
 
-TextStyle textStylePageTitle() {
+TextStyle textStylePageTitle(BuildContext context) {
   return const TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
@@ -33,7 +33,7 @@ TextStyle textStylePageTitle() {
   );
 }
 
-TextStyle textStylePageSubtitle() {
+TextStyle textStylePageSubtitle(BuildContext context) {
   return const TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w400,
@@ -41,7 +41,7 @@ TextStyle textStylePageSubtitle() {
   );
 }
 
-TextStyle textStylePageSubtitleImportant() {
+TextStyle textStylePageSubtitleImportant(BuildContext context) {
   return const TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w500,
@@ -49,7 +49,7 @@ TextStyle textStylePageSubtitleImportant() {
   );
 }
 
-TextStyle textStyleModule() {
+TextStyle textStyleModule(BuildContext context) {
   return const TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w600,
@@ -57,7 +57,7 @@ TextStyle textStyleModule() {
   );
 }
 
-TextStyle textStyleNumerotation() {
+TextStyle textStyleNumerotation(BuildContext context) {
   return const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w400,
@@ -65,7 +65,7 @@ TextStyle textStyleNumerotation() {
   );
 }
 
-TextStyle textStyleParagraph() {
+TextStyle textStyleParagraph(BuildContext context) {
   return const TextStyle(
     fontSize: 15,
     height: 1.25,
@@ -74,7 +74,7 @@ TextStyle textStyleParagraph() {
   );
 }
 
-TextStyle textStyleParagraphImportant() {
+TextStyle textStyleParagraphImportant(BuildContext context) {
   return const TextStyle(
     fontSize: 15,
     height: 1.25,

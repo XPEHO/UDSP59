@@ -28,7 +28,7 @@ class PageHeader extends StatelessWidget {
               padding: const EdgeInsets.only(right: 40),
               child: Text(
                 tr(pageTitle),
-                style: textStylePageTitle(),
+                style: textStylePageTitle(context),
                 textAlign: TextAlign.center,
               ),
             ),

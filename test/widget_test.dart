@@ -12,6 +12,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/page_header.dart';
 import 'package:udsp59/features/title_header.dart';
+import 'package:udsp59/features/url_linked_icon.dart';
 import 'package:udsp59/views/about_page.dart';
 import 'package:udsp59/views/home_page.dart';
 
@@ -162,6 +163,10 @@ void main() async {
         findRichText: true,
       );
       expect(aboutPart3, findsOneWidget);
+
+      // Test the presence of the Linked Icons
+      var linkedIcons = find.byType(UrlLinkedIcon);
+      expect(linkedIcons, findsNWidgets(5));
     });
   });
 
