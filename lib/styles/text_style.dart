@@ -49,6 +49,22 @@ TextStyle textStylePageSubtitleImportant(BuildContext context) {
   );
 }
 
+TextStyle textStyleLearnCardTitle(BuildContext context) {
+  return const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    color: Color(0xFFCF6C28),
+  );
+}
+
+TextStyle textStyleLearnCardContent(BuildContext context) {
+  return const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: Color(0xFF251438),
+  );
+}
+
 TextStyle textStyleModule(BuildContext context) {
   return const TextStyle(
     fontSize: 15,

@@ -34,19 +34,49 @@ class _HomePageState extends State<HomePage> {
                 tr("homeEmergency"),
                 style: textStyleHookTitle(context),
               ),
-              const SizedBox(
+              /* const SizedBox(
                 height: 5,
               ),
               Text(
                 tr("homeClickEmergency"),
                 textAlign: TextAlign.center,
                 style: textStyleHookSubtitle(context),
-              ),
+              ), */
               const SizedBox(
                 height: 40,
               ),
-              const Placeholder(
-                fallbackHeight: 180,
+              Container(
+                height: 180,
+                width: MediaQuery.of(context).size.width * 0.8,
+                padding: const EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.25),
+                      spreadRadius: 1,
+                      blurRadius: 7,
+                      offset: const Offset(2, 2),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Le saviez-vous ?',
+                      textAlign: TextAlign.center,
+                      style: textStyleLearnCardTitle(context),
+                    ),
+                    Text(
+                      'Pour les malentendants le numéro d\'urgence est le 114',
+                      textAlign: TextAlign.center,
+                      style: textStyleLearnCardContent(context),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 40,
