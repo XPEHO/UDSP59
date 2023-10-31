@@ -46,8 +46,10 @@ class _HomePageState extends State<HomePage> {
                 height: 40,
               ),
               Container(
-                height: 180,
                 width: MediaQuery.of(context).size.width * 0.8,
+                constraints: const BoxConstraints(
+                  minHeight: 180,
+                ),
                 padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -70,8 +72,11 @@ class _HomePageState extends State<HomePage> {
                       textAlign: TextAlign.center,
                       style: textStyleLearnCardTitle(context),
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     Text(
-                      'Pour les malentendants le numéro d\'urgence est le 114',
+                      'Pour les malentendants le numéro d\'urgence est le 114.',
                       textAlign: TextAlign.center,
                       style: textStyleLearnCardContent(context),
                     ),
