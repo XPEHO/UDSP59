@@ -59,7 +59,7 @@ void main() async {
       var homeEmergency = find.text("L'application qui sauve des vies");
       expect(homeEmergency, findsOneWidget);
       var homeWaiting = find.textContaining(
-        "Vous pouvez peut-être AGIR !",
+        "Vous pouvez AGIR !",
         findRichText: true,
       );
       expect(homeWaiting, findsOneWidget);
@@ -150,7 +150,7 @@ void main() async {
 
       // Test the presence of the Linked Icons
       var linkedIcons = find.byType(UrlLinkedIcon);
-      expect(linkedIcons, findsNWidgets(5));
+      expect(linkedIcons, findsNWidgets(4));
     });
 
     testWidgets(

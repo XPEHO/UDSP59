@@ -112,12 +112,6 @@ class AboutPage extends StatelessWidget {
                           ),
                           UrlLinkedIcon(
                             context,
-                            icon: FontAwesomeIcons.phone,
-                            url: 'tel:112',
-                            size: 30,
-                          ),
-                          UrlLinkedIcon(
-                            context,
                             icon: Icons.language,
                             url: 'https://udsp59formation.fr/',
                             size: 35,
