@@ -27,9 +27,23 @@ void main() async {
         (WidgetTester tester) async {
       // Find the widget
       await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
-            body: HomePage(),
+        EasyLocalization(
+          supportedLocales: const [
+            Locale('fr'),
+          ],
+          path: 'assets/translations',
+          fallbackLocale: const Locale('fr'),
+          child: Builder(
+            builder: (context) {
+              return MaterialApp(
+                locale: context.locale,
+                supportedLocales: context.supportedLocales,
+                localizationsDelegates: context.localizationDelegates,
+                home: const Scaffold(
+                  body: HomePage(),
+                ),
+              );
+            },
           ),
         ),
       );
@@ -42,10 +56,10 @@ void main() async {
       expect(titleHeader, findsOneWidget);
 
       // Test the presence of the Texts
-      var homeEmergency = find.text(tr("homeEmergency"));
+      var homeEmergency = find.text("L'application qui sauve des vies");
       expect(homeEmergency, findsOneWidget);
       var homeWaiting = find.textContaining(
-        "${tr("homeWaiting")} ${tr("homeWaitingAct")} ${tr("homeWaitingExclamation")}",
+        "Vous pouvez peut-être AGIR !",
         findRichText: true,
       );
       expect(homeWaiting, findsOneWidget);
@@ -78,7 +92,7 @@ void main() async {
       expect(appLogo, findsOneWidget);
 
       // Test the presence of the app name
-      var appTitle = find.text(tr("appName"));
+      var appTitle = find.text("UDSP59\nFORMATION");
       expect(appTitle, findsOneWidget);
 
       // Test the presence of the about button
@@ -114,22 +128,22 @@ void main() async {
       expect(pageHeader, findsOneWidget);
 
       // Test the presence of the Texts
-      var aboutSubtitle1 = find.text(tr("aboutSubtitle1"));
+      var aboutSubtitle1 = find.text("Qui sommes-nous ?");
       expect(aboutSubtitle1, findsOneWidget);
-      var aboutSubtitle2 = find.text(tr("aboutSubtitle2"));
+      var aboutSubtitle2 = find.text("Contactez-nous");
       expect(aboutSubtitle2, findsOneWidget);
       var aboutPart1 = find.textContaining(
-        "${tr("aboutPart1Span1")}${tr("aboutPart1Span2_b")}${tr("aboutPart1Span3")} ${tr("aboutPart1Span4_sb")} ${tr("aboutPart1Span5_s")} ${tr("aboutPart1Span6_sb")}${tr("aboutPart1Span7")}",
+        "Nous sommes l’UDSP59 FORMATION, une association qui réunit les sapeurs-pompiers diplômés en tant que formateurs de secourisme qui œuvrent chaque jour pour maintenir les compétences opérationnelles de ceux qui vous portent secours quotidiennement dans le département du Nord.",
         findRichText: true,
       );
       expect(aboutPart1, findsOneWidget);
       var aboutPart2 = find.textContaining(
-        "${tr("aboutPart2Span1")} ${tr("aboutPart2Span2_sb")} ${tr("aboutPart2Span3_s")} ${tr("aboutPart2Span4_sb")}${tr("aboutPart2Span5")} ${tr("aboutPart2Span6_sb")}${tr("aboutPart2Span7")}",
+        "Au-delà des valeurs qui nous animent, nous avons décidé de créer cet organisme de formation afin d’aller à la rencontre du public et de lui faire profiter de nos connaissances et de notre expérience. Nous pensons qu’il est primordial que tous les citoyens soient formés aux gestes et comportements qui sauvent car ce sont eux qui constituent le premier maillon de la chaîne de secours.",
         findRichText: true,
       );
       expect(aboutPart2, findsOneWidget);
       var aboutPart3 = find.textContaining(
-        "${tr("aboutPart3Span1")}${tr("aboutPart3Span2_b")} ${tr("aboutPart3Span3_s")} ${tr("aboutPart3Span4_sb")} ${tr("aboutPart3Span5_s")}",
+        "En effet, c’est souvent dans les premiers instants d’une situation d’urgence que des vies peuvent être sauvées, ce qui explique notre engagement à propager nos enseignements de la manière la plus large possible.",
         findRichText: true,
       );
       expect(aboutPart3, findsOneWidget);
@@ -157,7 +171,7 @@ void main() async {
       await tester.pump(const Duration(seconds: 1));
 
       // Test the presence of the Text
-      var aboutTitle = find.text(tr("aboutTitle"));
+      var aboutTitle = find.text("L'association");
       expect(aboutTitle, findsOneWidget);
 
       // Test the presence of the return button
