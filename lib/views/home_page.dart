@@ -34,14 +34,6 @@ class _HomePageState extends State<HomePage> {
                 tr("homeEmergency"),
                 style: textStyleHookTitle(context),
               ),
-              /* const SizedBox(
-                height: 5,
-              ),
-              Text(
-                tr("homeClickEmergency"),
-                textAlign: TextAlign.center,
-                style: textStyleHookSubtitle(context),
-              ), */
               const SizedBox(
                 height: 40,
               ),

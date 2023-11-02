@@ -21,35 +21,11 @@ void main() async {
   SharedPreferences.setMockInitialValues({});
   await EasyLocalization.ensureInitialized();
 
-  /* Widget initWidgetToTest(widgetToTest) {
-    return EasyLocalization(
-      supportedLocales: const [
-        Locale('fr'),
-      ],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('fr'),
-      child: Builder(
-        builder: (context) {
-          return MaterialApp(
-            locale: context.locale,
-            supportedLocales: context.supportedLocales,
-            localizationsDelegates: context.localizationDelegates,
-            home: Scaffold(
-              body: widgetToTest,
-            ),
-          );
-        },
-      ),
-    );
-  } */
-
   // -----------------------------HOMEPAGE----------------------------------- //
   group('Homepage tests', () {
     testWidgets('HomePage has a TitleHeader, some Texts and a ModuleCarousel',
         (WidgetTester tester) async {
       // Find the widget
-      /* await tester.pumpWidget(initWidgetToTest(const HomePage())); */
-
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
@@ -68,8 +44,6 @@ void main() async {
       // Test the presence of the Texts
       var homeEmergency = find.text(tr("homeEmergency"));
       expect(homeEmergency, findsOneWidget);
-      /* var homeClickEmergency = find.text(tr("homeClickEmergency"));
-      expect(homeClickEmergency, findsOneWidget); */
       var homeWaiting = find.textContaining(
         "${tr("homeWaiting")} ${tr("homeWaitingAct")} ${tr("homeWaitingExclamation")}",
         findRichText: true,
@@ -85,10 +59,6 @@ void main() async {
         'TitleHeader has a Text with the app name, an Image and a Button which navigates to the AboutPage',
         (WidgetTester tester) async {
       // Find the widget
-      /* await tester.pumpWidget(
-      initWidgetToTest(const TitleHeader()),
-    ); */
-
       await tester.pumpWidget(
         MaterialApp(
           home: const Scaffold(
@@ -197,8 +167,6 @@ void main() async {
       // Test the onPressed navigation of the button
       await tester.tap(returnButton);
       await tester.pumpAndSettle();
-
-      //expect(find.byType(AboutPage), findsOneWidget);
     });
   });
 
