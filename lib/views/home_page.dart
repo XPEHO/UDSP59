@@ -24,81 +24,85 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const TitleHeader(),
-              const SizedBox(
-                height: 40,
-              ),
-              Text(
-                tr("homeEmergency"),
-                style: textStyleHookTitle(context),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.8,
-                constraints: const BoxConstraints(
-                  minHeight: 180,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const TitleHeader(),
+                const SizedBox(
+                  height: 40,
                 ),
-                padding: const EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.25),
-                      spreadRadius: 1,
-                      blurRadius: 7,
-                      offset: const Offset(2, 2),
-                    ),
-                  ],
+                Text(
+                  tr("homeEmergency"),
+                  style: textStyleHookTitle(context),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Le saviez-vous ?',
-                      textAlign: TextAlign.center,
-                      style: textStyleLearnCardTitle(context),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Pour les malentendants le numéro d\'urgence est le 114.',
-                      textAlign: TextAlign.center,
-                      style: textStyleLearnCardContent(context),
-                    ),
-                  ],
+                const SizedBox(
+                  height: 40,
                 ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              RichText(
-                text: TextSpan(
-                  text: tr("homeWaiting"),
-                  style: textStylePageSubtitle(context),
-                  children: [
-                    TextSpan(
-                      text: " ${tr("homeWaitingAct")}",
-                      style: textStylePageSubtitleImportant(context),
-                    ),
-                    TextSpan(
-                      text: " ${tr("homeWaitingExclamation")}",
-                    ),
-                  ],
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  constraints: const BoxConstraints(
+                    minHeight: 180,
+                  ),
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.25),
+                        spreadRadius: 1,
+                        blurRadius: 7,
+                        offset: const Offset(2, 2),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Le saviez-vous ?',
+                        textAlign: TextAlign.center,
+                        style: textStyleLearnCardTitle(context),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        'Pour les malentendants le numéro d\'urgence est le 114.',
+                        textAlign: TextAlign.center,
+                        style: textStyleLearnCardContent(context),
+                      ),
+                    ],
+                  ),
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              if (modules != []) ModulesCarousel(modules: modules),
-            ],
+                const SizedBox(
+                  height: 40,
+                ),
+                RichText(
+                  text: TextSpan(
+                    text: tr("homeWaiting"),
+                    style: textStylePageSubtitle(context),
+                    children: [
+                      TextSpan(
+                        text: " ${tr("homeWaitingAct")}",
+                        style: textStylePageSubtitleImportant(context),
+                      ),
+                      TextSpan(
+                        text: " ${tr("homeWaitingExclamation")}",
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                if (modules != []) ModulesCarousel(modules: modules),
+              ],
+            ),
           ),
         ),
       ),

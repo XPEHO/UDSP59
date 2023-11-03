@@ -30,8 +30,7 @@ class ModulesCarouselElement extends StatelessWidget {
         Navigator.pushNamed(context, '/module', arguments: module);
       },
       child: Container(
-        height: 115,
-        width: module.title == "Réanimation Cardio-pulmonaire" ? 178 : 155,
+        width: module.title == "Réanimation Cardio-pulmonaire" ? 190 : 150,
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
         padding: const EdgeInsets.fromLTRB(15, 16, 10, 12),
         decoration: BoxDecoration(
@@ -71,7 +70,11 @@ class ModulesCarouselElement extends StatelessWidget {
                         moduleIcons[module.icon],
                         color: Theme.of(context).colorScheme.secondary,
                       )
-                    : Container(),
+                    : Icon(
+                        size: 45,
+                        Icons.health_and_safety,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
               ],
             ),
           ],
