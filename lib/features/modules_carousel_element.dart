@@ -30,7 +30,7 @@ class ModulesCarouselElement extends StatelessWidget {
         Navigator.pushNamed(context, '/module', arguments: module);
       },
       child: Container(
-        width: module.title == "Réanimation Cardio-pulmonaire" ? 190 : 150,
+        width: module.title.length > 18 ? 190 : 150,
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
         padding: const EdgeInsets.fromLTRB(15, 16, 10, 12),
         decoration: BoxDecoration(
