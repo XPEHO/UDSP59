@@ -17,7 +17,6 @@ class ModulesCarousel extends StatelessWidget {
       width: MediaQuery.of(context).size.width < 1443 ? double.infinity : 1443,
       height: 140,
       child: ListView.builder(
-        shrinkWrap: true,
         padding: const EdgeInsets.all(10),
         itemCount: modules.length,
         scrollDirection: Axis.horizontal,
