@@ -15,13 +15,15 @@ class ModulesCarousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width < 1443 ? double.infinity : 1443,
-      height: 136,
-      child: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      height: 135,
+      child: ListView.builder(
+        shrinkWrap: true,
+        padding: const EdgeInsets.all(10),
+        itemCount: modules.length,
         scrollDirection: Axis.horizontal,
-        children: modules
-            .map((module) => ModulesCarouselElement(module: module))
-            .toList(),
+        itemBuilder: (context, index) {
+          return ModulesCarouselElement(module: modules[index]);
+        },
       ),
     );
   }
