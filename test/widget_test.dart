@@ -9,17 +9,61 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/features/modules_carousel.dart';
+import 'package:udsp59/features/modules_carousel_element.dart';
 import 'package:udsp59/features/page_header.dart';
 import 'package:udsp59/features/title_header.dart';
 import 'package:udsp59/features/url_linked_icon.dart';
 import 'package:udsp59/views/about_page.dart';
 import 'package:udsp59/views/home_page.dart';
+import 'package:udsp59/views/module_page.dart';
 
 void main() async {
   // Check Easy Localization is initialized
   SharedPreferences.setMockInitialValues({});
   await EasyLocalization.ensureInitialized();
+
+  List<Module> modulesList = [
+    const Module(
+      title: "Protection/Alerte",
+      icon: "protect",
+      content: [
+        [
+          "Repérer le danger",
+          "Supprimer le danger de manière définitive",
+          "Réaliser un dégagement d'urgence",
+          "Réaliser un balisage de sécurité"
+        ],
+        ["Contacter les secours", "18", "112", "15"],
+        ["Ne raccrochez jamais avant accord des secours"],
+      ],
+    ),
+    const Module(
+      title: "Inconscience",
+      icon: "unconscious",
+      content: [
+        ["Apprécier la conscience"],
+        ["Basculer la tête en arrière"],
+        ["Apprécier la respiration pendant 10 secondes"],
+        ["Mettre en PLS si la victime est inconsciente et respire"],
+        ["Contacter les secours", "18", "112", "15"],
+        ["Ne raccrochez jamais avant accord des secours"],
+        ["Couvrir et surveiller la victime"],
+      ],
+    ),
+  ];
+
+  Map<String, IconData> moduleIcons = {
+    "protect": Icons.health_and_safety,
+    "malaise": Icons.mood_bad,
+    "unconscious": Icons.airline_seat_flat,
+    "reanimation": Icons.heart_broken,
+    "defibrillator": Icons.monitor_heart,
+    "trauma": Icons.personal_injury,
+    "burn": Icons.local_fire_department,
+    "bleeding": Icons.bloodtype,
+  };
 
   // -----------------------------HOMEPAGE----------------------------------- //
   group('Homepage tests', () {
@@ -104,6 +148,67 @@ void main() async {
       await tester.pumpAndSettle();
 
       expect(find.byType(AboutPage), findsOneWidget);
+    });
+
+    testWidgets(
+        'ModulesCarousel has the right number of ModulesCarouselElement',
+        (WidgetTester tester) async {
+      // Find the widget
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: ModulesCarousel(
+              modules: modulesList,
+            ),
+          ),
+        ),
+      );
+
+      // Waiting a second to have translations loaded
+      await tester.pump(const Duration(seconds: 1));
+
+      // Test the presence of the ModulesCarouselElement widgets
+      var modulesCarouselElements = find.byType(ModulesCarouselElement);
+      expect(modulesCarouselElements, findsNWidgets(modulesList.length));
+    });
+
+    testWidgets(
+        'ModulesCarouselElement has the right title, icon and an arrow and permit to navigate to the ModulePage',
+        (WidgetTester tester) async {
+      // Find the widget
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: ModulesCarouselElement(
+              module: modulesList[0],
+            ),
+          ),
+          routes: {
+            '/module': (context) => const ModulePage(),
+          },
+        ),
+      );
+
+      // Waiting a second to have translations loaded
+      await tester.pump(const Duration(seconds: 1));
+
+      // Test the presence of the ModulesCarouselElement title
+      var modulesCarouselElementTitle = find.text(modulesList[0].title);
+      expect(modulesCarouselElementTitle, findsOneWidget);
+      // Test the presence of the right icon
+      var modulesCarouselElementIcon =
+          find.byIcon(moduleIcons[modulesList[0].icon]!);
+      expect(modulesCarouselElementIcon, findsOneWidget);
+      // Test the presence of the arrow
+      var modulesCarouselElementArrow = find.byIcon(Icons.arrow_forward);
+      expect(modulesCarouselElementArrow, findsOneWidget);
+
+      // Test the onPressed navigation of the ModulesCarouselElement
+      await tester.tap(modulesCarouselElementArrow);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(ModulePage), findsOneWidget);
+      expect(find.text(modulesList[0].title), findsOneWidget);
     });
   });
 
