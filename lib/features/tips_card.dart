@@ -23,12 +23,16 @@ class TipsCard extends StatelessWidget {
           style: textStyleLearnCardTitle(context),
         ),
         const SizedBox(
-          height: 10,
+          height: 16,
         ),
-        Text(
-          tips,
-          textAlign: TextAlign.center,
-          style: textStyleLearnCardContent(context),
+        AnimatedSize(
+          duration: const Duration(milliseconds: 300),
+          clipBehavior: Clip.none,
+          child: Text(
+            tips,
+            textAlign: TextAlign.center,
+            style: textStyleLearnCardContent(context),
+          ),
         ),
       ],
     );
