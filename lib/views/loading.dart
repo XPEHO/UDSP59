@@ -12,30 +12,40 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
   List<Module> modules = [];
+  List<String> tips = [];
 
   // Fetch modules from the json file
-  Future<void> getModulesFromJson() async {
-    String json = await rootBundle.loadString("assets/modules.json");
-    List<dynamic> jsonList = await jsonDecode(json);
+  Future<void> readFromJson() async {
+    String jsonModules = await rootBundle.loadString("assets/modules.json");
+    List<dynamic> jsonModulesList = await jsonDecode(jsonModules);
     List<Module> modulesList = [];
-    for (var jsonElt in jsonList) {
+    for (var jsonElt in jsonModulesList) {
       modulesList.add(Module.fromJson(jsonElt));
+    }
+
+    String jsonTips = await rootBundle.loadString("tips.json");
+    List<dynamic> jsonTipsList = await jsonDecode(jsonTips);
+    List<String> tipsList = [];
+    for (var jsonElt in jsonTipsList) {
+      tipsList.add(jsonElt);
     }
 
     setState(() {
       modules = modulesList;
+      tips = tipsList;
     });
 
     // If loaded, go to home page
     if (!context.mounted) return;
-    debugPrint("Modules loaded");
-    Navigator.pushReplacementNamed(context, '/home', arguments: modules);
+    debugPrint("JSON data loaded");
+    Navigator.pushReplacementNamed(context, '/home',
+        arguments: [modules, tips]);
   }
 
   @override
   void initState() {
     super.initState();
-    getModulesFromJson();
+    readFromJson();
   }
 
   @override
