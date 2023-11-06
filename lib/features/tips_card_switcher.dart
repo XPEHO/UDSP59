@@ -27,16 +27,15 @@ class _TipsCardSwitcherState extends State<TipsCardSwitcher> {
     if (widget.tips.isNotEmpty) {
       state1 = Random().nextInt(widget.tips.length);
       if (widget.tips.length >= 2) {
-        while (state2 == state1) {
-          state2 = Random().nextInt(widget.tips.length);
-        }
+        state2 = state1 == widget.tips.length - 1 ? 0 : state1 + 1;
       } else {
         state2 = state1;
       }
     }
+    debugPrint('state1: $state1');
+    debugPrint('state2: $state2');
   }
 
-  // This widget return a list of ModuleListElementWidget scrollable horizontally
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -44,15 +43,15 @@ class _TipsCardSwitcherState extends State<TipsCardSwitcher> {
         debugPrint('User want to change the tips');
         setState(() {
           if (widget.tips.isNotEmpty) {
-            state1 = Random().nextInt(widget.tips.length);
+            state1 = state2;
             if (widget.tips.length >= 2) {
-              while (state2 == state1) {
-                state2 = Random().nextInt(widget.tips.length);
-              }
+              state2 = state1 == widget.tips.length - 1 ? 0 : state1 + 1;
             } else {
               state2 = state1;
             }
           }
+          debugPrint('state1: $state1');
+          debugPrint('state2: $state2');
         });
       },
       child: Container(
