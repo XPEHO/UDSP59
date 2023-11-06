@@ -67,7 +67,8 @@ void main() async {
 
   // -----------------------------HOMEPAGE----------------------------------- //
   group('Homepage tests', () {
-    testWidgets('HomePage has a TitleHeader, some Texts and a ModuleCarousel',
+    testWidgets(
+        'HomePage has a TitleHeader, some Texts, a ModuleCarousel and a privacy policy access button',
         (WidgetTester tester) async {
       // Find the widget
       await tester.pumpWidget(
@@ -111,6 +112,10 @@ void main() async {
       // Test the presence of the ModuleCarousel
       var moduleCarousel = find.byType(ModulesCarousel);
       expect(moduleCarousel, findsOneWidget);
+
+      // Test the presence of the privacy policy access button
+      var privacyPolicyButton = find.text("Politique de confidentialité");
+      expect(privacyPolicyButton, findsOneWidget);
     });
 
     testWidgets(

@@ -4,6 +4,7 @@ import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/title_header.dart';
 import 'package:udsp59/styles/text_style.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,9 +34,13 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 40,
                 ),
-                Text(
-                  tr("homeEmergency"),
-                  style: textStyleHookTitle(context),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    tr("homeEmergency"),
+                    style: textStyleHookTitle(context),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 const SizedBox(
                   height: 40,
@@ -101,6 +106,29 @@ class _HomePageState extends State<HomePage> {
                   height: 30,
                 ),
                 if (modules != []) ModulesCarousel(modules: modules),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextButton(
+                  onPressed: () async {
+                    String url =
+                        'https://github.com/XPEHO/UDSP59/blob/main/PRIVACY_POLICY.md';
+                    final Uri uri = Uri.parse(url);
+                    if (await canLaunchUrl(uri)) {
+                      if (!await launchUrl(
+                        uri,
+                        mode: LaunchMode.externalApplication,
+                      )) {
+                        throw Exception('Could not launch $url');
+                      }
+                    }
+                  },
+                  child: Text(
+                    tr("privacyPolicy"),
+                    textAlign: TextAlign.center,
+                    style: textStyleHookSubtitle(context),
+                  ),
+                ),
               ],
             ),
           ),
