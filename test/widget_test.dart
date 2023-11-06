@@ -6,6 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -81,12 +82,14 @@ void main() async {
           fallbackLocale: const Locale('fr'),
           child: Builder(
             builder: (context) {
-              return MaterialApp(
-                locale: context.locale,
-                supportedLocales: context.supportedLocales,
-                localizationsDelegates: context.localizationDelegates,
-                home: const Scaffold(
-                  body: HomePage(),
+              return ProviderScope(
+                child: MaterialApp(
+                  locale: context.locale,
+                  supportedLocales: context.supportedLocales,
+                  localizationsDelegates: context.localizationDelegates,
+                  home: const Scaffold(
+                    body: HomePage(),
+                  ),
                 ),
               );
             },
