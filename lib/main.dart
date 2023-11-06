@@ -8,14 +8,14 @@ void main() async {
   await EasyLocalization.ensureInitialized();
 
   runApp(
-    EasyLocalization(
-      supportedLocales: const [
-        Locale('fr'),
-      ],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('fr'),
-      child: const ProviderScope(
-        child: App(),
+    ProviderScope(
+      child: EasyLocalization(
+        supportedLocales: const [
+          Locale('fr'),
+        ],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('fr'),
+        child: const App(),
       ),
     ),
   );
