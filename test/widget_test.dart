@@ -13,6 +13,7 @@ import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/modules_carousel_element.dart';
 import 'package:udsp59/features/page_header.dart';
+import 'package:udsp59/features/tips_card_switcher.dart';
 import 'package:udsp59/features/title_header.dart';
 import 'package:udsp59/features/url_linked_icon.dart';
 import 'package:udsp59/views/about_page.dart';
@@ -68,7 +69,7 @@ void main() async {
   // -----------------------------HOMEPAGE----------------------------------- //
   group('Homepage tests', () {
     testWidgets(
-        'HomePage has a TitleHeader, some Texts, a ModuleCarousel and a privacy policy access button',
+        'HomePage has a TitleHeader, some Texts, a TipsCardSwitcher, a ModuleCarousel and a privacy policy access button',
         (WidgetTester tester) async {
       // Find the widget
       await tester.pumpWidget(
@@ -112,6 +113,10 @@ void main() async {
       // Test the presence of the ModuleCarousel
       var moduleCarousel = find.byType(ModulesCarousel);
       expect(moduleCarousel, findsOneWidget);
+
+      // Test the presence of the TipsCardSwitcher
+      var tipsCardSwitcher = find.byType(TipsCardSwitcher);
+      expect(tipsCardSwitcher, findsOneWidget);
 
       // Test the presence of the privacy policy access button
       var privacyPolicyButton = find.text("Politique de confidentialité");
