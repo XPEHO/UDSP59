@@ -16,15 +16,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Module> modules = [];
-  List<String> tips = [];
 
   @override
   Widget build(BuildContext context) {
     if (ModalRoute.of(context)!.settings.arguments != null) {
-      List<dynamic> data =
-          ModalRoute.of(context)!.settings.arguments as List<dynamic>;
-      modules = data[0] as List<Module>;
-      tips = data[1] as List<String>;
+      modules = ModalRoute.of(context)!.settings.arguments as List<Module>;
     }
 
     return Scaffold(
@@ -50,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 40,
                 ),
-                if (tips != []) TipsCardSwitcher(tips: tips),
+                const TipsCardSwitcher(),
                 const SizedBox(
                   height: 40,
                 ),

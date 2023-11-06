@@ -1,58 +1,30 @@
-import 'dart:math';
-
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:udsp59/features/tips_card.dart';
+import 'package:udsp59/state/providers/tips_providers.dart';
 
-class TipsCardSwitcher extends StatefulWidget {
-  final List<String> tips;
-
-  const TipsCardSwitcher({
-    super.key,
-    required this.tips,
-  });
+class TipsCardSwitcher extends ConsumerStatefulWidget {
+  const TipsCardSwitcher({Key? key}) : super(key: key);
 
   @override
-  State<TipsCardSwitcher> createState() => _TipsCardSwitcherState();
+  ConsumerState<TipsCardSwitcher> createState() => _TipsCardSwitcherState();
 }
 
-class _TipsCardSwitcherState extends State<TipsCardSwitcher> {
-  var state1 = 0;
-  var state2 = 1;
-
+class _TipsCardSwitcherState extends ConsumerState<TipsCardSwitcher> {
   @override
   void initState() {
     super.initState();
-    debugPrint(widget.tips.toString());
-    if (widget.tips.isNotEmpty) {
-      state1 = Random().nextInt(widget.tips.length);
-      if (widget.tips.length >= 2) {
-        state2 = state1 == widget.tips.length - 1 ? 0 : state1 + 1;
-      } else {
-        state2 = state1;
-      }
-    }
-    debugPrint('state1: $state1');
-    debugPrint('state2: $state2');
+    ref.read(tipsNotifierProvider.notifier).init();
   }
 
   @override
   Widget build(BuildContext context) {
+    final tipsState = ref.watch(tipsNotifierProvider);
+
     return InkWell(
       onTap: () {
         debugPrint('User want to change the tips');
-        setState(() {
-          if (widget.tips.isNotEmpty) {
-            state1 = state2;
-            if (widget.tips.length >= 2) {
-              state2 = state1 == widget.tips.length - 1 ? 0 : state1 + 1;
-            } else {
-              state2 = state1;
-            }
-          }
-          debugPrint('state1: $state1');
-          debugPrint('state2: $state2');
-        });
+        ref.read(tipsNotifierProvider.notifier).goNext();
       },
       child: Container(
         width: MediaQuery.of(context).size.width * 0.8,
@@ -73,12 +45,9 @@ class _TipsCardSwitcherState extends State<TipsCardSwitcher> {
           ],
         ),
         child: AnimatedCrossFade(
-          firstChild: widget.tips.isNotEmpty
-              ? TipsCard(tips: widget.tips[state1])
-              : TipsCard(tips: tr("defaultTips")),
-          secondChild: widget.tips.isNotEmpty
-              ? TipsCard(tips: widget.tips[state2])
-              : TipsCard(tips: tr("defaultTips")),
+          firstChild: TipsCard(tips: tipsState),
+          secondChild: TipsCard(
+              tips: ref.watch(tipsNotifierProvider.notifier).getNext()),
           crossFadeState: CrossFadeState.showFirst,
           duration: const Duration(milliseconds: 300),
           firstCurve: Curves.bounceOut,

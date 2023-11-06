@@ -16,30 +16,21 @@ class _LoadingState extends State<Loading> {
 
   // Fetch modules from the json file
   Future<void> readFromJson() async {
-    String jsonModules = await rootBundle.loadString("assets/modules.json");
+    String jsonModules = await rootBundle.loadString("modules.json");
     List<dynamic> jsonModulesList = await jsonDecode(jsonModules);
     List<Module> modulesList = [];
     for (var jsonElt in jsonModulesList) {
       modulesList.add(Module.fromJson(jsonElt));
     }
 
-    String jsonTips = await rootBundle.loadString("tips.json");
-    List<dynamic> jsonTipsList = await jsonDecode(jsonTips);
-    List<String> tipsList = [];
-    for (var jsonElt in jsonTipsList) {
-      tipsList.add(jsonElt);
-    }
-
     setState(() {
       modules = modulesList;
-      tips = tipsList;
     });
 
     // If loaded, go to home page
     if (!context.mounted) return;
     debugPrint("JSON data loaded");
-    Navigator.pushReplacementNamed(context, '/home',
-        arguments: [modules, tips]);
+    Navigator.pushReplacementNamed(context, '/home', arguments: modules);
   }
 
   @override
