@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 40,
                 ),
-                TipsCardSwitcher(tips: tips),
+                if (tips != []) TipsCardSwitcher(tips: tips),
                 const SizedBox(
                   height: 40,
                 ),

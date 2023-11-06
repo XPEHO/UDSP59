@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:udsp59/features/tips_card.dart';
 
@@ -18,15 +19,20 @@ class TipsCardSwitcher extends StatefulWidget {
 class _TipsCardSwitcherState extends State<TipsCardSwitcher> {
   var state1 = 0;
   var state2 = 1;
-  var tipsText = '';
 
   @override
   void initState() {
     super.initState();
     debugPrint(widget.tips.toString());
-    state1 = Random().nextInt(widget.tips.length);
-    while (state2 == state1) {
-      state2 = Random().nextInt(widget.tips.length);
+    if (widget.tips.isNotEmpty) {
+      state1 = Random().nextInt(widget.tips.length);
+      if (widget.tips.length >= 2) {
+        while (state2 == state1) {
+          state2 = Random().nextInt(widget.tips.length);
+        }
+      } else {
+        state2 = state1;
+      }
     }
   }
 
@@ -37,9 +43,15 @@ class _TipsCardSwitcherState extends State<TipsCardSwitcher> {
       onTap: () {
         debugPrint('User want to change the tips');
         setState(() {
-          state1 = Random().nextInt(widget.tips.length);
-          while (state2 == state1) {
-            state2 = Random().nextInt(widget.tips.length);
+          if (widget.tips.isNotEmpty) {
+            state1 = Random().nextInt(widget.tips.length);
+            if (widget.tips.length >= 2) {
+              while (state2 == state1) {
+                state2 = Random().nextInt(widget.tips.length);
+              }
+            } else {
+              state2 = state1;
+            }
           }
         });
       },
@@ -62,8 +74,12 @@ class _TipsCardSwitcherState extends State<TipsCardSwitcher> {
           ],
         ),
         child: AnimatedCrossFade(
-          firstChild: TipsCard(tips: widget.tips[state1]),
-          secondChild: TipsCard(tips: widget.tips[state2]),
+          firstChild: widget.tips.isNotEmpty
+              ? TipsCard(tips: widget.tips[state1])
+              : TipsCard(tips: tr("defaultTips")),
+          secondChild: widget.tips.isNotEmpty
+              ? TipsCard(tips: widget.tips[state2])
+              : TipsCard(tips: tr("defaultTips")),
           crossFadeState: CrossFadeState.showFirst,
           duration: const Duration(milliseconds: 300),
           firstCurve: Curves.bounceOut,
