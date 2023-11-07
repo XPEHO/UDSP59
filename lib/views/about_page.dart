@@ -85,32 +85,27 @@ class AboutPage extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         UrlLinkedIcon(
-                          context,
                           icon: FontAwesomeIcons.facebookF,
                           url:
                               'https://www.facebook.com/people/UDSP59-Formation/100076222514271/',
                           size: 30,
                         ),
                         UrlLinkedIcon(
-                          context,
                           icon: FontAwesomeIcons.instagram,
                           url:
                               'https://www.instagram.com/udsp59formation?igshid=MzRIODBiNWFIZA==',
                           size: 35,
                         ),
                         UrlLinkedIcon(
-                          context,
                           icon: FontAwesomeIcons.paperPlane,
                           url: 'mailto:contact@udsp59formation.fr',
                           size: 30,
                         ),
                         UrlLinkedIcon(
-                          context,
-                          icon: Icons.language,
                           url: 'https://udsp59formation.fr/',
                           size: 35,
                         ),

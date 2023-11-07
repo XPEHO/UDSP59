@@ -6,10 +6,9 @@ class UrlLinkedIcon extends StatelessWidget {
   final String url;
   final double size;
 
-  const UrlLinkedIcon(
-    BuildContext context, {
+  const UrlLinkedIcon({
     super.key,
-    required this.icon,
+    this.icon = Icons.language,
     required this.url,
     required this.size,
   });

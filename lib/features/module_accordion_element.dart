@@ -4,11 +4,13 @@ import 'package:udsp59/styles/text_style.dart';
 class ModuleAccordionElement extends StatefulWidget {
   final List<String> modulePart;
   final int index;
+  final bool isOpen;
 
   const ModuleAccordionElement({
     super.key,
     required this.modulePart,
     required this.index,
+    this.isOpen = false,
   });
 
   @override
@@ -27,6 +29,11 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
       duration: const Duration(milliseconds: 300),
       vsync: this,
     );
+
+    isOpen = widget.isOpen;
+    if (isOpen) {
+      _animationController.forward();
+    }
   }
 
   @override

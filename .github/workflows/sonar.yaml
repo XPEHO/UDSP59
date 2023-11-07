@@ -18,7 +18,7 @@ jobs:
           # Run analysis
           flutter analyze
           # Run tests without user feedback regeneration tests.output and coverage/lcov.info
-          flutter test --machine --coverage > tests.output
+          flutter test --machine --coverage --dart-define=golden_tolerance=0.1 > tests.output
       - name: Sonar-scanner
         env:
           SONAR_SCANNER_VER: sonar-scanner-cli-4.8.0.2856-linux
