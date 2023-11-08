@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/features/modules_carousel_element.dart';
+import 'package:udsp59/styles/form_factor.dart';
 
 class ModulesCarousel extends StatelessWidget {
   final List<Module> modules;
@@ -14,7 +15,9 @@ class ModulesCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width < 1443 ? double.infinity : 1443,
+      width: MediaQuery.of(context).size.width < FormFactor.biggerThanTablet
+          ? double.infinity
+          : FormFactor.biggerThanTablet,
       height: 140,
       child: ListView.builder(
         padding: const EdgeInsets.all(10),
