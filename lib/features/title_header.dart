@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:udsp59/styles/form_factor.dart';
 import 'package:udsp59/styles/text_style.dart';
 
 class TitleHeader extends StatelessWidget {
@@ -10,7 +11,7 @@ class TitleHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(
-        MediaQuery.of(context).size.width > 380 ? 10 : 5,
+        MediaQuery.of(context).size.width > FormFactor.tightPhone ? 10 : 5,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -21,10 +22,15 @@ class TitleHeader extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/logo.png',
-                height: MediaQuery.of(context).size.width > 380 ? 100 : 70,
+                height:
+                    MediaQuery.of(context).size.width > FormFactor.tightPhone
+                        ? 100
+                        : 70,
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width > 380 ? 10 : 5,
+                width: MediaQuery.of(context).size.width > FormFactor.tightPhone
+                    ? 10
+                    : 5,
               ),
               Text(
                 tr("appName"),
@@ -47,7 +53,9 @@ class TitleHeader extends StatelessWidget {
             },
             child: Icon(
               Icons.info_rounded,
-              size: MediaQuery.of(context).size.width > 380 ? 32 : 20,
+              size: MediaQuery.of(context).size.width > FormFactor.tightPhone
+                  ? 32
+                  : 20,
             ),
           ),
         ],
