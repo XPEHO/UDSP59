@@ -17,24 +17,22 @@ class TipsCardSwitcher extends ConsumerWidget {
         // invalidate to force Riverpod to refresh next random tip
         ref.invalidate(nextTipProvider);
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Container(
-          padding: const EdgeInsets.all(15),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.25),
-                spreadRadius: 1,
-                blurRadius: 7,
-                offset: const Offset(2, 2),
-              ),
-            ],
-          ),
-          child: TipsCard(tips: nextTip),
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.25),
+              spreadRadius: 1,
+              blurRadius: 7,
+              offset: const Offset(2, 2),
+            ),
+          ],
         ),
+        child: TipsCard(tips: nextTip),
       ),
     );
   }
