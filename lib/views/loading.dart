@@ -16,7 +16,7 @@ class _LoadingState extends State<Loading> {
 
   // Fetch modules from the json file
   Future<void> readFromJson() async {
-    String jsonModules = await rootBundle.loadString("modules.json");
+    String jsonModules = await rootBundle.loadString("assets/modules.json");
     List<dynamic> jsonModulesList = await jsonDecode(jsonModules);
     List<Module> modulesList = [];
     for (var jsonElt in jsonModulesList) {
