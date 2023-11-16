@@ -22,6 +22,8 @@ jobs:
           java-version: '17.x'
           distribution: 'temurin'
       - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.13'
       - name: Set up key.properties file from secrets
         run: |
           echo "${{ secrets.KEY_PROPERTIES }}" | base64 -d > android/key.properties
