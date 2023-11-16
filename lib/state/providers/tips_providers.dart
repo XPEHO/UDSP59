@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final tipListProvider = FutureProvider<List<String>>(
   (ref) async {
-    String jsonTips = await rootBundle.loadString("tips.json");
+    String jsonTips = await rootBundle.loadString("assets/tips.json");
     List<dynamic> jsonTipsList = await jsonDecode(jsonTips);
     List<String> tipsList = [];
     for (var jsonElt in jsonTipsList) {
