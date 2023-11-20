@@ -93,6 +93,9 @@ class _HomePageState extends State<HomePage> {
                     style: textStyleHookSubtitle(context),
                   ),
                 ),
+                Text(
+                  tr("byXpeho"),
+                )
               ],
             ),
           ),
