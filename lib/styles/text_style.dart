@@ -98,3 +98,21 @@ TextStyle textStyleParagraphImportant(BuildContext context) {
     color: Color(0xFF251438),
   );
 }
+
+TextStyle textStyleOwner(BuildContext context) {
+  return const TextStyle(
+    fontSize: 15,
+    height: 1,
+    fontWeight: FontWeight.w400,
+    color: Color(0xFFA0CE4E),
+  );
+}
+
+TextStyle textStyleOwnerBase(BuildContext context) {
+  return const TextStyle(
+    fontSize: 15,
+    height: 1,
+    fontWeight: FontWeight.w400,
+    color: Color(0xFF251438),
+  );
+}

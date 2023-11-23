@@ -93,9 +93,36 @@ class _HomePageState extends State<HomePage> {
                     style: textStyleHookSubtitle(context),
                   ),
                 ),
-                Text(
-                  tr("byXpeho"),
-                )
+                TextButton(
+                  onPressed: () async {
+                    String url =
+                        'https://xpeho.com';
+                    final Uri uri = Uri.parse(url);
+                    if (await canLaunchUrl(uri)) {
+                      if (!await launchUrl(
+                        uri,
+                        mode: LaunchMode.externalApplication,
+                      )) {
+                        throw Exception('Could not launch $url');
+                      }
+                    }
+                  },
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: tr("byXpeho"),
+                          style: textStyleOwnerBase(context),
+                        ),
+                        TextSpan(
+                          text: " XPEHO",
+                          style: textStyleOwner(context),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ],
             ),
           ),
