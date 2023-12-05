@@ -20,7 +20,7 @@ class TipsCard extends StatelessWidget {
         Text(
           tr("didYouKnow"),
           textAlign: TextAlign.center,
-          style: textStyleLearnCardTitle(context),
+          style: textStyleTipsCardTitle(context),
         ),
         const SizedBox(
           height: 16,
@@ -31,7 +31,7 @@ class TipsCard extends StatelessWidget {
           child: Text(
             tips,
             textAlign: TextAlign.center,
-            style: textStyleLearnCardContent(context),
+            style: textStyleTipsCardContent(context),
           ),
         ),
       ],

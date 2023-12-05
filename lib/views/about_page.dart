@@ -30,7 +30,7 @@ class AboutPage extends StatelessWidget {
                   children: [
                     Text(
                       tr('aboutSubtitle1'),
-                      style: textStylePageSubtitle(context),
+                      style: textStyleSubtitle(context),
                     ),
                     const SizedBox(
                       height: 15,
@@ -80,7 +80,7 @@ class AboutPage extends StatelessWidget {
                     ),
                     Text(
                       tr('aboutSubtitle2'),
-                      style: textStylePageSubtitle(context),
+                      style: textStyleSubtitle(context),
                     ),
                     const SizedBox(
                       height: 15,

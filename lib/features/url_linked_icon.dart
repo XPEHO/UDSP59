@@ -30,7 +30,7 @@ class UrlLinkedIcon extends StatelessWidget {
       child: Icon(
         icon,
         size: size,
-        color: Theme.of(context).colorScheme.secondary,
+        color: Theme.of(context).colorScheme.inverseSurface,
       ),
     );
   }
