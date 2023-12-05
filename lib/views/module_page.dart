@@ -32,7 +32,7 @@ class _ModulePageState extends State<ModulePage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 tr('moduleSubtitle'),
-                style: textStylePageSubtitle(context),
+                style: textStyleSubtitle(context),
               ),
             ),
             const SizedBox(

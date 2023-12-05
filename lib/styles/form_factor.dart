@@ -1,4 +1,4 @@
 class FormFactor {
-  static double tightPhone = 380;
+  static double tightPhone = 389;
   static double biggerThanTablet = 1443;
 }

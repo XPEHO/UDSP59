@@ -1,100 +1,129 @@
 import 'package:flutter/material.dart';
+import 'package:udsp59/styles/form_factor.dart';
 
 TextStyle textStyleAppTitle(BuildContext context) {
   return TextStyle(
-    fontSize: MediaQuery.of(context).size.width > 380 ? 32 : 22,
+    fontSize:
+        MediaQuery.of(context).size.width > FormFactor.tightPhone ? 32 : 22,
     fontWeight: FontWeight.bold,
-    color: const Color(0xFF251438),
+    color: Theme.of(context).colorScheme.inverseSurface,
   );
 }
 
-TextStyle textStyleHookTitle(BuildContext context) {
-  return const TextStyle(
+TextStyle textStyleSubtitle(BuildContext context) {
+  return TextStyle(
     fontSize: 24,
-    fontWeight: FontWeight.w600,
-    color: Color(0xFFCB2738),
+    fontWeight: FontWeight.w400,
+    color: Theme.of(context).colorScheme.primary,
   );
 }
 
-TextStyle textStyleHookSubtitle(BuildContext context) {
-  return const TextStyle(
-    fontSize: 15,
-    height: 1.25,
+TextStyle textStyleSubtitleMore(BuildContext context) {
+  return TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w500,
+    color: Theme.of(context).colorScheme.primary,
+  );
+}
+
+TextStyle textStyleSubtitleLess(BuildContext context) {
+  return TextStyle(
+    fontSize: 24,
     fontWeight: FontWeight.w400,
-    color: Color(0xFFCF6C28),
+    color: Theme.of(context).colorScheme.inverseSurface,
   );
 }
 
 TextStyle textStylePageTitle(BuildContext context) {
-  return const TextStyle(
+  return TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
-    color: Color(0xFF251438),
+    color: Theme.of(context).colorScheme.inverseSurface,
   );
 }
 
-TextStyle textStylePageSubtitle(BuildContext context) {
-  return const TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.w400,
-    color: Color(0xFF251438),
-  );
-}
-
-TextStyle textStylePageSubtitleImportant(BuildContext context) {
-  return const TextStyle(
-    fontSize: 24,
+TextStyle textStyleTipsCardTitle(BuildContext context) {
+  return TextStyle(
+    fontSize: 18,
     fontWeight: FontWeight.w500,
-    color: Color(0xFF251438),
+    color: Theme.of(context).colorScheme.secondary,
   );
 }
 
-TextStyle textStyleLearnCardTitle(BuildContext context) {
-  return const TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w500,
-    color: Color(0xFFCF6C28),
-  );
-}
-
-TextStyle textStyleLearnCardContent(BuildContext context) {
-  return const TextStyle(
-    fontSize: 20,
+TextStyle textStyleTipsCardContent(BuildContext context) {
+  return TextStyle(
+    fontSize: 15,
     fontWeight: FontWeight.w400,
-    color: Color(0xFF251438),
+    color: Theme.of(context).colorScheme.inversePrimary,
   );
 }
 
 TextStyle textStyleModule(BuildContext context) {
-  return const TextStyle(
+  return TextStyle(
     fontSize: 15,
     fontWeight: FontWeight.w600,
-    color: Color(0xFF251438),
+    color: Theme.of(context).colorScheme.inversePrimary,
+  );
+}
+
+TextStyle textStyleModuleContent(BuildContext context) {
+  return TextStyle(
+    fontSize: 15,
+    height: 1.25,
+    fontWeight: FontWeight.w500,
+    color: Theme.of(context).colorScheme.inversePrimary,
+  );
+}
+
+TextStyle textStyleModuleSubContent(BuildContext context) {
+  return TextStyle(
+    fontSize: 15,
+    height: 1.25,
+    fontWeight: FontWeight.w400,
+    color: Theme.of(context).colorScheme.inversePrimary,
   );
 }
 
 TextStyle textStyleNumerotation(BuildContext context) {
-  return const TextStyle(
+  return TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w400,
-    color: Color(0xFFCF6C28),
+    color: Theme.of(context).colorScheme.secondary,
   );
 }
 
 TextStyle textStyleParagraph(BuildContext context) {
-  return const TextStyle(
+  return TextStyle(
     fontSize: 15,
     height: 1.25,
     fontWeight: FontWeight.w300,
-    color: Color(0xFF251438),
+    color: Theme.of(context).colorScheme.inverseSurface,
   );
 }
 
-TextStyle textStyleParagraphImportant(BuildContext context) {
-  return const TextStyle(
+TextStyle textStyleParagraphMore(BuildContext context) {
+  return TextStyle(
     fontSize: 15,
     height: 1.25,
     fontWeight: FontWeight.w400,
-    color: Color(0xFF251438),
+    color: Theme.of(context).colorScheme.inverseSurface,
+  );
+}
+
+TextStyle textStyleFooterLink(BuildContext context) {
+  return TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: Theme.of(context).colorScheme.inverseSurface,
+    decoration: TextDecoration.underline,
+    decorationColor: Theme.of(context).colorScheme.inverseSurface,
+  );
+}
+
+TextStyle textStyleFooterText(BuildContext context) {
+  return TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: Theme.of(context).colorScheme.inverseSurface,
   );
 }

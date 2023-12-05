@@ -30,7 +30,7 @@ class TitleHeader extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width > FormFactor.tightPhone
                     ? 10
-                    : 5,
+                    : 0,
               ),
               Text(
                 tr("appName"),
@@ -44,7 +44,7 @@ class TitleHeader extends StatelessWidget {
               shape: MaterialStateProperty.all(const CircleBorder()),
               backgroundColor: MaterialStateProperty.all(Colors.transparent),
               foregroundColor: MaterialStateProperty.all(
-                  Theme.of(context).colorScheme.secondary),
+                  Theme.of(context).colorScheme.inverseSurface),
               elevation: MaterialStateProperty.all(0),
             ),
             onPressed: () {

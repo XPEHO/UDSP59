@@ -90,10 +90,13 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                 ),
                 Expanded(
                   child: Text(widget.modulePart[0],
-                      style: textStyleParagraphImportant(context)),
+                      style: textStyleModuleContent(context)),
                 ),
                 if (widget.modulePart.length > 1)
-                  Icon(isOpen ? Icons.expand_less : Icons.expand_more),
+                  Icon(
+                    isOpen ? Icons.expand_less : Icons.expand_more,
+                    color: Theme.of(context).colorScheme.tertiary,
+                  ),
               ],
             ),
             if (widget.modulePart.length > 1)
@@ -117,7 +120,7 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                           .map(
                             (moduleSubpart) => Text(
                               "•   $moduleSubpart",
-                              style: textStyleParagraph(context),
+                              style: textStyleModuleSubContent(context),
                               textAlign: TextAlign.start,
                             ),
                           )
