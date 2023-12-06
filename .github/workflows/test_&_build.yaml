@@ -2,7 +2,7 @@ on: pull_request
 name: Test and build
 jobs:
   flutter-mobile:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
@@ -15,7 +15,6 @@ jobs:
           channel: 'stable'
       - name: Build apk
         run: |
-          flutter upgrade
           flutter pub get
           dart format --set-exit-if-changed .
           flutter analyze

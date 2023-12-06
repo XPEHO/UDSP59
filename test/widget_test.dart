@@ -163,7 +163,7 @@ void main() async {
       expect(find.byType(AboutPage), findsOneWidget);
     });
 
-    /* testWidgets(
+    testWidgets(
         'ModulesCarousel has the right number of ModulesCarouselElement',
         (WidgetTester tester) async {
       // Find the widget
@@ -183,7 +183,7 @@ void main() async {
       // Test the presence of the ModulesCarouselElement widgets
       var modulesCarouselElements = find.byType(ModulesCarouselElement);
       expect(modulesCarouselElements, findsNWidgets(modulesList.length));
-    });*/
+    });
 
     testWidgets(
         'ModulesCarouselElement has the right title, icon and an arrow and permit to navigate to the ModulePage',

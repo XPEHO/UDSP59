@@ -127,3 +127,13 @@ TextStyle textStyleFooterText(BuildContext context) {
     color: Theme.of(context).colorScheme.inverseSurface,
   );
 }
+
+TextStyle textStyleOwner(BuildContext context) {
+  return TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: Theme.of(context).colorScheme.primary,
+    decoration: TextDecoration.underline,
+    decorationColor: Theme.of(context).colorScheme.inverseSurface,
+  );
+}

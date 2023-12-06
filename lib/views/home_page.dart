@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).size.width >
                             FormFactor.tightPhone
-                        ? 100
+                        ? 110
                         : 130),
                 constraints: BoxConstraints(
                   minHeight: MediaQuery.of(context).size.height -
@@ -154,9 +154,34 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    Text(
-                      tr("byXpeho"),
-                      style: textStyleFooterText(context),
+                    TextButton(
+                      onPressed: () async {
+                        String url = 'https://xpeho.com';
+                        final Uri uri = Uri.parse(url);
+                        if (await canLaunchUrl(uri)) {
+                          if (!await launchUrl(
+                            uri,
+                            mode: LaunchMode.externalApplication,
+                          )) {
+                            throw Exception('Could not launch $url');
+                          }
+                        }
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: tr("byXpeho"),
+                              style: textStyleFooterText(context),
+                            ),
+                            TextSpan(
+                              text: "XPEHO",
+                              style: textStyleOwner(context),
+                            ),
+                          ],
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ],
                 ),
