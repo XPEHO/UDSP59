@@ -11,7 +11,8 @@ jobs:
           distribution: "temurin"
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.13"
+          flutter-version: '3.13.6'
+          channel: 'stable'
       - name: Build apk
         run: |
           flutter upgrade
