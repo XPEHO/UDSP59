@@ -70,7 +70,7 @@
                 "description": ""
             },
             {
-                "subtitle": "Mettre en PLS si la victime est inconsciente et respire",
+                "subtitle": "Si la victime est gravement traumatisée, pas de PLS. Dans le cas contraire, si la victime est inconsciente et respire, mettre en PLS",
                 "order": 4,
                 "image": "",
                 "description": ""
@@ -142,10 +142,10 @@
                 "description": "•   30 compressions\n•   2 insufflations"
             },
             {
-                "subtitle": "Si enfant, effectuer",
+                "subtitle": "Si enfant ou nourisson, effectuer",
                 "order": 8,
                 "image": "",
-                "description": "•   15 compressions\n•   2 insufflations"
+                "description": "•   5 insufflations starters\n•   15 compressions\n•   2 insufflations"
             }
         ]
     },
