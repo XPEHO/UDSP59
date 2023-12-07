@@ -22,7 +22,7 @@ Module _$ModuleFromJson(Map<String, dynamic> json) {
 mixin _$Module {
   String get title => throw _privateConstructorUsedError;
   String get icon => throw _privateConstructorUsedError;
-  List<List<String>> get content => throw _privateConstructorUsedError;
+  List<ModulePart> get content => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $ModuleCopyWith<$Res> {
   factory $ModuleCopyWith(Module value, $Res Function(Module) then) =
       _$ModuleCopyWithImpl<$Res, Module>;
   @useResult
-  $Res call({String title, String icon, List<List<String>> content});
+  $Res call({String title, String icon, List<ModulePart> content});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$ModuleCopyWithImpl<$Res, $Val extends Module>
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as List<List<String>>,
+              as List<ModulePart>,
     ) as $Val);
   }
 }
@@ -78,7 +78,7 @@ abstract class _$$ModuleImplCopyWith<$Res> implements $ModuleCopyWith<$Res> {
       __$$ModuleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String icon, List<List<String>> content});
+  $Res call({String title, String icon, List<ModulePart> content});
 }
 
 /// @nodoc
@@ -108,7 +108,7 @@ class __$$ModuleImplCopyWithImpl<$Res>
       content: null == content
           ? _value._content
           : content // ignore: cast_nullable_to_non_nullable
-              as List<List<String>>,
+              as List<ModulePart>,
     ));
   }
 }
@@ -119,7 +119,7 @@ class _$ModuleImpl implements _Module {
   const _$ModuleImpl(
       {required this.title,
       required this.icon,
-      required final List<List<String>> content})
+      required final List<ModulePart> content})
       : _content = content;
 
   factory _$ModuleImpl.fromJson(Map<String, dynamic> json) =>
@@ -129,9 +129,9 @@ class _$ModuleImpl implements _Module {
   final String title;
   @override
   final String icon;
-  final List<List<String>> _content;
+  final List<ModulePart> _content;
   @override
-  List<List<String>> get content {
+  List<ModulePart> get content {
     if (_content is EqualUnmodifiableListView) return _content;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_content);
@@ -175,7 +175,7 @@ abstract class _Module implements Module {
   const factory _Module(
       {required final String title,
       required final String icon,
-      required final List<List<String>> content}) = _$ModuleImpl;
+      required final List<ModulePart> content}) = _$ModuleImpl;
 
   factory _Module.fromJson(Map<String, dynamic> json) = _$ModuleImpl.fromJson;
 
@@ -184,7 +184,7 @@ abstract class _Module implements Module {
   @override
   String get icon;
   @override
-  List<List<String>> get content;
+  List<ModulePart> get content;
   @override
   @JsonKey(ignore: true)
   _$$ModuleImplCopyWith<_$ModuleImpl> get copyWith =>

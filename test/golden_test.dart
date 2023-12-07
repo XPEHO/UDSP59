@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:udsp59/entities/module.dart';
+import 'package:udsp59/entities/module_part.dart';
 import 'package:udsp59/features/module_accordion_element.dart';
 import 'package:udsp59/features/modules_carousel_element.dart';
 import 'package:udsp59/features/page_header.dart';
@@ -18,14 +19,22 @@ void main() {
       ..addScenario(
         'Closed',
         const ModuleAccordionElement(
-          modulePart: ['Title', 'Subtitle 1', 'Subtitle 2'],
+          modulePart: ModulePart(
+              subtitle: "Title",
+              order: 1,
+              image: "",
+              description: "Subtitle 1\nSubtitle 2"),
           index: 0,
         ),
       )
       ..addScenario(
         'Open',
         const ModuleAccordionElement(
-          modulePart: ['Title', 'Subtitle 1', 'Subtitle 2'],
+          modulePart: ModulePart(
+              subtitle: "Title",
+              order: 1,
+              image: "",
+              description: "Subtitle 1\nSubtitle 2"),
           index: 0,
           isOpen: true,
         ),
