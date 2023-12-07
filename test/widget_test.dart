@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:udsp59/entities/module.dart';
+import 'package:udsp59/entities/module_part.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/modules_carousel_element.dart';
 import 'package:udsp59/features/page_header.dart';
@@ -31,27 +32,63 @@ void main() async {
       title: "Protection/Alerte",
       icon: "protect",
       content: [
-        [
-          "Repérer le danger",
-          "Supprimer le danger de manière définitive",
-          "Réaliser un dégagement d'urgence",
-          "Réaliser un balisage de sécurité"
-        ],
-        ["Contacter les secours", "18", "112", "15"],
-        ["Ne raccrochez jamais avant accord des secours"],
+        ModulePart(
+            subtitle: "Repérer le danger",
+            order: 1,
+            image: "",
+            description:
+                "•   Supprimer le danger de manière définitive\n•   Réaliser un dégagement d'urgence\n•   Réaliser un balisage de sécurité"),
+        ModulePart(
+            subtitle: "Contacter les secours",
+            order: 2,
+            image: "",
+            description: "•   18\n•   112\n•   15"),
+        ModulePart(
+            subtitle: "Ne raccrochez jamais avant accord des secours",
+            order: 3,
+            image: "",
+            description: ""),
       ],
     ),
     const Module(
       title: "Inconscience",
       icon: "unconscious",
       content: [
-        ["Apprécier la conscience"],
-        ["Basculer la tête en arrière"],
-        ["Apprécier la respiration pendant 10 secondes"],
-        ["Mettre en PLS si la victime est inconsciente et respire"],
-        ["Contacter les secours", "18", "112", "15"],
-        ["Ne raccrochez jamais avant accord des secours"],
-        ["Couvrir et surveiller la victime"],
+        ModulePart(
+            subtitle: "Apprécier la conscience",
+            order: 1,
+            image: "",
+            description: ""),
+        ModulePart(
+            subtitle: "Basculer la tête en arrière",
+            order: 2,
+            image: "",
+            description: ""),
+        ModulePart(
+            subtitle: "Apprécier la respiration pendant 10 secondes",
+            order: 3,
+            image: "",
+            description: ""),
+        ModulePart(
+            subtitle: "Mettre en PLS si la victime est inconsciente et respire",
+            order: 4,
+            image: "",
+            description: ""),
+        ModulePart(
+            subtitle: "Contacter les secours",
+            order: 5,
+            image: "",
+            description: "•   18\n•   112\n•   15"),
+        ModulePart(
+            subtitle: "Ne raccrochez jamais avant accord des secours",
+            order: 6,
+            image: "",
+            description: ""),
+        ModulePart(
+            subtitle: "Couvrir et surveiller la victime",
+            order: 7,
+            image: "",
+            description: ""),
       ],
     ),
   ];

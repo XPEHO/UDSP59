@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:udsp59/entities/module_part.dart';
 import 'package:udsp59/styles/text_style.dart';
 
 class ModuleAccordionElement extends StatefulWidget {
-  final List<String> modulePart;
+  final ModulePart modulePart;
   final int index;
   final bool isOpen;
 
@@ -89,17 +90,19 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                   ),
                 ),
                 Expanded(
-                  child: Text(widget.modulePart[0],
+                  child: Text(widget.modulePart.subtitle,
                       style: textStyleModuleContent(context)),
                 ),
-                if (widget.modulePart.length > 1)
+                if (widget.modulePart.description != "" ||
+                    widget.modulePart.image != "")
                   Icon(
                     isOpen ? Icons.expand_less : Icons.expand_more,
                     color: Theme.of(context).colorScheme.tertiary,
                   ),
               ],
             ),
-            if (widget.modulePart.length > 1)
+            if (widget.modulePart.description != "" ||
+                widget.modulePart.image != "")
               SizeTransition(
                 sizeFactor: CurvedAnimation(
                   parent: _animationController,
@@ -112,19 +115,10 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                   ),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 5),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: widget.modulePart
-                          .sublist(1)
-                          .map(
-                            (moduleSubpart) => Text(
-                              "•   $moduleSubpart",
-                              style: textStyleModuleSubContent(context),
-                              textAlign: TextAlign.start,
-                            ),
-                          )
-                          .toList(),
+                    child: Text(
+                      widget.modulePart.description,
+                      style: textStyleModuleSubContent(context),
+                      textAlign: TextAlign.start,
                     ),
                   ),
                 ),
