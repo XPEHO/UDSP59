@@ -21,9 +21,8 @@ ModulePart _$ModulePartFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ModulePart {
   String get subtitle => throw _privateConstructorUsedError;
-  int get order => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  List<ModulePartElement> get elements => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +36,7 @@ abstract class $ModulePartCopyWith<$Res> {
           ModulePart value, $Res Function(ModulePart) then) =
       _$ModulePartCopyWithImpl<$Res, ModulePart>;
   @useResult
-  $Res call({String subtitle, int order, String image, String description});
+  $Res call({String subtitle, String image, List<ModulePartElement> elements});
 }
 
 /// @nodoc
@@ -54,27 +53,22 @@ class _$ModulePartCopyWithImpl<$Res, $Val extends ModulePart>
   @override
   $Res call({
     Object? subtitle = null,
-    Object? order = null,
     Object? image = null,
-    Object? description = null,
+    Object? elements = null,
   }) {
     return _then(_value.copyWith(
       subtitle: null == subtitle
           ? _value.subtitle
           : subtitle // ignore: cast_nullable_to_non_nullable
               as String,
-      order: null == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as int,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      elements: null == elements
+          ? _value.elements
+          : elements // ignore: cast_nullable_to_non_nullable
+              as List<ModulePartElement>,
     ) as $Val);
   }
 }
@@ -87,7 +81,7 @@ abstract class _$$ModulePartImplCopyWith<$Res>
       __$$ModulePartImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String subtitle, int order, String image, String description});
+  $Res call({String subtitle, String image, List<ModulePartElement> elements});
 }
 
 /// @nodoc
@@ -102,27 +96,22 @@ class __$$ModulePartImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? subtitle = null,
-    Object? order = null,
     Object? image = null,
-    Object? description = null,
+    Object? elements = null,
   }) {
     return _then(_$ModulePartImpl(
       subtitle: null == subtitle
           ? _value.subtitle
           : subtitle // ignore: cast_nullable_to_non_nullable
               as String,
-      order: null == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as int,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      elements: null == elements
+          ? _value._elements
+          : elements // ignore: cast_nullable_to_non_nullable
+              as List<ModulePartElement>,
     ));
   }
 }
@@ -132,9 +121,9 @@ class __$$ModulePartImplCopyWithImpl<$Res>
 class _$ModulePartImpl implements _ModulePart {
   const _$ModulePartImpl(
       {required this.subtitle,
-      required this.order,
       required this.image,
-      required this.description});
+      required final List<ModulePartElement> elements})
+      : _elements = elements;
 
   factory _$ModulePartImpl.fromJson(Map<String, dynamic> json) =>
       _$$ModulePartImplFromJson(json);
@@ -142,15 +131,18 @@ class _$ModulePartImpl implements _ModulePart {
   @override
   final String subtitle;
   @override
-  final int order;
-  @override
   final String image;
+  final List<ModulePartElement> _elements;
   @override
-  final String description;
+  List<ModulePartElement> get elements {
+    if (_elements is EqualUnmodifiableListView) return _elements;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_elements);
+  }
 
   @override
   String toString() {
-    return 'ModulePart(subtitle: $subtitle, order: $order, image: $image, description: $description)';
+    return 'ModulePart(subtitle: $subtitle, image: $image, elements: $elements)';
   }
 
   @override
@@ -160,16 +152,14 @@ class _$ModulePartImpl implements _ModulePart {
             other is _$ModulePartImpl &&
             (identical(other.subtitle, subtitle) ||
                 other.subtitle == subtitle) &&
-            (identical(other.order, order) || other.order == order) &&
             (identical(other.image, image) || other.image == image) &&
-            (identical(other.description, description) ||
-                other.description == description));
+            const DeepCollectionEquality().equals(other._elements, _elements));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, subtitle, order, image, description);
+  int get hashCode => Object.hash(runtimeType, subtitle, image,
+      const DeepCollectionEquality().hash(_elements));
 
   @JsonKey(ignore: true)
   @override
@@ -188,9 +178,8 @@ class _$ModulePartImpl implements _ModulePart {
 abstract class _ModulePart implements ModulePart {
   const factory _ModulePart(
       {required final String subtitle,
-      required final int order,
       required final String image,
-      required final String description}) = _$ModulePartImpl;
+      required final List<ModulePartElement> elements}) = _$ModulePartImpl;
 
   factory _ModulePart.fromJson(Map<String, dynamic> json) =
       _$ModulePartImpl.fromJson;
@@ -198,11 +187,9 @@ abstract class _ModulePart implements ModulePart {
   @override
   String get subtitle;
   @override
-  int get order;
-  @override
   String get image;
   @override
-  String get description;
+  List<ModulePartElement> get elements;
   @override
   @JsonKey(ignore: true)
   _$$ModulePartImplCopyWith<_$ModulePartImpl> get copyWith =>

@@ -22,7 +22,9 @@ Module _$ModuleFromJson(Map<String, dynamic> json) {
 mixin _$Module {
   String get title => throw _privateConstructorUsedError;
   String get icon => throw _privateConstructorUsedError;
-  List<ModulePart> get content => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
+  List<ModulePart> get parts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +36,12 @@ abstract class $ModuleCopyWith<$Res> {
   factory $ModuleCopyWith(Module value, $Res Function(Module) then) =
       _$ModuleCopyWithImpl<$Res, Module>;
   @useResult
-  $Res call({String title, String icon, List<ModulePart> content});
+  $Res call(
+      {String title,
+      String icon,
+      String image,
+      int order,
+      List<ModulePart> parts});
 }
 
 /// @nodoc
@@ -52,7 +59,9 @@ class _$ModuleCopyWithImpl<$Res, $Val extends Module>
   $Res call({
     Object? title = null,
     Object? icon = null,
-    Object? content = null,
+    Object? image = null,
+    Object? order = null,
+    Object? parts = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -63,9 +72,17 @@ class _$ModuleCopyWithImpl<$Res, $Val extends Module>
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as String,
-      content: null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int,
+      parts: null == parts
+          ? _value.parts
+          : parts // ignore: cast_nullable_to_non_nullable
               as List<ModulePart>,
     ) as $Val);
   }
@@ -78,7 +95,12 @@ abstract class _$$ModuleImplCopyWith<$Res> implements $ModuleCopyWith<$Res> {
       __$$ModuleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String icon, List<ModulePart> content});
+  $Res call(
+      {String title,
+      String icon,
+      String image,
+      int order,
+      List<ModulePart> parts});
 }
 
 /// @nodoc
@@ -94,7 +116,9 @@ class __$$ModuleImplCopyWithImpl<$Res>
   $Res call({
     Object? title = null,
     Object? icon = null,
-    Object? content = null,
+    Object? image = null,
+    Object? order = null,
+    Object? parts = null,
   }) {
     return _then(_$ModuleImpl(
       title: null == title
@@ -105,9 +129,17 @@ class __$$ModuleImplCopyWithImpl<$Res>
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as String,
-      content: null == content
-          ? _value._content
-          : content // ignore: cast_nullable_to_non_nullable
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      order: null == order
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
+              as int,
+      parts: null == parts
+          ? _value._parts
+          : parts // ignore: cast_nullable_to_non_nullable
               as List<ModulePart>,
     ));
   }
@@ -119,8 +151,10 @@ class _$ModuleImpl implements _Module {
   const _$ModuleImpl(
       {required this.title,
       required this.icon,
-      required final List<ModulePart> content})
-      : _content = content;
+      required this.image,
+      required this.order,
+      required final List<ModulePart> parts})
+      : _parts = parts;
 
   factory _$ModuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ModuleImplFromJson(json);
@@ -129,17 +163,21 @@ class _$ModuleImpl implements _Module {
   final String title;
   @override
   final String icon;
-  final List<ModulePart> _content;
   @override
-  List<ModulePart> get content {
-    if (_content is EqualUnmodifiableListView) return _content;
+  final String image;
+  @override
+  final int order;
+  final List<ModulePart> _parts;
+  @override
+  List<ModulePart> get parts {
+    if (_parts is EqualUnmodifiableListView) return _parts;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_content);
+    return EqualUnmodifiableListView(_parts);
   }
 
   @override
   String toString() {
-    return 'Module(title: $title, icon: $icon, content: $content)';
+    return 'Module(title: $title, icon: $icon, image: $image, order: $order, parts: $parts)';
   }
 
   @override
@@ -149,13 +187,15 @@ class _$ModuleImpl implements _Module {
             other is _$ModuleImpl &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.icon, icon) || other.icon == icon) &&
-            const DeepCollectionEquality().equals(other._content, _content));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.order, order) || other.order == order) &&
+            const DeepCollectionEquality().equals(other._parts, _parts));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, title, icon, const DeepCollectionEquality().hash(_content));
+  int get hashCode => Object.hash(runtimeType, title, icon, image, order,
+      const DeepCollectionEquality().hash(_parts));
 
   @JsonKey(ignore: true)
   @override
@@ -175,7 +215,9 @@ abstract class _Module implements Module {
   const factory _Module(
       {required final String title,
       required final String icon,
-      required final List<ModulePart> content}) = _$ModuleImpl;
+      required final String image,
+      required final int order,
+      required final List<ModulePart> parts}) = _$ModuleImpl;
 
   factory _Module.fromJson(Map<String, dynamic> json) = _$ModuleImpl.fromJson;
 
@@ -184,7 +226,11 @@ abstract class _Module implements Module {
   @override
   String get icon;
   @override
-  List<ModulePart> get content;
+  String get image;
+  @override
+  int get order;
+  @override
+  List<ModulePart> get parts;
   @override
   @JsonKey(ignore: true)
   _$$ModuleImplCopyWith<_$ModuleImpl> get copyWith =>

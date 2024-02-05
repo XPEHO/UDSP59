@@ -9,7 +9,9 @@ class Module with _$Module {
   const factory Module({
     required String title,
     required String icon,
-    required List<ModulePart> content,
+    required String image,
+    required int order,
+    required List<ModulePart> parts,
   }) = _Module;
 
   factory Module.fromJson(Map<String, dynamic> json) => _$ModuleFromJson(json);
