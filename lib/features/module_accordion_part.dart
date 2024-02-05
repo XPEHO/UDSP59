@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:udsp59/entities/module_part.dart';
+import 'package:udsp59/features/module_accordion_part_element.dart';
 import 'package:udsp59/styles/text_style.dart';
 
-class ModuleAccordionElement extends StatefulWidget {
+class ModuleAccordionPart extends StatefulWidget {
   final ModulePart modulePart;
   final int index;
   final bool isOpen;
 
-  const ModuleAccordionElement({
+  const ModuleAccordionPart({
     super.key,
     required this.modulePart,
     required this.index,
@@ -15,10 +16,10 @@ class ModuleAccordionElement extends StatefulWidget {
   });
 
   @override
-  State<ModuleAccordionElement> createState() => _ModuleAccordionElementState();
+  State<ModuleAccordionPart> createState() => _ModuleAccordionPartState();
 }
 
-class _ModuleAccordionElementState extends State<ModuleAccordionElement>
+class _ModuleAccordionPartState extends State<ModuleAccordionPart>
     with TickerProviderStateMixin {
   bool isOpen = false;
   late AnimationController _animationController;
@@ -93,7 +94,7 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                   child: Text(widget.modulePart.subtitle,
                       style: textStyleModuleContent(context)),
                 ),
-                if (widget.modulePart.description != "" ||
+                if (widget.modulePart.elements.isNotEmpty ||
                     widget.modulePart.image != "")
                   Icon(
                     isOpen ? Icons.expand_less : Icons.expand_more,
@@ -101,7 +102,7 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                   ),
               ],
             ),
-            if (widget.modulePart.description != "" ||
+            if (widget.modulePart.elements.isNotEmpty ||
                 widget.modulePart.image != "")
               SizeTransition(
                 sizeFactor: CurvedAnimation(
@@ -115,10 +116,12 @@ class _ModuleAccordionElementState extends State<ModuleAccordionElement>
                   ),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 5),
-                    child: Text(
-                      widget.modulePart.description,
-                      style: textStyleModuleSubContent(context),
-                      textAlign: TextAlign.start,
+                    child: Column(
+                      children: widget.modulePart.elements
+                          .map((elt) => ModuleAccordionPartElement(
+                                element: elt,
+                              ))
+                          .toList(),
                     ),
                   ),
                 ),

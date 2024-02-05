@@ -9,15 +9,15 @@ part of 'module_part.dart';
 _$ModulePartImpl _$$ModulePartImplFromJson(Map<String, dynamic> json) =>
     _$ModulePartImpl(
       subtitle: json['subtitle'] as String,
-      order: json['order'] as int,
       image: json['image'] as String,
-      description: json['description'] as String,
+      elements: (json['elements'] as List<dynamic>)
+          .map((e) => ModulePartElement.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$ModulePartImplToJson(_$ModulePartImpl instance) =>
     <String, dynamic>{
       'subtitle': instance.subtitle,
-      'order': instance.order,
       'image': instance.image,
-      'description': instance.description,
+      'elements': instance.elements,
     };

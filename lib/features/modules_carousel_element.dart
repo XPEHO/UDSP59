@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/styles/text_style.dart';
-
-Map<String, IconData> moduleIcons = {
-  "protect": Icons.health_and_safety,
-  "malaise": Icons.mood_bad,
-  "unconscious": Icons.airline_seat_flat,
-  "reanimation": Icons.heart_broken,
-  "defibrillator": Icons.monitor_heart,
-  "trauma": Icons.personal_injury,
-  "burn": Icons.local_fire_department,
-  "bleeding": Icons.bloodtype,
-};
+import 'package:material_icons_named/material_icons_named.dart';
 
 class ModulesCarouselElement extends StatelessWidget {
   final Module module;
@@ -64,10 +54,10 @@ class ModulesCarouselElement extends StatelessWidget {
                   Icons.arrow_forward,
                   color: Theme.of(context).colorScheme.tertiary,
                 ),
-                moduleIcons[module.icon] != null
+                module.icon != ""
                     ? Icon(
                         size: 45,
-                        moduleIcons[module.icon],
+                        materialIcons[module.icon],
                         color: Theme.of(context).colorScheme.secondary,
                       )
                     : Icon(

@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/entities/module_part.dart';
+import 'package:udsp59/entities/module_part_element.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/modules_carousel_element.dart';
 import 'package:udsp59/features/page_header.dart';
@@ -21,6 +22,7 @@ import 'package:udsp59/features/url_linked_icon.dart';
 import 'package:udsp59/views/about_page.dart';
 import 'package:udsp59/views/home_page.dart';
 import 'package:udsp59/views/module_page.dart';
+import 'package:material_icons_named/material_icons_named.dart';
 
 void main() async {
   // Check Easy Localization is initialized
@@ -30,79 +32,110 @@ void main() async {
   List<Module> modulesList = [
     const Module(
       title: "Protection/Alerte",
-      icon: "protect",
-      content: [
+      icon: "",
+      image: "",
+      order: 1,
+      parts: [
         ModulePart(
-            subtitle: "Repérer le danger",
-            order: 1,
-            image: "",
-            description:
-                "•   Supprimer le danger de manière définitive\n•   Réaliser un dégagement d'urgence\n•   Réaliser un balisage de sécurité"),
+          subtitle: "Repérer le danger",
+          image: "",
+          elements: [
+            ModulePartElement(
+              text: "Supprimer le danger de manière définitive",
+              image: "",
+            ),
+            ModulePartElement(
+              text: "Réaliser un dégagement d'urgence",
+              image: "",
+            ),
+            ModulePartElement(
+              text: "Réaliser un balisage de sécurité",
+              image: "",
+            ),
+          ],
+        ),
         ModulePart(
-            subtitle: "Contacter les secours",
-            order: 2,
-            image: "",
-            description: "•   18\n•   112\n•   15"),
+          subtitle: "Contacter les secours",
+          image: "",
+          elements: [
+            ModulePartElement(
+              text: "18",
+              image: "",
+            ),
+            ModulePartElement(
+              text: "112",
+              image: "",
+            ),
+            ModulePartElement(
+              text: "15",
+              image: "",
+            ),
+          ],
+        ),
         ModulePart(
-            subtitle: "Ne raccrochez jamais avant accord des secours",
-            order: 3,
-            image: "",
-            description: ""),
+          subtitle: "Ne raccrochez jamais avant accord des secours",
+          image: "",
+          elements: [],
+        ),
       ],
     ),
     const Module(
       title: "Inconscience",
-      icon: "unconscious",
-      content: [
+      icon: "",
+      image: "",
+      order: 2,
+      parts: [
         ModulePart(
-            subtitle: "Apprécier la conscience",
-            order: 1,
-            image: "",
-            description: ""),
+          subtitle: "Apprécier la conscience",
+          image: "",
+          elements: [],
+        ),
         ModulePart(
-            subtitle: "Basculer la tête en arrière",
-            order: 2,
-            image: "",
-            description: ""),
+          subtitle: "Basculer la tête en arrière",
+          image: "",
+          elements: [],
+        ),
         ModulePart(
-            subtitle: "Apprécier la respiration pendant 10 secondes",
-            order: 3,
-            image: "",
-            description: ""),
+          subtitle: "Apprécier la respiration pendant 10 secondes",
+          image: "",
+          elements: [],
+        ),
         ModulePart(
-            subtitle: "Mettre en PLS si la victime est inconsciente et respire",
-            order: 4,
-            image: "",
-            description: ""),
+          subtitle: "Mettre en PLS si la victime est inconsciente et respire",
+          image: "",
+          elements: [],
+        ),
         ModulePart(
-            subtitle: "Contacter les secours",
-            order: 5,
-            image: "",
-            description: "•   18\n•   112\n•   15"),
+          subtitle: "Contacter les secours",
+          image: "",
+          elements: [
+            ModulePartElement(
+              text: "18",
+              image: "",
+            ),
+            ModulePartElement(
+              text: "112",
+              image: "",
+            ),
+            ModulePartElement(
+              text: "15",
+              image: "",
+            ),
+          ],
+        ),
         ModulePart(
-            subtitle: "Ne raccrochez jamais avant accord des secours",
-            order: 6,
-            image: "",
-            description: ""),
+          subtitle: "Ne raccrochez jamais avant accord des secours",
+          image: "",
+          elements: [],
+        ),
         ModulePart(
-            subtitle: "Couvrir et surveiller la victime",
-            order: 7,
-            image: "",
-            description: ""),
+          subtitle: "Couvrir et surveiller la victime",
+          image: "",
+          elements: [],
+        ),
       ],
     ),
   ];
-
-  Map<String, IconData> moduleIcons = {
-    "protect": Icons.health_and_safety,
-    "malaise": Icons.mood_bad,
-    "unconscious": Icons.airline_seat_flat,
-    "reanimation": Icons.heart_broken,
-    "defibrillator": Icons.monitor_heart,
-    "trauma": Icons.personal_injury,
-    "burn": Icons.local_fire_department,
-    "bleeding": Icons.bloodtype,
-  };
 
   // -----------------------------HOMEPAGE----------------------------------- //
   group('Homepage tests', () {
@@ -246,9 +279,14 @@ void main() async {
       var modulesCarouselElementTitle = find.text(modulesList[0].title);
       expect(modulesCarouselElementTitle, findsOneWidget);
       // Test the presence of the right icon
-      var modulesCarouselElementIcon =
-          find.byIcon(moduleIcons[modulesList[0].icon]!);
-      expect(modulesCarouselElementIcon, findsOneWidget);
+      if (modulesList[0].icon == "") {
+        var modulesCarouselElementIcon = find.byIcon(Icons.health_and_safety);
+        expect(modulesCarouselElementIcon, findsOneWidget);
+      } else {
+        var modulesCarouselElementIcon =
+            find.byIcon(materialIcons[modulesList[0].icon]!);
+        expect(modulesCarouselElementIcon, findsOneWidget);
+      }
       // Test the presence of the arrow
       var modulesCarouselElementArrow = find.byIcon(Icons.arrow_forward);
       expect(modulesCarouselElementArrow, findsOneWidget);

@@ -509,6 +509,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0"
+  material_icons_named:
+    dependency: "direct main"
+    description:
+      name: material_icons_named
+      sha256: "64cd38707dbb901614ce7f0ec40eea68f170db832663d6574ed15aecbd6c9f91"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.16.0"
   meta:
     dependency: transitive
     description:

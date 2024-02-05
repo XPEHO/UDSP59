@@ -1,289 +1,435 @@
 [
     {
         "title": "Protection/Alerte",
-        "icon": "protect",
-        "content": [
+        "icon": "health_and_safety",
+        "image": "",
+        "order": 1,
+        "parts": [
             {
                 "subtitle": "Repérer le danger",
-                "order": 1,
                 "image": "",
-                "description": "•   Supprimer le danger de manière définitive\n•   Réaliser un dégagement d'urgence\n•   Réaliser un balisage de sécurité"
+                "elements": [
+                    {
+                        "text": "Supprimer le danger de manière définitive",
+                        "image": ""
+                    },
+                    {
+                        "text": "Réaliser un dégagement d'urgence",
+                        "image": ""
+                    },
+                    {
+                        "text": "Réaliser un balisage de sécurité",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Contacter les secours",
-                "order": 2,
                 "image": "",
-                "description": "•   18\n•   112\n•   15"
+                "elements": [
+                    {
+                        "text": "18",
+                        "image": ""
+                    },
+                    {
+                        "text": "112",
+                        "image": ""
+                    },
+                    {
+                        "text": "15",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Ne raccrochez jamais avant accord des secours",
-                "order": 3,
                 "image": "",
-                "description": ""
+                "elements": []
             }
         ]
     },
     {
         "title": "Malaise",
-        "icon": "malaise",
-        "content": [
+        "icon": "mood_bad",
+        "image": "",
+        "order": 2,
+        "parts": [
             {
                 "subtitle": "Mettre la victime au repos",
-                "order": 1,
                 "image": "",
-                "description": "•   Allongée\n•   Demi-assise si difficulté à respirer"
+                "elements": [
+                    {
+                        "text": "Allongée",
+                        "image": ""
+                    },
+                    {
+                        "text": "Demi-assise si difficulté à respirer",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Contacter les secours",
-                "order": 2,
                 "image": "",
-                "description": "•   18\n•   112\n•   15"
+                "elements": [
+                    {
+                        "text": "18",
+                        "image": ""
+                    },
+                    {
+                        "text": "112",
+                        "image": ""
+                    },
+                    {
+                        "text": "15",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Ne raccrochez jamais avant accord des secours",
-                "order": 3,
                 "image": "",
-                "description": ""
+                "elements": []
             }
         ]
     },
     {
         "title": "Inconscience",
-        "icon": "unconscious",
-        "content": [
+        "icon": "airline_seat_flat",
+        "image": "",
+        "order": 3,
+        "parts": [
             {
                 "subtitle": "Apprécier la conscience",
-                "order": 1,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Basculer la tête en arrière",
-                "order": 2,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Apprécier la respiration pendant 10 secondes",
-                "order": 3,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Si la victime est gravement traumatisée, pas de PLS. Dans le cas contraire, si la victime est inconsciente et respire, mettre en PLS",
-                "order": 4,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Contacter les secours",
-                "order": 5,
                 "image": "",
-                "description": "•   18\n•   112\n•   15"
+                "elements": [
+                    {
+                        "text": "18",
+                        "image": ""
+                    },
+                    {
+                        "text": "112",
+                        "image": ""
+                    },
+                    {
+                        "text": "15",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Ne raccrochez jamais avant accord des secours",
-                "order": 6,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Couvrir et surveiller la victime",
-                "order": 7,
                 "image": "",
-                "description": ""
+                "elements": []
             }
         ]
     },
     {
         "title": "Réanimation Cardio-pulmonaire",
-        "icon": "reanimation",
-        "content": [
+        "icon": "heart_broken",
+        "image": "",
+        "order": 4,
+        "parts": [
             {
                 "subtitle": "Apprécier la conscience",
-                "order": 1,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Basculer la tête en arrière",
-                "order": 2,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Apprécier la respiration pendant 10 secondes",
-                "order": 3,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Si la respiration est absente, contacter les secours",
-                "order": 4,
                 "image": "",
-                "description": "•   18\n•   112\n•   15"
+                "elements": [
+                    {
+                        "text": "18",
+                        "image": ""
+                    },
+                    {
+                        "text": "112",
+                        "image": ""
+                    },
+                    {
+                        "text": "15",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Ne raccrochez jamais avant accord des secours",
-                "order": 5,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Poser un défibrillateur s'il est visuellement disponible",
-                "order": 6,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Si adulte, effectuer",
-                "order": 7,
                 "image": "",
-                "description": "•   30 compressions\n•   2 insufflations"
+                "elements": [
+                    {
+                        "text": "30 compressions",
+                        "image": ""
+                    },
+                    {
+                        "text": "2 insufflations",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Si enfant ou nourisson, effectuer",
-                "order": 8,
                 "image": "",
-                "description": "•   5 insufflations starters\n•   15 compressions\n•   2 insufflations"
+                "elements": [
+                    {
+                        "text": "5 insufflations starters",
+                        "image": ""
+                    },
+                    {
+                        "text": "15 compressions",
+                        "image": ""
+                    },
+                    {
+                        "text": "2 insufflations",
+                        "image": ""
+                    }
+                ]
             }
         ]
     },
     {
         "title": "Défibrillateur",
-        "icon": "defibrillator",
-        "content": [
+        "icon": "monitor_heart",
+        "image": "",
+        "order": 5,
+        "parts": [
             {
                 "subtitle": "Allumer l'appareil",
-                "order": 1,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Suivre les instructions",
-                "order": 2,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Contacter les secours",
-                "order": 3,
                 "image": "",
-                "description": "•   18\n•   112\n•   15"
+                "elements": [
+                    {
+                        "text": "18",
+                        "image": ""
+                    },
+                    {
+                        "text": "112",
+                        "image": ""
+                    },
+                    {
+                        "text": "15",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Ne raccrochez jamais avant accord des secours",
-                "order": 4,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Laisser l'appareil en place jusqu'à l'arrivée des secours",
-                "order": 5,
                 "image": "",
-                "description": ""
+                "elements": []
             }
         ]
     },
     {
         "title": "Traumatismes",
-        "icon": "trauma",
-        "content": [
+        "icon": "personal_injury",
+        "image": "",
+        "order": 6,
+        "parts": [
             {
                 "subtitle": "Demander à la victime de ne pas bouger",
-                "order": 1,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Contacter les secours",
-                "order": 2,
                 "image": "",
-                "description": "•   18\n•   112\n•   15"
+                "elements": [
+                    {
+                        "text": "18",
+                        "image": ""
+                    },
+                    {
+                        "text": "112",
+                        "image": ""
+                    },
+                    {
+                        "text": "15",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Ne raccrochez jamais avant accord des secours",
-                "order": 3,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Maintenir la tête sans la déplacer si atteinte tête, nuque ou dos",
-                "order": 4,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Couvrir et surveiller la victime",
-                "order": 5,
                 "image": "",
-                "description": ""
+                "elements": []
             }
         ]
     },
     {
         "title": "Brûlure",
-        "icon": "burn",
-        "content": [
+        "icon": "local_fire_department",
+        "image": "",
+        "order": 7,
+        "parts": [
             {
                 "subtitle": "Refroidir avec de l'eau tempérée",
-                "order": 1,
                 "image": "",
-                "description": "•   Jusqu'à disparition de la douleur pour les brûlures simples\n•   Jusqu'à l'arrivée des secours pour les brûlures graves"
+                "elements": [
+                    {
+                        "text": "Jusqu'à disparition de la douleur pour les brûlures simples",
+                        "image": ""
+                    },
+                    {
+                        "text": "Jusqu'à l'arrivée des secours pour les brûlures graves",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Contacter les secours",
-                "order": 2,
                 "image": "",
-                "description": "•   18\n•   112\n•   15"
+                "elements": [
+                    {
+                        "text": "18",
+                        "image": ""
+                    },
+                    {
+                        "text": "112",
+                        "image": ""
+                    },
+                    {
+                        "text": "15",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Ne raccrochez jamais avant accord des secours",
-                "order": 3,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Aucun produit ne doit être appliqué sans avis médical",
-                "order": 4,
                 "image": "",
-                "description": ""
+                "elements": []
             }
         ]
     },
     {
         "title": "Hémorragie",
-        "icon": "bleeding",
-        "content": [
+        "icon": "bloodtype",
+        "image": "",
+        "order": 8,
+        "parts": [
             {
                 "subtitle": "Appuyer à l'endroit qui saigne",
-                "order": 1,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Allonger la victime",
-                "order": 2,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Contacter les secours",
-                "order": 3,
                 "image": "",
-                "description": "•   18\n•   112\n•   15"
+                "elements": [
+                    {
+                        "text": "18",
+                        "image": ""
+                    },
+                    {
+                        "text": "112",
+                        "image": ""
+                    },
+                    {
+                        "text": "15",
+                        "image": ""
+                    }
+                ]
             },
             {
                 "subtitle": "Ne raccrochez jamais avant accord des secours",
-                "order": 4,
                 "image": "",
-                "description": ""
+                "elements": []
             },
             {
                 "subtitle": "Si c'est une plaie grave sans hémoragie, position",
-                "order": 5,
                 "image": "",
-                "description": "•   Plaie thorax => demi-assise\n•   Plaie abdomen => allongée, jambes relevées\n•   Plaie oeil => allongée, tête calée, yeux fermés"
+                "elements": [
+                    {
+                        "text": "Si plaie au thorax, Demi-assise",
+                        "image": ""
+                    },
+                    {
+                        "text": "Si plaie à l'abdomen, Allongée, jambes relevées",
+                        "image": ""
+                    },
+                    {
+                        "text": "Si plaie à l'oeil, Allongée, tête calée, yeux fermés",
+                        "image": ""
+                    }
+                ]
             }
         ]
     }
