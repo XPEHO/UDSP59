@@ -1,28 +1,28 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/tips_card_switcher.dart';
 import 'package:udsp59/features/title_header.dart';
+import 'package:udsp59/state/providers/modules_providers.dart';
 import 'package:udsp59/styles/form_factor.dart';
 import 'package:udsp59/styles/text_style.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePage extends ConsumerWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<Module> modules = [];
-
-  @override
-  Widget build(BuildContext context) {
-    if (ModalRoute.of(context)!.settings.arguments != null) {
-      modules = ModalRoute.of(context)!.settings.arguments as List<Module>;
-    }
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<Module> modules = ref.watch(modulesProvider).when(
+          data: (List<Module> modules) => modules,
+          loading: () => [],
+          error: (error, stack) {
+            debugPrint('Error: $error');
+            return [];
+          },
+        );
 
     return Scaffold(
       body: SafeArea(
