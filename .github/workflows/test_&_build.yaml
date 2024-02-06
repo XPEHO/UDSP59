@@ -15,6 +15,7 @@ jobs:
           channel: 'stable'
       - name: Build apk
         run: |
+          echo "${{ secrets.FIREBASE_OPTIONS }}" | base64 -d > ./lib/firebase_options.dart
           flutter pub get
           dart format --set-exit-if-changed .
           flutter analyze

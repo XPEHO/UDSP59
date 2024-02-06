@@ -43,8 +43,17 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Tests
 /coverage
-
 tests.output
 
 android/key.properties
+
+# Firebase
+/.firebase
+/.firebaserc
+/firebase.json
+lib/firebase_options.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+ios/firebase_app_id_file.json

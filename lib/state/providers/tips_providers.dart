@@ -1,32 +1,39 @@
-import 'dart:convert';
 import 'dart:math';
 
-import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-// Notifiers
+part 'tips_providers.g.dart';
 
-final tipListProvider = FutureProvider<List<String>>(
-  (ref) async {
-    String jsonTips = await rootBundle.loadString("assets/tips.json");
-    List<dynamic> jsonTipsList = await jsonDecode(jsonTips);
-    List<String> tipsList = [];
-    for (var jsonElt in jsonTipsList) {
-      tipsList.add(jsonElt);
+@riverpod
+Future<List<String>> tips(TipsRef ref) async {
+  try {
+    QuerySnapshot querySnapshot =
+        await FirebaseFirestore.instance.collection('tips').get();
+    List<String> tips = [];
+    for (var doc in querySnapshot.docs) {
+      for (var tip in doc['content']) {
+        tips.add(tip);
+      }
     }
-    return tipsList;
-  },
-);
+    return tips;
+  } catch (e) {
+    debugPrint('Error: $e');
+    return [];
+  }
+}
 
-final nextTipProvider = Provider<String>(
-  (ref) {
-    final tips = ref.watch(tipListProvider);
-    return tips.when(
-      data: (tipsList) {
-        return tipsList[Random().nextInt(tipsList.length)];
-      },
-      loading: () => 'loading...',
-      error: (_, __) => 'Error loading tips',
-    );
-  },
-);
+@riverpod
+String randomTip(RandomTipRef ref) {
+  return ref.watch(tipsProvider).when(
+        data: (List<String> tips) {
+          return tips[Random().nextInt(tips.length)];
+        },
+        loading: () => 'Chargement...',
+        error: (error, stack) {
+          debugPrint('Error: $error');
+          return '';
+        },
+      );
+}

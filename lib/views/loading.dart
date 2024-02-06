@@ -1,18 +1,31 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:udsp59/entities/module.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:udsp59/firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class Loading extends StatefulWidget {
+class Loading extends ConsumerStatefulWidget {
   const Loading({super.key});
 
   @override
-  State<Loading> createState() => _LoadingState();
+  ConsumerState<Loading> createState() => _LoadingState();
 }
 
-class _LoadingState extends State<Loading> {
+class _LoadingState extends ConsumerState<Loading> {
   List<Module> modules = [];
   List<String> tips = [];
+
+  // Firebase Initialization
+  Future<void> initializeFirebase() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+
+    await FirebaseAuth.instance.signInAnonymously();
+  }
 
   // Fetch modules from the json file
   Future<void> readFromJson() async {
@@ -33,10 +46,16 @@ class _LoadingState extends State<Loading> {
     Navigator.pushReplacementNamed(context, '/home', arguments: modules);
   }
 
+  // Load data for the app
+  Future<void> loadData() async {
+    await initializeFirebase();
+    await readFromJson();
+  }
+
   @override
   void initState() {
     super.initState();
-    readFromJson();
+    loadData();
   }
 
   @override

@@ -8,14 +8,12 @@ class TipsCardSwitcher extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Get next random tip
-    final nextTip = ref.watch(nextTipProvider);
+    final randomTip = ref.watch(randomTipProvider);
 
     return InkWell(
       onTap: () {
         debugPrint('User want to change the tips');
-        // invalidate to force Riverpod to refresh next random tip
-        ref.invalidate(nextTipProvider);
+        ref.invalidate(randomTipProvider);
       },
       child: Container(
         width: MediaQuery.of(context).size.width * 0.8,
@@ -32,7 +30,7 @@ class TipsCardSwitcher extends ConsumerWidget {
             ),
           ],
         ),
-        child: TipsCard(tips: nextTip),
+        child: TipsCard(tips: randomTip),
       ),
     );
   }
