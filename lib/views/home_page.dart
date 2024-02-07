@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:udsp59/entities/module.dart';
@@ -7,6 +8,7 @@ import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/tips_card_switcher.dart';
 import 'package:udsp59/features/title_header.dart';
 import 'package:udsp59/state/providers/modules_providers.dart';
+import 'package:udsp59/state/providers/tips_providers.dart';
 import 'package:udsp59/state/providers/tips_providers.dart';
 import 'package:udsp59/styles/form_factor.dart';
 import 'package:udsp59/styles/text_style.dart';
@@ -37,7 +39,7 @@ class HomePage extends ConsumerWidget {
           }),
           child: RefreshIndicator(
             onRefresh: () async {
-              return Future.delayed(const Duration(seconds: 1), () {
+              return Future.delayed(const Duration(milliseconds: 300), () {
                 ref.invalidate(tipsProvider);
                 ref.invalidate(modulesProvider);
               });
