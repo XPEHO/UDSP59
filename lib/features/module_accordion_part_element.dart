@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:udsp59/entities/module_part_element.dart';
+import 'package:udsp59/state/providers/storage_providers.dart';
 import 'package:udsp59/styles/text_style.dart';
 
-class ModuleAccordionPartElement extends StatelessWidget {
+class ModuleAccordionPartElement extends ConsumerWidget {
   final ModulePartElement element;
 
   const ModuleAccordionPartElement({
@@ -11,14 +13,28 @@ class ModuleAccordionPartElement extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final imageUrl = ref.watch(imageUrlProvider(element.image));
+
     return Row(
       children: [
-        Text(
-          '· ${element.text}',
-          style: textStyleModuleSubContent(context),
-          textAlign: TextAlign.start,
-        )
+        Expanded(
+          child: Text(
+            '· ${element.text}',
+            style: textStyleModuleSubContent(context),
+            textAlign: TextAlign.start,
+          ),
+        ),
+        if (imageUrl != "")
+          const SizedBox(
+            width: 10,
+          ),
+        if (imageUrl != "")
+          Image.network(
+            imageUrl,
+            fit: BoxFit.contain,
+            width: 80,
+          ),
       ],
     );
   }

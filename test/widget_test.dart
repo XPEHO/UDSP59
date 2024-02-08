@@ -260,15 +260,17 @@ void main() async {
         (WidgetTester tester) async {
       // Find the widget
       await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: ModulesCarouselElement(
-              module: modulesList[0],
+        ProviderScope(
+          child: MaterialApp(
+            home: Scaffold(
+              body: ModulesCarouselElement(
+                module: modulesList[0],
+              ),
             ),
+            routes: {
+              '/module': (context) => const ModulePage(),
+            },
           ),
-          routes: {
-            '/module': (context) => const ModulePage(),
-          },
         ),
       );
 
