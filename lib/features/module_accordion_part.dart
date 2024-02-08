@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:udsp59/entities/module_part.dart';
 import 'package:udsp59/features/module_accordion_part_element.dart';
+import 'package:udsp59/state/providers/storage_providers.dart';
 import 'package:udsp59/styles/text_style.dart';
 
-class ModuleAccordionPart extends StatefulWidget {
+class ModuleAccordionPart extends ConsumerStatefulWidget {
   final ModulePart modulePart;
   final int index;
   final bool isOpen;
@@ -16,10 +18,11 @@ class ModuleAccordionPart extends StatefulWidget {
   });
 
   @override
-  State<ModuleAccordionPart> createState() => _ModuleAccordionPartState();
+  ConsumerState<ModuleAccordionPart> createState() =>
+      _ModuleAccordionPartState();
 }
 
-class _ModuleAccordionPartState extends State<ModuleAccordionPart>
+class _ModuleAccordionPartState extends ConsumerState<ModuleAccordionPart>
     with TickerProviderStateMixin {
   bool isOpen = false;
   late AnimationController _animationController;
@@ -46,6 +49,8 @@ class _ModuleAccordionPartState extends State<ModuleAccordionPart>
 
   @override
   Widget build(BuildContext context) {
+    final imageUrl = ref.watch(imageUrlProvider(widget.modulePart.image));
+
     return InkWell(
       onTap: () {
         setState(() {
@@ -117,11 +122,25 @@ class _ModuleAccordionPartState extends State<ModuleAccordionPart>
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 5),
                     child: Column(
-                      children: widget.modulePart.elements
-                          .map((elt) => ModuleAccordionPartElement(
-                                element: elt,
-                              ))
-                          .toList(),
+                      children: [
+                        if (imageUrl != "")
+                          Image.network(
+                            imageUrl,
+                            fit: BoxFit.contain,
+                            height: 100,
+                          ),
+                        if (imageUrl != "")
+                          const SizedBox(
+                            height: 10,
+                          ),
+                        Column(
+                          children: widget.modulePart.elements
+                              .map((elt) => ModuleAccordionPartElement(
+                                    element: elt,
+                                  ))
+                              .toList(),
+                        ),
+                      ],
                     ),
                   ),
                 ),

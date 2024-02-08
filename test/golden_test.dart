@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/entities/module_part.dart';
@@ -19,11 +20,31 @@ void main() {
     )
       ..addScenario(
         'Closed',
-        const ModuleAccordionPart(
-          modulePart: ModulePart(
-            subtitle: "Title",
-            image: "",
-            elements: [
+        const ProviderScope(
+          child: ModuleAccordionPart(
+            modulePart: ModulePart(
+              subtitle: "Title",
+              image: "",
+              elements: [
+                ModulePartElement(
+                  text: "Subtitle 1",
+                  image: "",
+                ),
+                ModulePartElement(
+                  text: "Subtitle 2",
+                  image: "",
+                ),
+              ],
+            ),
+            index: 0,
+          ),
+        ),
+      )
+      ..addScenario(
+        'Open',
+        const ProviderScope(
+          child: ModuleAccordionPart(
+            modulePart: ModulePart(subtitle: "Title", image: "", elements: [
               ModulePartElement(
                 text: "Subtitle 1",
                 image: "",
@@ -32,26 +53,10 @@ void main() {
                 text: "Subtitle 2",
                 image: "",
               ),
-            ],
+            ]),
+            index: 0,
+            isOpen: true,
           ),
-          index: 0,
-        ),
-      )
-      ..addScenario(
-        'Open',
-        const ModuleAccordionPart(
-          modulePart: ModulePart(subtitle: "Title", image: "", elements: [
-            ModulePartElement(
-              text: "Subtitle 1",
-              image: "",
-            ),
-            ModulePartElement(
-              text: "Subtitle 2",
-              image: "",
-            ),
-          ]),
-          index: 0,
-          isOpen: true,
         ),
       );
     await tester.pumpWidgetBuilder(
