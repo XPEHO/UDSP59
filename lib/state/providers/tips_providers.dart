@@ -28,12 +28,15 @@ Future<List<String>> tips(TipsRef ref) async {
 String randomTip(RandomTipRef ref) {
   return ref.watch(tipsProvider).when(
         data: (List<String> tips) {
+          if (tips.isEmpty) {
+            return 'Aucune astuce pour le moment.';
+          }
           return tips[Random().nextInt(tips.length)];
         },
         loading: () => 'Chargement...',
         error: (error, stack) {
           debugPrint('Error: $error');
-          return '';
+          return 'Problème lors du chargement des astuces.';
         },
       );
 }

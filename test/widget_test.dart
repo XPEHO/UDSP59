@@ -183,9 +183,13 @@ void main() async {
       );
       expect(homeHook, findsOneWidget);
 
-      // Test the presence of the ModuleCarousel
-      var moduleCarousel = find.byType(ModulesCarousel);
-      expect(moduleCarousel, findsOneWidget);
+      // Test the presence of the ModuleCarousel or a Text no module
+      predicate(Widget widget) =>
+          widget is ModulesCarousel ||
+          widget is Text && widget.data == 'Aucun module pour le moment.';
+
+      var matchingWidget = find.byWidgetPredicate(predicate);
+      expect(matchingWidget, findsOneWidget);
 
       // Test the presence of the TipsCardSwitcher
       var tipsCardSwitcher = find.byType(TipsCardSwitcher);

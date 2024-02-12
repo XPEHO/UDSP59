@@ -91,7 +91,13 @@ class HomePage extends ConsumerWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        if (modules != []) ModulesCarousel(modules: modules),
+                        modules.isNotEmpty
+                            ? ModulesCarousel(modules: modules)
+                            : Text(
+                                tr("homeNoModule"),
+                                style: textStyleParagraph(context),
+                                textAlign: TextAlign.center,
+                              ),
                         const SizedBox(
                           height: 30,
                         ),
