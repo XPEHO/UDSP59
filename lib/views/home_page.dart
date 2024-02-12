@@ -59,7 +59,7 @@ class HomePage extends ConsumerWidget {
                         bottom: MediaQuery.of(context).size.width >
                                 FormFactor.tightPhone
                             ? 110
-                            : 130),
+                            : 160),
                     constraints: BoxConstraints(
                       minHeight: MediaQuery.of(context).size.height -
                           MediaQuery.of(context).padding.top,
