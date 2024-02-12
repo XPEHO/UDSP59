@@ -88,8 +88,6 @@ flutter:
   assets:
     - assets/logo.png
     - assets/background.png
-    - assets/modules.json
-    - assets/tips.json
     - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
