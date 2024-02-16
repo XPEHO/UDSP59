@@ -2,10 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/tips_card_switcher.dart';
 import 'package:udsp59/features/title_header.dart';
+import 'package:udsp59/state/providers/local_providers.dart';
 import 'package:udsp59/state/providers/modules_providers.dart';
 import 'package:udsp59/state/providers/tips_providers.dart';
 import 'package:udsp59/styles/form_factor.dart';
@@ -37,7 +39,17 @@ class HomePage extends ConsumerWidget {
           }),
           child: RefreshIndicator(
             onRefresh: () async {
+              // Remove the tips and modules last read date from the cache
+              final SharedPreferences prefs =
+                  await SharedPreferences.getInstance();
+              await prefs.remove('lastTipsRead');
+              await prefs.remove('lastModulesRead');
+              // Make the loading indicator last a bit longer
               return Future.delayed(const Duration(milliseconds: 300), () {
+                // Invalidate the providers to force a refresh
+                ref.invalidate(lastTipsReadProvider);
+                ref.invalidate(lastModulesReadProvider);
+
                 ref.invalidate(tipsProvider);
                 ref.invalidate(modulesProvider);
               });

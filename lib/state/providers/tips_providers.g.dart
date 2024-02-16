@@ -6,7 +6,7 @@ part of 'tips_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$tipsHash() => r'9607455cd39b4b2765df25e4fa990cf9697f1507';
+String _$tipsHash() => r'460d2dfc12d1057536a5c2640f8fda1e42ff3db7';
 
 /// See also [tips].
 @ProviderFor(tips)
@@ -20,7 +20,7 @@ final tipsProvider = AutoDisposeFutureProvider<List<String>>.internal(
 );
 
 typedef TipsRef = AutoDisposeFutureProviderRef<List<String>>;
-String _$randomTipHash() => r'a84b1f01fb3249c37810c5d56269452bc6eecfec';
+String _$randomTipHash() => r'b6a2be6339454fce93018c12c023176bb1c8fe58';
 
 /// See also [randomTip].
 @ProviderFor(randomTip)
