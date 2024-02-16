@@ -12,16 +12,18 @@ class Loading extends ConsumerStatefulWidget {
 }
 
 class _LoadingState extends ConsumerState<Loading> {
-  // Firebase Initialization
+  // Firebase Setup
   Future<void> initializeFirebase() async {
+    // Initialize Firebase
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    // Sign in anonymously
     await FirebaseAuth.instance.signInAnonymously();
 
     // If loaded, go to home page
     if (!context.mounted) return;
-    debugPrint("Data loaded");
+    debugPrint("Firebase initialized and connected.");
     Navigator.pushReplacementNamed(context, '/home');
   }
 
