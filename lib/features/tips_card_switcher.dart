@@ -12,7 +12,6 @@ class TipsCardSwitcher extends ConsumerWidget {
 
     return InkWell(
       onTap: () {
-        debugPrint('User want to change the tips');
         ref.invalidate(randomTipProvider);
       },
       child: Container(
