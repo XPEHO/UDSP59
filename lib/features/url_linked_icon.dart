@@ -5,12 +5,14 @@ class UrlLinkedIcon extends StatelessWidget {
   final IconData icon;
   final String url;
   final double size;
+  final String semanticLabel;
 
   const UrlLinkedIcon({
     super.key,
     this.icon = Icons.language,
     required this.url,
     required this.size,
+    this.semanticLabel = '',
   });
 
   @override
@@ -31,6 +33,7 @@ class UrlLinkedIcon extends StatelessWidget {
         icon,
         size: size,
         color: Theme.of(context).colorScheme.inverseSurface,
+        semanticLabel: semanticLabel,
       ),
     );
   }

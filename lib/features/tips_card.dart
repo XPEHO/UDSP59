@@ -30,6 +30,8 @@ class TipsCard extends StatelessWidget {
           clipBehavior: Clip.none,
           child: Text(
             tips,
+            semanticsLabel:
+                "Astuce : $tips \nPour connaître une autre astuce, cliquez ici",
             textAlign: TextAlign.center,
             style: textStyleTipsCardContent(context),
           ),

@@ -18,7 +18,10 @@ class PageHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           IconButton(
-            icon: const Icon(Icons.navigate_before),
+            icon: const Icon(
+              Icons.navigate_before,
+              semanticLabel: "Retour à la page d'accueil",
+            ),
             color: Theme.of(context).colorScheme.primary,
             iconSize: 40,
             onPressed: () => Navigator.pop(context),

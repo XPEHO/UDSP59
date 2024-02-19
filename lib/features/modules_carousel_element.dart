@@ -16,7 +16,6 @@ class ModulesCarouselElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        debugPrint('User want to acceed page of the module ${module.title}');
         Navigator.pushNamed(context, '/module', arguments: module);
       },
       child: Container(
@@ -43,6 +42,9 @@ class ModulesCarouselElement extends StatelessWidget {
               padding: const EdgeInsets.only(right: 20),
               child: Text(
                 module.title,
+                semanticsLabel: "Consulter le module : ${module.title}",
+                overflow: TextOverflow.ellipsis,
+                maxLines: MediaQuery.of(context).textScaleFactor > 1 ? 1 : 2,
                 style: textStyleModule(context),
               ),
             ),
