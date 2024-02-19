@@ -167,7 +167,7 @@ class HomePage extends ConsumerWidget {
                     ),
                   ),
                   Positioned(
-                    bottom: 10,
+                    bottom: 10 + MediaQuery.of(context).padding.bottom,
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
