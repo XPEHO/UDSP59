@@ -21,8 +21,14 @@ class MixedParagraph extends StatelessWidget {
                 ? ' ${tr(key)}'
                 : tr(key),
             style: key.endsWith('_b') || key.endsWith('_sb')
-                ? textStyleParagraphMore(context)
-                : textStyleParagraph(context),
+                ? textStyleParagraphMore(context).copyWith(
+                    fontSize: textStyleParagraphMore(context).fontSize! *
+                        MediaQuery.of(context).textScaleFactor,
+                  )
+                : textStyleParagraph(context).copyWith(
+                    fontSize: textStyleParagraph(context).fontSize! *
+                        MediaQuery.of(context).textScaleFactor,
+                  ),
           );
         }).toList(),
       ),

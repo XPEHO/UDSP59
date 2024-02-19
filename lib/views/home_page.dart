@@ -69,7 +69,8 @@ class HomePage extends ConsumerWidget {
                     ),
                     padding: EdgeInsets.only(
                         bottom: MediaQuery.of(context).size.width >
-                                FormFactor.tightPhone
+                                    FormFactor.tightPhone &&
+                                MediaQuery.of(context).textScaleFactor <= 1
                             ? 110
                             : 160),
                     constraints: BoxConstraints(
@@ -87,11 +88,18 @@ class HomePage extends ConsumerWidget {
                         RichText(
                           text: TextSpan(
                             text: tr("homeHook"),
-                            style: textStyleSubtitle(context),
+                            style: textStyleSubtitle(context).copyWith(
+                              fontSize: textStyleSubtitle(context).fontSize! *
+                                  MediaQuery.of(context).textScaleFactor,
+                            ),
                             children: [
                               TextSpan(
                                 text: " ${tr("homeHookPlus")}",
-                                style: textStyleSubtitleMore(context),
+                                style: textStyleSubtitleMore(context).copyWith(
+                                  fontSize: textStyleSubtitleMore(context)
+                                          .fontSize! *
+                                      MediaQuery.of(context).textScaleFactor,
+                                ),
                               ),
                               TextSpan(
                                 text: " ${tr("homeHookExclamation")}",
@@ -136,7 +144,8 @@ class HomePage extends ConsumerWidget {
                       children: [
                         Flex(
                           direction: MediaQuery.of(context).size.width >
-                                  FormFactor.tightPhone
+                                      FormFactor.tightPhone &&
+                                  MediaQuery.of(context).textScaleFactor <= 1
                               ? Axis.horizontal
                               : Axis.vertical,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -158,12 +167,15 @@ class HomePage extends ConsumerWidget {
                               },
                               child: Text(
                                 tr("privacyPolicy"),
+                                semanticsLabel:
+                                    "Consulter la politique de confidentialité",
                                 textAlign: TextAlign.center,
                                 style: textStyleFooterLink(context),
                               ),
                             ),
                             if (MediaQuery.of(context).size.width >
-                                FormFactor.tightPhone)
+                                    FormFactor.tightPhone &&
+                                MediaQuery.of(context).textScaleFactor <= 1)
                               Text(
                                 "·",
                                 textAlign: TextAlign.center,
@@ -184,6 +196,8 @@ class HomePage extends ConsumerWidget {
                               },
                               child: Text(
                                 tr("contactUs"),
+                                semanticsLabel:
+                                    "Consulter le site de l'association",
                                 textAlign: TextAlign.center,
                                 style: textStyleFooterLink(context),
                               ),
@@ -208,11 +222,21 @@ class HomePage extends ConsumerWidget {
                               children: [
                                 TextSpan(
                                   text: tr("byXpeho"),
-                                  style: textStyleFooterText(context),
+                                  style: textStyleFooterText(context).copyWith(
+                                    fontSize: textStyleFooterText(context)
+                                            .fontSize! *
+                                        MediaQuery.of(context).textScaleFactor,
+                                  ),
                                 ),
                                 TextSpan(
                                   text: "XPEHO",
-                                  style: textStyleOwner(context),
+                                  semanticsLabel:
+                                      "XPEHO. Consulter le site de XPEHO, les créateurs de l'application",
+                                  style: textStyleOwner(context).copyWith(
+                                    fontSize: textStyleOwner(context)
+                                            .fontSize! *
+                                        MediaQuery.of(context).textScaleFactor,
+                                  ),
                                 ),
                               ],
                             ),

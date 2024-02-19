@@ -15,7 +15,6 @@ class ModulePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final module = ModalRoute.of(context)!.settings.arguments as Module;
     final imageUrl = ref.watch(imageUrlProvider(module.image));
-    debugPrint(module.title);
 
     return Scaffold(
       body: SafeArea(
@@ -30,6 +29,7 @@ class ModulePage extends ConsumerWidget {
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: 250,
+                semanticLabel: "Image illustrant le module : ${module.title}",
               ),
             if (imageUrl != "")
               const SizedBox(

@@ -93,21 +93,28 @@ class AboutPage extends StatelessWidget {
                           url:
                               'https://www.facebook.com/people/UDSP59-Formation/100076222514271/',
                           size: 30,
+                          semanticLabel:
+                              'Consulter la page Facebook de l\'association',
                         ),
                         UrlLinkedIcon(
                           icon: FontAwesomeIcons.instagram,
                           url:
                               'https://www.instagram.com/udsp59formation?igshid=MzRIODBiNWFIZA==',
                           size: 35,
+                          semanticLabel:
+                              'Consulter la page Instagram de l\'association',
                         ),
                         UrlLinkedIcon(
                           icon: FontAwesomeIcons.paperPlane,
                           url: 'mailto:contact@udsp59formation.fr',
                           size: 30,
+                          semanticLabel: 'Contacter l\'association par e-mail',
                         ),
                         UrlLinkedIcon(
                           url: 'https://udsp59formation.fr/',
                           size: 35,
+                          semanticLabel:
+                              'Consulter le site web de l\'association',
                         ),
                       ],
                     )
