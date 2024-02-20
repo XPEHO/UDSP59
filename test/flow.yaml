@@ -1,0 +1,36 @@
+# flow.yaml
+
+appId: com.xpeho.udsp59
+---
+- launchApp
+
+# Home page test
+- assertVisible: "Nom de l'association : UDSP59 Formation"
+- assertVisible: "Vous pouvez AGIR !"
+- assertVisible: "En apprendre plus ?"
+- assertVisible: "Consulter la politique de confidentialité"
+- assertVisible: "Consulter le site de l'association"
+- assertVisible: "Produit par XPEHO. Consulter le site de XPEHO, les créateurs de l'application"
+
+# About page test
+- tapOn: "Aller à la page à propos"
+- assertVisible: "L'association"
+- tapOn: "Retour à la page d'accueil"
+
+# Tips card test
+- tapOn: 
+    below: "En apprendre plus ?"
+
+# Module page test
+- tapOn: "Consulter le module : Citoyen de la Sécurité Civile"
+- assertVisible: "Citoyen de la Sécurité Civile"
+- assertVisible: 
+    text: "Image illustrant le module : Citoyen de la Sécurité Civile"
+    optional: true
+- tapOn: 
+    below: "Que faire ?"
+    optional: true
+- tapOn:
+    below: "Que faire ?"
+    optional: true
+- tapOn: "Retour à la page d'accueil"
