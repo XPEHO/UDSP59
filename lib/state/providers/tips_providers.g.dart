@@ -6,7 +6,7 @@ part of 'tips_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$tipsHash() => r'460d2dfc12d1057536a5c2640f8fda1e42ff3db7';
+String _$tipsHash() => r'a2808ec07aaea4b2a11fc8e008017adc69613d2c';
 
 /// See also [tips].
 @ProviderFor(tips)
