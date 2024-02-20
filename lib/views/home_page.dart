@@ -39,9 +39,37 @@ class HomePage extends ConsumerWidget {
           }),
           child: RefreshIndicator(
             onRefresh: () async {
-              // Remove the tips and modules last read date from the cache
+              // Get the scaffold messenger
+              final scaffoldMessenger = ScaffoldMessenger.of(context);
+              // Get the shared preferences instance to manage the cache
               final SharedPreferences prefs =
                   await SharedPreferences.getInstance();
+
+              // Get the last reload date from the cache
+              final String? lastReload = prefs.getString('lastReload');
+              if (lastReload != null) {
+                // Prevent the user from spamming the refresh button
+                if (DateTime.now()
+                        .toUtc()
+                        .difference(DateTime.parse(lastReload))
+                        .inMinutes <
+                    1) {
+                  // Display a snackbar to inform the user
+                  scaffoldMessenger.showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        "Doucement, y a pas le feu au lac !",
+                        style: TextStyle(color: Color(0xFF99201C)),
+                        textAlign: TextAlign.center,
+                      ),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
+                  return;
+                }
+              }
+
+              // Remove the tips and modules last read date from the cache
               await prefs.remove('lastTipsRead');
               await prefs.remove('lastModulesRead');
               // Make the loading indicator last a bit longer
@@ -52,6 +80,8 @@ class HomePage extends ConsumerWidget {
 
                 ref.invalidate(tipsProvider);
                 ref.invalidate(modulesProvider);
+                prefs.setString(
+                    'lastReload', DateTime.now().toUtc().toString());
               });
             },
             color: Colors.red,

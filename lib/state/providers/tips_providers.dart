@@ -11,18 +11,13 @@ part 'tips_providers.g.dart';
 Future<List<String>> tips(TipsRef ref) async {
   try {
     // Get the last time the tips were read
-    final lastTipsReadPromise = ref.watch(lastTipsReadProvider);
-    final lastTipsRead =
-        lastTipsReadPromise.asData?.value ?? DateTime(0).toUtc().toString();
+    final lastTipsRead = await ref.read(lastTipsReadProvider.future);
 
     // If we don't have a last read date
     if (lastTipsRead == '') {
       // Get the tips from firebase storage
       final firebaseTips = await ref.read(firebaseTipsProvider.future);
       return firebaseTips;
-    } else if (lastTipsRead == DateTime(0).toUtc().toString()) {
-      // If we don't have got the last read date
-      return [];
     } else {
       // If we have a last read date
       DateTime lastRead = DateTime.parse(lastTipsRead);

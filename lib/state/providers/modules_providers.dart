@@ -10,18 +10,13 @@ part 'modules_providers.g.dart';
 Future<List<Module>> modules(ModulesRef ref) async {
   try {
     // Get the last time the modules were read
-    final lastModulesReadPromise = ref.watch(lastModulesReadProvider);
-    final lastModulesRead =
-        lastModulesReadPromise.asData?.value ?? DateTime(0).toUtc().toString();
+    final lastModulesRead = await ref.read(lastModulesReadProvider.future);
 
     // If we don't have a last read date
     if (lastModulesRead == '') {
       // Get the modules from firebase storage
       final firebaseModules = await ref.read(firebaseModulesProvider.future);
       return firebaseModules;
-    } else if (lastModulesRead == DateTime(0).toUtc().toString()) {
-      // If we don't have got the last read date
-      return [];
     } else {
       // If we have a last read date
       DateTime lastRead = DateTime.parse(lastModulesRead);
