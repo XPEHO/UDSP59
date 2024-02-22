@@ -12,31 +12,44 @@ class PageHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          IconButton(
-            icon: const Icon(
-              Icons.navigate_before,
-              semanticLabel: "Retour à la page d'accueil",
-            ),
-            color: Theme.of(context).colorScheme.primary,
-            iconSize: 40,
-            onPressed: () => Navigator.pop(context),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 40),
-              child: Text(
-                tr(pageTitle),
-                style: textStylePageTitle(context),
-                textAlign: TextAlign.center,
-              ),
-            ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.25),
+            spreadRadius: 1,
+            blurRadius: 7,
+            offset: const Offset(2, 2),
           ),
         ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              icon: const Icon(
+                Icons.navigate_before,
+                semanticLabel: "Retour à la page d'accueil",
+              ),
+              color: Theme.of(context).colorScheme.primary,
+              iconSize: 40,
+              onPressed: () => Navigator.pop(context),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 40),
+                child: Text(
+                  tr(pageTitle),
+                  style: textStylePageTitle(context),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
