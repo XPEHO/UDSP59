@@ -23,29 +23,38 @@ class ModulePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             PageHeader(pageTitle: module.title),
-            if (imageUrl != "")
-              Image.network(
-                imageUrl,
-                width: double.infinity,
-                semanticLabel: "Image illustrant le module : ${module.title}",
-              ),
-            if (imageUrl != "")
-              const SizedBox(
-                height: 25,
-              ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                tr('moduleSubtitle'),
-                style: textStyleSubtitle(context),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
             Expanded(
-              child: ModuleAccordion(module: module),
-            ),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (imageUrl != "")
+                      Image.network(
+                        imageUrl,
+                        width: double.infinity,
+                        semanticLabel:
+                            "Image illustrant le module : ${module.title}",
+                      ),
+                    if (imageUrl != "")
+                      const SizedBox(
+                        height: 25,
+                      ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        tr('moduleSubtitle'),
+                        style: textStyleSubtitle(context),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ModuleAccordion(module: module),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),

@@ -18,6 +18,8 @@ class ModuleAccordion extends StatelessWidget {
         itemCount: module.parts.length,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         scrollDirection: Axis.vertical,
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         itemBuilder: (BuildContext context, int index) {
           return ModuleAccordionPart(
             modulePart: module.parts[index],
