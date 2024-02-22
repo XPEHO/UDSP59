@@ -11,6 +11,7 @@ Future<String> image(ImageRef ref, String imagePath) async {
     final url = await firebaseStorage.ref(imagePath).getDownloadURL();
     return url;
   } catch (e) {
+    debugPrint('Error: $e');
     return '';
   }
 }

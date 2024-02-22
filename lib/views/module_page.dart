@@ -26,9 +26,7 @@ class ModulePage extends ConsumerWidget {
             if (imageUrl != "")
               Image.network(
                 imageUrl,
-                fit: BoxFit.cover,
                 width: double.infinity,
-                height: 250,
                 semanticLabel: "Image illustrant le module : ${module.title}",
               ),
             if (imageUrl != "")
