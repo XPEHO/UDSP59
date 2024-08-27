@@ -12,7 +12,7 @@ part of 'module_part.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ModulePart _$ModulePartFromJson(Map<String, dynamic> json) {
   return _ModulePart.fromJson(json);
@@ -24,8 +24,12 @@ mixin _$ModulePart {
   String get image => throw _privateConstructorUsedError;
   List<ModulePartElement> get elements => throw _privateConstructorUsedError;
 
+  /// Serializes this ModulePart to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ModulePart
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModulePartCopyWith<ModulePart> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$ModulePartCopyWithImpl<$Res, $Val extends ModulePart>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModulePart
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$ModulePartImplCopyWithImpl<$Res>
       _$ModulePartImpl _value, $Res Function(_$ModulePartImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModulePart
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -146,7 +154,7 @@ class _$ModulePartImpl implements _ModulePart {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ModulePartImpl &&
@@ -156,12 +164,14 @@ class _$ModulePartImpl implements _ModulePart {
             const DeepCollectionEquality().equals(other._elements, _elements));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, subtitle, image,
       const DeepCollectionEquality().hash(_elements));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModulePart
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModulePartImplCopyWith<_$ModulePartImpl> get copyWith =>
@@ -190,8 +200,11 @@ abstract class _ModulePart implements ModulePart {
   String get image;
   @override
   List<ModulePartElement> get elements;
+
+  /// Create a copy of ModulePart
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModulePartImplCopyWith<_$ModulePartImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

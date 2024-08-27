@@ -12,7 +12,7 @@ jobs:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.13"
+          flutter-version: "3.24.1"
       - name: Run tests with coverage
         run: |
           echo "${{ secrets.FIREBASE_OPTIONS }}" | base64 -d > ./lib/firebase_options.dart

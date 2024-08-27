@@ -44,16 +44,20 @@ void main() {
         'Open',
         const ProviderScope(
           child: ModuleAccordionPart(
-            modulePart: ModulePart(subtitle: "Title", image: "", elements: [
-              ModulePartElement(
-                text: "Subtitle 1",
-                image: "",
-              ),
-              ModulePartElement(
-                text: "Subtitle 2",
-                image: "",
-              ),
-            ]),
+            modulePart: ModulePart(
+              subtitle: "Title",
+              image: "",
+              elements: [
+                ModulePartElement(
+                  text: "Subtitle 1",
+                  image: "",
+                ),
+                ModulePartElement(
+                  text: "Subtitle 2",
+                  image: "",
+                ),
+              ],
+            ),
             index: 0,
             isOpen: true,
           ),
@@ -88,7 +92,7 @@ void main() {
       );
     await tester.pumpWidgetBuilder(
       builder.build(),
-      surfaceSize: const Size(180, 170),
+      surfaceSize: const Size(190, 180),
     );
     await screenMatchesGolden(
       tester,
@@ -128,7 +132,7 @@ void main() {
       );
     await tester.pumpWidgetBuilder(
       builder.build(),
-      surfaceSize: const Size(300, 140),
+      surfaceSize: const Size(300, 150),
     );
     await screenMatchesGolden(
       tester,
@@ -146,10 +150,11 @@ void main() {
         const UrlLinkedIcon(
           url: '',
           size: 30,
-        ));
+        ),
+      );
     await tester.pumpWidgetBuilder(
       builder.build(),
-      surfaceSize: const Size(130, 90),
+      surfaceSize: const Size(130, 100),
     );
     await screenMatchesGolden(
       tester,
@@ -170,7 +175,7 @@ void main() {
       );
     await tester.pumpWidgetBuilder(
       builder.build(),
-      surfaceSize: const Size(160, 125),
+      surfaceSize: const Size(160, 160),
     );
     await screenMatchesGolden(
       tester,

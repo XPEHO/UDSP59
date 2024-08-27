@@ -52,11 +52,12 @@ class TitleHeader extends StatelessWidget {
             TextButton(
               style: ButtonStyle(
                 alignment: Alignment.center,
-                shape: MaterialStateProperty.all(const CircleBorder()),
-                backgroundColor: MaterialStateProperty.all(Colors.transparent),
-                foregroundColor: MaterialStateProperty.all(
-                    Theme.of(context).colorScheme.inverseSurface),
-                elevation: MaterialStateProperty.all(0),
+                shape: WidgetStateProperty.all(const CircleBorder()),
+                backgroundColor: WidgetStateProperty.all(Colors.transparent),
+                foregroundColor: WidgetStateProperty.all(
+                  Theme.of(context).colorScheme.inverseSurface,
+                ),
+                elevation: WidgetStateProperty.all(0),
               ),
               onPressed: () {
                 Navigator.pushNamed(context, '/about');

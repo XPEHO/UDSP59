@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:udsp59/entities/module.dart';
+import 'package:udsp59/extensions/text_scaler_extension.dart';
 import 'package:udsp59/features/modules_carousel.dart';
 import 'package:udsp59/features/tips_card_switcher.dart';
 import 'package:udsp59/features/title_header.dart';
@@ -31,12 +32,14 @@ class HomePage extends ConsumerWidget {
     return Scaffold(
       body: SafeArea(
         child: ScrollConfiguration(
-          behavior: const ScrollBehavior()
-              .copyWith(physics: const BouncingScrollPhysics(), dragDevices: {
-            PointerDeviceKind.touch,
-            PointerDeviceKind.mouse,
-            PointerDeviceKind.trackpad,
-          }),
+          behavior: const ScrollBehavior().copyWith(
+            physics: const BouncingScrollPhysics(),
+            dragDevices: {
+              PointerDeviceKind.touch,
+              PointerDeviceKind.mouse,
+              PointerDeviceKind.trackpad,
+            },
+          ),
           child: RefreshIndicator(
             onRefresh: () async {
               // Get the scaffold messenger
@@ -81,7 +84,9 @@ class HomePage extends ConsumerWidget {
                 ref.invalidate(tipsProvider);
                 ref.invalidate(modulesProvider);
                 prefs.setString(
-                    'lastReload', DateTime.now().toUtc().toString());
+                  'lastReload',
+                  DateTime.now().toUtc().toString(),
+                );
               });
             },
             color: Colors.red,
@@ -98,11 +103,12 @@ class HomePage extends ConsumerWidget {
                       ),
                     ),
                     padding: EdgeInsets.only(
-                        bottom: MediaQuery.of(context).size.width >
-                                    FormFactor.tightPhone &&
-                                MediaQuery.of(context).textScaleFactor <= 1
-                            ? 110
-                            : 160),
+                      bottom: MediaQuery.of(context).size.width >
+                                  FormFactor.tightPhone &&
+                              MediaQuery.textScalerOf(context).proxyFactor <= 1
+                          ? 110
+                          : 160,
+                    ),
                     constraints: BoxConstraints(
                       minHeight: MediaQuery.of(context).size.height -
                           MediaQuery.of(context).padding.top,
@@ -119,16 +125,17 @@ class HomePage extends ConsumerWidget {
                           text: TextSpan(
                             text: tr("homeHook"),
                             style: textStyleSubtitle(context).copyWith(
-                              fontSize: textStyleSubtitle(context).fontSize! *
-                                  MediaQuery.of(context).textScaleFactor,
+                              fontSize: MediaQuery.textScalerOf(context)
+                                  .scale(textStyleSubtitle(context).fontSize!),
                             ),
                             children: [
                               TextSpan(
                                 text: " ${tr("homeHookPlus")}",
                                 style: textStyleSubtitleMore(context).copyWith(
-                                  fontSize: textStyleSubtitleMore(context)
-                                          .fontSize! *
-                                      MediaQuery.of(context).textScaleFactor,
+                                  fontSize:
+                                      MediaQuery.textScalerOf(context).scale(
+                                    textStyleSubtitleMore(context).fontSize!,
+                                  ),
                                 ),
                               ),
                               TextSpan(
@@ -175,7 +182,9 @@ class HomePage extends ConsumerWidget {
                         Flex(
                           direction: MediaQuery.of(context).size.width >
                                       FormFactor.tightPhone &&
-                                  MediaQuery.of(context).textScaleFactor <= 1
+                                  MediaQuery.textScalerOf(context)
+                                          .proxyFactor <=
+                                      1
                               ? Axis.horizontal
                               : Axis.vertical,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -205,7 +214,8 @@ class HomePage extends ConsumerWidget {
                             ),
                             if (MediaQuery.of(context).size.width >
                                     FormFactor.tightPhone &&
-                                MediaQuery.of(context).textScaleFactor <= 1)
+                                MediaQuery.textScalerOf(context).proxyFactor <=
+                                    1)
                               Text(
                                 "·",
                                 textAlign: TextAlign.center,
@@ -253,9 +263,10 @@ class HomePage extends ConsumerWidget {
                                 TextSpan(
                                   text: tr("byXpeho"),
                                   style: textStyleFooterText(context).copyWith(
-                                    fontSize: textStyleFooterText(context)
-                                            .fontSize! *
-                                        MediaQuery.of(context).textScaleFactor,
+                                    fontSize:
+                                        MediaQuery.textScalerOf(context).scale(
+                                      textStyleFooterText(context).fontSize!,
+                                    ),
                                   ),
                                 ),
                                 TextSpan(
@@ -263,9 +274,10 @@ class HomePage extends ConsumerWidget {
                                   semanticsLabel:
                                       "XPEHO. Consulter le site de XPEHO, les créateurs de l'application",
                                   style: textStyleOwner(context).copyWith(
-                                    fontSize: textStyleOwner(context)
-                                            .fontSize! *
-                                        MediaQuery.of(context).textScaleFactor,
+                                    fontSize:
+                                        MediaQuery.textScalerOf(context).scale(
+                                      textStyleOwner(context).fontSize!,
+                                    ),
                                   ),
                                 ),
                               ],

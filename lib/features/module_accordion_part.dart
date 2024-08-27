@@ -96,8 +96,10 @@ class _ModuleAccordionPartState extends ConsumerState<ModuleAccordionPart>
                   ),
                 ),
                 Expanded(
-                  child: Text(widget.modulePart.subtitle,
-                      style: textStyleModuleContent(context)),
+                  child: Text(
+                    widget.modulePart.subtitle,
+                    style: textStyleModuleContent(context),
+                  ),
                 ),
                 if (widget.modulePart.elements.isNotEmpty ||
                     widget.modulePart.image != "")
@@ -135,9 +137,11 @@ class _ModuleAccordionPartState extends ConsumerState<ModuleAccordionPart>
                           ),
                         Column(
                           children: widget.modulePart.elements
-                              .map((elt) => ModuleAccordionPartElement(
-                                    element: elt,
-                                  ))
+                              .map(
+                                (elt) => ModuleAccordionPartElement(
+                                  element: elt,
+                                ),
+                              )
                               .toList(),
                         ),
                       ],

@@ -12,7 +12,7 @@ part of 'module_part_element.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ModulePartElement _$ModulePartElementFromJson(Map<String, dynamic> json) {
   return _ModulePartElement.fromJson(json);
@@ -23,8 +23,12 @@ mixin _$ModulePartElement {
   String get text => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
 
+  /// Serializes this ModulePartElement to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ModulePartElement
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ModulePartElementCopyWith<ModulePartElement> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$ModulePartElementCopyWithImpl<$Res, $Val extends ModulePartElement>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ModulePartElement
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$ModulePartElementImplCopyWithImpl<$Res>
       $Res Function(_$ModulePartElementImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ModulePartElement
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -124,7 +132,7 @@ class _$ModulePartElementImpl implements _ModulePartElement {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ModulePartElementImpl &&
@@ -132,11 +140,13 @@ class _$ModulePartElementImpl implements _ModulePartElement {
             (identical(other.image, image) || other.image == image));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, text, image);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ModulePartElement
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ModulePartElementImplCopyWith<_$ModulePartElementImpl> get copyWith =>
@@ -163,8 +173,11 @@ abstract class _ModulePartElement implements ModulePartElement {
   String get text;
   @override
   String get image;
+
+  /// Create a copy of ModulePartElement
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ModulePartElementImplCopyWith<_$ModulePartElementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -19,7 +19,7 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
         Device.tabletLandscape,
       ],
       enableRealShadows: true,
-      skipGoldenAssertion: () => !Platform.isWindows,
+      skipGoldenAssertion: () => !Platform.isMacOS,
     ),
   );
 }
