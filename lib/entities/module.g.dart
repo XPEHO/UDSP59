@@ -10,7 +10,7 @@ _$ModuleImpl _$$ModuleImplFromJson(Map<String, dynamic> json) => _$ModuleImpl(
       title: json['title'] as String,
       icon: json['icon'] as String,
       image: json['image'] as String,
-      order: json['order'] as int,
+      order: (json['order'] as num).toInt(),
       parts: (json['parts'] as List<dynamic>)
           .map((e) => ModulePart.fromJson(e as Map<String, dynamic>))
           .toList(),

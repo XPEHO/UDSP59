@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udsp59/entities/module.dart';
+import 'package:udsp59/extensions/text_scaler_extension.dart';
 import 'package:udsp59/styles/text_style.dart';
 import 'package:material_icons_named/material_icons_named.dart';
 
@@ -44,7 +45,8 @@ class ModulesCarouselElement extends StatelessWidget {
                 module.title,
                 semanticsLabel: "Consulter le module : ${module.title}",
                 overflow: TextOverflow.ellipsis,
-                maxLines: MediaQuery.of(context).textScaleFactor > 1 ? 1 : 2,
+                maxLines:
+                    MediaQuery.textScalerOf(context).proxyFactor > 1 ? 1 : 2,
                 style: textStyleModule(context),
               ),
             ),

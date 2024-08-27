@@ -24,6 +24,7 @@ class _LoadingState extends ConsumerState<Loading> {
     // If loaded, go to home page
     if (!context.mounted) return;
     debugPrint("Firebase initialized and connected.");
+    // ignore: use_build_context_synchronously
     Navigator.pushReplacementNamed(context, '/home');
   }
 
@@ -43,7 +44,8 @@ class _LoadingState extends ConsumerState<Loading> {
           width: 70,
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(
-                Theme.of(context).colorScheme.secondary),
+              Theme.of(context).colorScheme.secondary,
+            ),
           ),
         ),
       ),

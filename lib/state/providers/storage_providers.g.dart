@@ -6,7 +6,7 @@ part of 'storage_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$imageHash() => r'582cf39985049a0adaf35d82081c9129f92f818a';
+String _$imageHash() => r'8dd956903dc9dadab615409ed3a930b0842a10c3';
 
 /// Copied from Dart SDK
 class _SystemHash {
