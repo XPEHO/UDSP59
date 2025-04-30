@@ -64,7 +64,7 @@ dev_dependencies:
   json_serializable: ^6.7.1
   flutter_launcher_icons: ^0.13.1
   custom_lint: ^0.6.0
-  riverpod_lint: ^2.3.9
+  riverpod_lint: ^2.6.1
   riverpod_generator: ^2.3.10
 
 flutter_launcher_icons:
