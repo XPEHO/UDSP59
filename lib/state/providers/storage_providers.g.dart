@@ -6,7 +6,7 @@ part of 'storage_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$imageHash() => r'8dd956903dc9dadab615409ed3a930b0842a10c3';
+String _$imageHash() => r'34e84568addb450549c07600c773a475f0e4e7f6';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -141,6 +141,8 @@ class ImageProvider extends AutoDisposeFutureProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ImageRef on AutoDisposeFutureProviderRef<String> {
   /// The parameter `imagePath` of this provider.
   String get imagePath;
@@ -154,7 +156,7 @@ class _ImageProviderElement extends AutoDisposeFutureProviderElement<String>
   String get imagePath => (origin as ImageProvider).imagePath;
 }
 
-String _$imageUrlHash() => r'6a289ab133804944da6d9d3c9ecd3fd2eb9c9904';
+String _$imageUrlHash() => r'01c1a2a0487553be302ac5b77d61c92662898a37';
 
 /// See also [imageUrl].
 @ProviderFor(imageUrl)
@@ -268,6 +270,8 @@ class ImageUrlProvider extends AutoDisposeProvider<String> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin ImageUrlRef on AutoDisposeProviderRef<String> {
   /// The parameter `imagePath` of this provider.
   String get imagePath;
@@ -281,4 +285,4 @@ class _ImageUrlProviderElement extends AutoDisposeProviderElement<String>
   String get imagePath => (origin as ImageUrlProvider).imagePath;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

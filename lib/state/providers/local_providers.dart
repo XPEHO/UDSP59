@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:udsp59/entities/module.dart';
@@ -8,7 +9,7 @@ import 'package:udsp59/entities/module.dart';
 part 'local_providers.g.dart';
 
 @riverpod
-Future<List<Module>> localModules(LocalModulesRef ref) async {
+Future<List<Module>> localModules(Ref ref) async {
   try {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final List<String>? localModules = prefs.getStringList('modules');
@@ -27,7 +28,7 @@ Future<List<Module>> localModules(LocalModulesRef ref) async {
 }
 
 @riverpod
-Future<List<String>> localTips(LocalTipsRef ref) async {
+Future<List<String>> localTips(Ref ref) async {
   try {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final List<String>? localTips = prefs.getStringList('tips');
@@ -39,7 +40,7 @@ Future<List<String>> localTips(LocalTipsRef ref) async {
 }
 
 @riverpod
-Future<String> lastModulesRead(LastModulesReadRef ref) async {
+Future<String> lastModulesRead(Ref ref) async {
   try {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? lastModulesRead = prefs.getString('lastModulesRead');
@@ -51,7 +52,7 @@ Future<String> lastModulesRead(LastModulesReadRef ref) async {
 }
 
 @riverpod
-Future<String> lastTipsRead(LastTipsReadRef ref) async {
+Future<String> lastTipsRead(Ref ref) async {
   try {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? lastTipsRead = prefs.getString('lastTipsRead');

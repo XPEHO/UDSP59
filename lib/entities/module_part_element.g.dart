@@ -6,15 +6,13 @@ part of 'module_part_element.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModulePartElementImpl _$$ModulePartElementImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ModulePartElementImpl(
+_ModulePartElement _$ModulePartElementFromJson(Map<String, dynamic> json) =>
+    _ModulePartElement(
       text: json['text'] as String,
       image: json['image'] as String,
     );
 
-Map<String, dynamic> _$$ModulePartElementImplToJson(
-        _$ModulePartElementImpl instance) =>
+Map<String, dynamic> _$ModulePartElementToJson(_ModulePartElement instance) =>
     <String, dynamic>{
       'text': instance.text,
       'image': instance.image,

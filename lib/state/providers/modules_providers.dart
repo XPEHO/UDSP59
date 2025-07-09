@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/state/providers/firebase_providers.dart';
@@ -7,7 +8,7 @@ import 'package:udsp59/state/providers/local_providers.dart';
 part 'modules_providers.g.dart';
 
 @riverpod
-Future<List<Module>> modules(ModulesRef ref) async {
+Future<List<Module>> modules(Ref ref) async {
   try {
     // Get the last time the modules were read
     final lastModulesRead = await ref.read(lastModulesReadProvider.future);

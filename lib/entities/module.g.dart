@@ -6,7 +6,7 @@ part of 'module.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModuleImpl _$$ModuleImplFromJson(Map<String, dynamic> json) => _$ModuleImpl(
+_Module _$ModuleFromJson(Map<String, dynamic> json) => _Module(
       title: json['title'] as String,
       icon: json['icon'] as String,
       image: json['image'] as String,
@@ -16,8 +16,7 @@ _$ModuleImpl _$$ModuleImplFromJson(Map<String, dynamic> json) => _$ModuleImpl(
           .toList(),
     );
 
-Map<String, dynamic> _$$ModuleImplToJson(_$ModuleImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ModuleToJson(_Module instance) => <String, dynamic>{
       'title': instance.title,
       'icon': instance.icon,
       'image': instance.image,

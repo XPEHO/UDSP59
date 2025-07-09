@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:udsp59/state/providers/firebase_providers.dart';
 import 'package:udsp59/state/providers/local_providers.dart';
@@ -8,7 +9,7 @@ import 'package:udsp59/state/providers/local_providers.dart';
 part 'tips_providers.g.dart';
 
 @riverpod
-Future<List<String>> tips(TipsRef ref) async {
+Future<List<String>> tips(Ref ref) async {
   try {
     // Get the last time the tips were read
     final lastTipsRead = await ref.read(lastTipsReadProvider.future);
@@ -39,7 +40,7 @@ Future<List<String>> tips(TipsRef ref) async {
 }
 
 @riverpod
-String randomTip(RandomTipRef ref) {
+String randomTip(Ref ref) {
   return ref.watch(tipsProvider).when(
         data: (List<String> tips) {
           if (tips.isEmpty) {

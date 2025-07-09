@@ -5,7 +5,7 @@ part 'module_part.freezed.dart';
 part 'module_part.g.dart';
 
 @freezed
-class ModulePart with _$ModulePart {
+abstract class ModulePart with _$ModulePart {
   const factory ModulePart({
     required String subtitle,
     required String image,
