@@ -9,7 +9,7 @@ import 'package:udsp59/state/providers/storage_providers.dart';
 import 'package:udsp59/styles/text_style.dart';
 
 class ModulePage extends ConsumerWidget {
-  const ModulePage({Key? key}) : super(key: key);
+  const ModulePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

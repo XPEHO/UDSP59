@@ -17,7 +17,7 @@ class PageHeader extends StatelessWidget {
         color: Theme.of(context).scaffoldBackgroundColor,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.25),
+            color: Colors.black.withValues(alpha: 0.25),
             spreadRadius: 1,
             blurRadius: 7,
             offset: const Offset(2, 2),

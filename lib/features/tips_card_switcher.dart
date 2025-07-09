@@ -4,7 +4,7 @@ import 'package:udsp59/features/tips_card.dart';
 import 'package:udsp59/state/providers/tips_providers.dart';
 
 class TipsCardSwitcher extends ConsumerWidget {
-  const TipsCardSwitcher({Key? key}) : super(key: key);
+  const TipsCardSwitcher({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,7 +22,7 @@ class TipsCardSwitcher extends ConsumerWidget {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.25),
+              color: Colors.black.withValues(alpha: 0.25),
               spreadRadius: 1,
               blurRadius: 7,
               offset: const Offset(2, 2),

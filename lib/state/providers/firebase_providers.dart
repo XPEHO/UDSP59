@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:udsp59/entities/module.dart';
@@ -9,7 +10,7 @@ import 'package:udsp59/entities/module.dart';
 part 'firebase_providers.g.dart';
 
 @riverpod
-Future<List<Module>> firebaseModules(FirebaseModulesRef ref) async {
+Future<List<Module>> firebaseModules(Ref ref) async {
   try {
     // Get the modules from Firestore
     QuerySnapshot querySnapshot =
@@ -40,7 +41,7 @@ Future<List<Module>> firebaseModules(FirebaseModulesRef ref) async {
 }
 
 @riverpod
-Future<List<String>> firebaseTips(FirebaseTipsRef ref) async {
+Future<List<String>> firebaseTips(Ref ref) async {
   try {
     // Get the tips from Firestore
     QuerySnapshot querySnapshot =

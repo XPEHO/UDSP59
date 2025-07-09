@@ -6,8 +6,7 @@ part of 'module_part.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModulePartImpl _$$ModulePartImplFromJson(Map<String, dynamic> json) =>
-    _$ModulePartImpl(
+_ModulePart _$ModulePartFromJson(Map<String, dynamic> json) => _ModulePart(
       subtitle: json['subtitle'] as String,
       image: json['image'] as String,
       elements: (json['elements'] as List<dynamic>)
@@ -15,7 +14,7 @@ _$ModulePartImpl _$$ModulePartImplFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$ModulePartImplToJson(_$ModulePartImpl instance) =>
+Map<String, dynamic> _$ModulePartToJson(_ModulePart instance) =>
     <String, dynamic>{
       'subtitle': instance.subtitle,
       'image': instance.image,
