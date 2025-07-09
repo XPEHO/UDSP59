@@ -3,7 +3,7 @@ name: Git checks
 jobs:
   check-branch-name:
     name: Check branch name
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Check branch name respects naming conventions
@@ -31,7 +31,7 @@ jobs:
           fi
   check-commit-name:
     name: Check commit(s)
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Check commit name
@@ -70,7 +70,7 @@ jobs:
           fi
   up-to-date:
     name: Check branch up to date
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Check up to date
