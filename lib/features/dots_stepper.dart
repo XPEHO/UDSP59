@@ -96,28 +96,38 @@ class _DotsStepperState extends State<DotsStepper> {
           ),
         ...List.generate(widget.stepCount, (index) {
           int difference = (_currentStep - index).abs();
+          // Determine dot size based on position relative to current step
           double size = switch (index) {
+            // Dots before the current step (within confidence range)
             _
                 when index >= _currentStep - widget.confidence &&
                     index < _currentStep =>
               widget.dotSize - (difference * 2.0),
+            // Dots after the current step (within confidence range)
             _
                 when index <= _currentStep + widget.confidence &&
                     index > _currentStep =>
               widget.dotSize - (difference * 2.0),
+            // Current active dot - full size
             _ when index == _currentStep => widget.dotSize,
+            // All other dots - smallest size
             _ => widget.dotSize - (widget.confidence * 2.0),
           };
+          // Determine dot color based on position relative to current step
           Color color = switch (index) {
+            // Dots before the current step (within confidence range) - intermediate color
             _
                 when index >= _currentStep - widget.confidence &&
                     index < _currentStep =>
               widget.intermediateColor,
+            // Dots after the current step (within confidence range) - intermediate color
             _
                 when index <= _currentStep + widget.confidence &&
                     index > _currentStep =>
               widget.intermediateColor,
+            // Current active dot - active color
             _ when index == _currentStep => widget.activeColor,
+            // All other dots - default color
             _ => widget.color,
           };
           return Dot(size: size, color: color);
