@@ -43,7 +43,7 @@ dependencies:
   golden_toolkit: ^0.15.0
   golden_delicious: ^1.0.0
   material_icons_named: ^3.16.0
-  firebase_core: ^3.15.1
+  firebase_core: ^3.15.2
   firebase_storage: ^12.4.9
   firebase_database: ^11.3.9
   cloud_firestore: ^5.6.11
