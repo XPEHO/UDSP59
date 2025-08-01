@@ -37,7 +37,7 @@ dependencies:
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   font_awesome_flutter: ^10.8.0
-  url_launcher: ^6.3.1
+  url_launcher: ^6.3.2
   shared_preferences: ^2.5.3
   flutter_riverpod: ^2.6.1
   golden_toolkit: ^0.15.0
