@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:udsp59/entities/module.dart';
 import 'package:udsp59/state/providers/firebase_providers.dart';

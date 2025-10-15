@@ -6,37 +6,85 @@ part of 'tips_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(tips)
+const tipsProvider = TipsProvider._();
+
+final class TipsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<String>>,
+          List<String>,
+          FutureOr<List<String>>
+        >
+    with $FutureModifier<List<String>>, $FutureProvider<List<String>> {
+  const TipsProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'tipsProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$tipsHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<String>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<String>> create(Ref ref) {
+    return tips(ref);
+  }
+}
+
 String _$tipsHash() => r'2fd2e07a5d46984e059c3a8773f21e3f1c3e3f73';
 
-/// See also [tips].
-@ProviderFor(tips)
-final tipsProvider = AutoDisposeFutureProvider<List<String>>.internal(
-  tips,
-  name: r'tipsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$tipsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef TipsRef = AutoDisposeFutureProviderRef<List<String>>;
-String _$randomTipHash() => r'074b0c4bcb56af4136201cba96a61f2ee0397e9b';
-
-/// See also [randomTip].
 @ProviderFor(randomTip)
-final randomTipProvider = AutoDisposeProvider<String>.internal(
-  randomTip,
-  name: r'randomTipProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$randomTipHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const randomTipProvider = RandomTipProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef RandomTipRef = AutoDisposeProviderRef<String>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class RandomTipProvider
+    extends $FunctionalProvider<String, String, String>
+    with $Provider<String> {
+  const RandomTipProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'randomTipProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$randomTipHash();
+
+  @$internal
+  @override
+  $ProviderElement<String> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  String create(Ref ref) {
+    return randomTip(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(String value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<String>(value),
+    );
+  }
+}
+
+String _$randomTipHash() => r'074b0c4bcb56af4136201cba96a61f2ee0397e9b';

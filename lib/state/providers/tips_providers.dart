@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:udsp59/state/providers/firebase_providers.dart';
 import 'package:udsp59/state/providers/local_providers.dart';
@@ -41,7 +40,9 @@ Future<List<String>> tips(Ref ref) async {
 
 @riverpod
 String randomTip(Ref ref) {
-  return ref.watch(tipsProvider).when(
+  return ref
+      .watch(tipsProvider)
+      .when(
         data: (List<String> tips) {
           if (tips.isEmpty) {
             return 'Aucune astuce pour le moment.';

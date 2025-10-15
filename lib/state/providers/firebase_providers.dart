@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:udsp59/entities/module.dart';
@@ -13,8 +12,9 @@ part 'firebase_providers.g.dart';
 Future<List<Module>> firebaseModules(Ref ref) async {
   try {
     // Get the modules from Firestore
-    QuerySnapshot querySnapshot =
-        await FirebaseFirestore.instance.collection('modules').get();
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('modules')
+        .get();
     List<Module> modules = [];
     for (var doc in querySnapshot.docs) {
       modules.add(Module.fromJson(doc.data() as Map<String, dynamic>));
@@ -44,8 +44,9 @@ Future<List<Module>> firebaseModules(Ref ref) async {
 Future<List<String>> firebaseTips(Ref ref) async {
   try {
     // Get the tips from Firestore
-    QuerySnapshot querySnapshot =
-        await FirebaseFirestore.instance.collection('tips').get();
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('tips')
+        .get();
     List<String> tips = [];
     for (var doc in querySnapshot.docs) {
       for (var tip in doc['content']) {

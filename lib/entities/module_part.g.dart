@@ -7,12 +7,12 @@ part of 'module_part.dart';
 // **************************************************************************
 
 _ModulePart _$ModulePartFromJson(Map<String, dynamic> json) => _ModulePart(
-      subtitle: json['subtitle'] as String,
-      image: json['image'] as String,
-      elements: (json['elements'] as List<dynamic>)
-          .map((e) => ModulePartElement.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+  subtitle: json['subtitle'] as String,
+  image: json['image'] as String,
+  elements: (json['elements'] as List<dynamic>)
+      .map((e) => ModulePartElement.fromJson(e as Map<String, dynamic>))
+      .toList(),
+);
 
 Map<String, dynamic> _$ModulePartToJson(_ModulePart instance) =>
     <String, dynamic>{
