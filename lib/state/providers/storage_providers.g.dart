@@ -6,283 +6,150 @@ part of 'storage_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$imageHash() => r'34e84568addb450549c07600c773a475f0e4e7f6';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [image].
 @ProviderFor(image)
-const imageProvider = ImageFamily();
+const imageProvider = ImageFamily._();
 
-/// See also [image].
-class ImageFamily extends Family<AsyncValue<String>> {
-  /// See also [image].
-  const ImageFamily();
+final class ImageProvider
+    extends $FunctionalProvider<AsyncValue<String>, String, FutureOr<String>>
+    with $FutureModifier<String>, $FutureProvider<String> {
+  const ImageProvider._({
+    required ImageFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'imageProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
 
-  /// See also [image].
-  ImageProvider call(
-    String imagePath,
-  ) {
-    return ImageProvider(
-      imagePath,
-    );
+  @override
+  String debugGetCreateSourceHash() => _$imageHash();
+
+  @override
+  String toString() {
+    return r'imageProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  ImageProvider getProviderOverride(
-    covariant ImageProvider provider,
-  ) {
-    return call(
-      provider.imagePath,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
+  $FutureProviderElement<String> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
 
   @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'imageProvider';
-}
-
-/// See also [image].
-class ImageProvider extends AutoDisposeFutureProvider<String> {
-  /// See also [image].
-  ImageProvider(
-    String imagePath,
-  ) : this._internal(
-          (ref) => image(
-            ref as ImageRef,
-            imagePath,
-          ),
-          from: imageProvider,
-          name: r'imageProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$imageHash,
-          dependencies: ImageFamily._dependencies,
-          allTransitiveDependencies: ImageFamily._allTransitiveDependencies,
-          imagePath: imagePath,
-        );
-
-  ImageProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.imagePath,
-  }) : super.internal();
-
-  final String imagePath;
-
-  @override
-  Override overrideWith(
-    FutureOr<String> Function(ImageRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: ImageProvider._internal(
-        (ref) => create(ref as ImageRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        imagePath: imagePath,
-      ),
-    );
-  }
-
-  @override
-  AutoDisposeFutureProviderElement<String> createElement() {
-    return _ImageProviderElement(this);
+  FutureOr<String> create(Ref ref) {
+    final argument = this.argument as String;
+    return image(ref, argument);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is ImageProvider && other.imagePath == imagePath;
+    return other is ImageProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, imagePath.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin ImageRef on AutoDisposeFutureProviderRef<String> {
-  /// The parameter `imagePath` of this provider.
-  String get imagePath;
-}
+String _$imageHash() => r'34e84568addb450549c07600c773a475f0e4e7f6';
 
-class _ImageProviderElement extends AutoDisposeFutureProviderElement<String>
-    with ImageRef {
-  _ImageProviderElement(super.provider);
+final class ImageFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<String>, String> {
+  const ImageFamily._()
+    : super(
+        retry: null,
+        name: r'imageProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  ImageProvider call(String imagePath) =>
+      ImageProvider._(argument: imagePath, from: this);
 
   @override
-  String get imagePath => (origin as ImageProvider).imagePath;
+  String toString() => r'imageProvider';
+}
+
+@ProviderFor(imageUrl)
+const imageUrlProvider = ImageUrlFamily._();
+
+final class ImageUrlProvider extends $FunctionalProvider<String, String, String>
+    with $Provider<String> {
+  const ImageUrlProvider._({
+    required ImageUrlFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'imageUrlProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$imageUrlHash();
+
+  @override
+  String toString() {
+    return r'imageUrlProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<String> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  String create(Ref ref) {
+    final argument = this.argument as String;
+    return imageUrl(ref, argument);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(String value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<String>(value),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ImageUrlProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
 }
 
 String _$imageUrlHash() => r'01c1a2a0487553be302ac5b77d61c92662898a37';
 
-/// See also [imageUrl].
-@ProviderFor(imageUrl)
-const imageUrlProvider = ImageUrlFamily();
-
-/// See also [imageUrl].
-class ImageUrlFamily extends Family<String> {
-  /// See also [imageUrl].
-  const ImageUrlFamily();
-
-  /// See also [imageUrl].
-  ImageUrlProvider call(
-    String imagePath,
-  ) {
-    return ImageUrlProvider(
-      imagePath,
-    );
-  }
-
-  @override
-  ImageUrlProvider getProviderOverride(
-    covariant ImageUrlProvider provider,
-  ) {
-    return call(
-      provider.imagePath,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'imageUrlProvider';
-}
-
-/// See also [imageUrl].
-class ImageUrlProvider extends AutoDisposeProvider<String> {
-  /// See also [imageUrl].
-  ImageUrlProvider(
-    String imagePath,
-  ) : this._internal(
-          (ref) => imageUrl(
-            ref as ImageUrlRef,
-            imagePath,
-          ),
-          from: imageUrlProvider,
-          name: r'imageUrlProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$imageUrlHash,
-          dependencies: ImageUrlFamily._dependencies,
-          allTransitiveDependencies: ImageUrlFamily._allTransitiveDependencies,
-          imagePath: imagePath,
-        );
-
-  ImageUrlProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.imagePath,
-  }) : super.internal();
-
-  final String imagePath;
-
-  @override
-  Override overrideWith(
-    String Function(ImageUrlRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: ImageUrlProvider._internal(
-        (ref) => create(ref as ImageUrlRef),
-        from: from,
-        name: null,
+final class ImageUrlFamily extends $Family
+    with $FunctionalFamilyOverride<String, String> {
+  const ImageUrlFamily._()
+    : super(
+        retry: null,
+        name: r'imageUrlProvider',
         dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        imagePath: imagePath,
-      ),
-    );
-  }
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  ImageUrlProvider call(String imagePath) =>
+      ImageUrlProvider._(argument: imagePath, from: this);
 
   @override
-  AutoDisposeProviderElement<String> createElement() {
-    return _ImageUrlProviderElement(this);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is ImageUrlProvider && other.imagePath == imagePath;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, imagePath.hashCode);
-
-    return _SystemHash.finish(hash);
-  }
+  String toString() => r'imageUrlProvider';
 }
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin ImageUrlRef on AutoDisposeProviderRef<String> {
-  /// The parameter `imagePath` of this provider.
-  String get imagePath;
-}
-
-class _ImageUrlProviderElement extends AutoDisposeProviderElement<String>
-    with ImageUrlRef {
-  _ImageUrlProviderElement(super.provider);
-
-  @override
-  String get imagePath => (origin as ImageUrlProvider).imagePath;
-}
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

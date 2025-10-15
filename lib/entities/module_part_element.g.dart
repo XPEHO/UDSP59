@@ -13,7 +13,4 @@ _ModulePartElement _$ModulePartElementFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ModulePartElementToJson(_ModulePartElement instance) =>
-    <String, dynamic>{
-      'text': instance.text,
-      'image': instance.image,
-    };
+    <String, dynamic>{'text': instance.text, 'image': instance.image};

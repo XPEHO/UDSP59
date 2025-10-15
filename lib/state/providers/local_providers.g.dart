@@ -6,70 +6,149 @@ part of 'local_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(localModules)
+const localModulesProvider = LocalModulesProvider._();
+
+final class LocalModulesProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<Module>>,
+          List<Module>,
+          FutureOr<List<Module>>
+        >
+    with $FutureModifier<List<Module>>, $FutureProvider<List<Module>> {
+  const LocalModulesProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'localModulesProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$localModulesHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<Module>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<Module>> create(Ref ref) {
+    return localModules(ref);
+  }
+}
+
 String _$localModulesHash() => r'1cdde26f3ed4238bd134931d07fd48f28017737d';
 
-/// See also [localModules].
-@ProviderFor(localModules)
-final localModulesProvider = AutoDisposeFutureProvider<List<Module>>.internal(
-  localModules,
-  name: r'localModulesProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$localModulesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+@ProviderFor(localTips)
+const localTipsProvider = LocalTipsProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef LocalModulesRef = AutoDisposeFutureProviderRef<List<Module>>;
+final class LocalTipsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<String>>,
+          List<String>,
+          FutureOr<List<String>>
+        >
+    with $FutureModifier<List<String>>, $FutureProvider<List<String>> {
+  const LocalTipsProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'localTipsProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$localTipsHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<String>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<String>> create(Ref ref) {
+    return localTips(ref);
+  }
+}
+
 String _$localTipsHash() => r'82b7dd8cc8b62c8c7e04be6b51cccc93b3514ee8';
 
-/// See also [localTips].
-@ProviderFor(localTips)
-final localTipsProvider = AutoDisposeFutureProvider<List<String>>.internal(
-  localTips,
-  name: r'localTipsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$localTipsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+@ProviderFor(lastModulesRead)
+const lastModulesReadProvider = LastModulesReadProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef LocalTipsRef = AutoDisposeFutureProviderRef<List<String>>;
+final class LastModulesReadProvider
+    extends $FunctionalProvider<AsyncValue<String>, String, FutureOr<String>>
+    with $FutureModifier<String>, $FutureProvider<String> {
+  const LastModulesReadProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'lastModulesReadProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$lastModulesReadHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<String> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<String> create(Ref ref) {
+    return lastModulesRead(ref);
+  }
+}
+
 String _$lastModulesReadHash() => r'bd1bc3727266a5654ff7a95eb356afa42c7c52dc';
 
-/// See also [lastModulesRead].
-@ProviderFor(lastModulesRead)
-final lastModulesReadProvider = AutoDisposeFutureProvider<String>.internal(
-  lastModulesRead,
-  name: r'lastModulesReadProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$lastModulesReadHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef LastModulesReadRef = AutoDisposeFutureProviderRef<String>;
-String _$lastTipsReadHash() => r'10c462d2185ce60d785637eb92df8fea3d6344bb';
-
-/// See also [lastTipsRead].
 @ProviderFor(lastTipsRead)
-final lastTipsReadProvider = AutoDisposeFutureProvider<String>.internal(
-  lastTipsRead,
-  name: r'lastTipsReadProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$lastTipsReadHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const lastTipsReadProvider = LastTipsReadProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef LastTipsReadRef = AutoDisposeFutureProviderRef<String>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class LastTipsReadProvider
+    extends $FunctionalProvider<AsyncValue<String>, String, FutureOr<String>>
+    with $FutureModifier<String>, $FutureProvider<String> {
+  const LastTipsReadProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'lastTipsReadProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$lastTipsReadHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<String> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<String> create(Ref ref) {
+    return lastTipsRead(ref);
+  }
+}
+
+String _$lastTipsReadHash() => r'10c462d2185ce60d785637eb92df8fea3d6344bb';

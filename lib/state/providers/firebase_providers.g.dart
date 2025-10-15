@@ -6,39 +6,83 @@ part of 'firebase_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(firebaseModules)
+const firebaseModulesProvider = FirebaseModulesProvider._();
+
+final class FirebaseModulesProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<Module>>,
+          List<Module>,
+          FutureOr<List<Module>>
+        >
+    with $FutureModifier<List<Module>>, $FutureProvider<List<Module>> {
+  const FirebaseModulesProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'firebaseModulesProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$firebaseModulesHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<Module>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<Module>> create(Ref ref) {
+    return firebaseModules(ref);
+  }
+}
+
 String _$firebaseModulesHash() => r'0397de0f5bbb5b2bccda531e1f3e076de2a41636';
 
-/// See also [firebaseModules].
-@ProviderFor(firebaseModules)
-final firebaseModulesProvider =
-    AutoDisposeFutureProvider<List<Module>>.internal(
-  firebaseModules,
-  name: r'firebaseModulesProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$firebaseModulesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef FirebaseModulesRef = AutoDisposeFutureProviderRef<List<Module>>;
-String _$firebaseTipsHash() => r'5a82209533abe3802b03f8ad489367993ffe9d5a';
-
-/// See also [firebaseTips].
 @ProviderFor(firebaseTips)
-final firebaseTipsProvider = AutoDisposeFutureProvider<List<String>>.internal(
-  firebaseTips,
-  name: r'firebaseTipsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$firebaseTipsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const firebaseTipsProvider = FirebaseTipsProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef FirebaseTipsRef = AutoDisposeFutureProviderRef<List<String>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class FirebaseTipsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<String>>,
+          List<String>,
+          FutureOr<List<String>>
+        >
+    with $FutureModifier<List<String>>, $FutureProvider<List<String>> {
+  const FirebaseTipsProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'firebaseTipsProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$firebaseTipsHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<String>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<String>> create(Ref ref) {
+    return firebaseTips(ref);
+  }
+}
+
+String _$firebaseTipsHash() => r'5a82209533abe3802b03f8ad489367993ffe9d5a';

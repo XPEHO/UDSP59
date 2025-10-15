@@ -6,21 +6,44 @@ part of 'modules_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$modulesHash() => r'a48d4313a0be81d14a706389c40e66ac0cde32c2';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [modules].
 @ProviderFor(modules)
-final modulesProvider = AutoDisposeFutureProvider<List<Module>>.internal(
-  modules,
-  name: r'modulesProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$modulesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const modulesProvider = ModulesProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef ModulesRef = AutoDisposeFutureProviderRef<List<Module>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class ModulesProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<Module>>,
+          List<Module>,
+          FutureOr<List<Module>>
+        >
+    with $FutureModifier<List<Module>>, $FutureProvider<List<Module>> {
+  const ModulesProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'modulesProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$modulesHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<Module>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<Module>> create(Ref ref) {
+    return modules(ref);
+  }
+}
+
+String _$modulesHash() => r'a48d4313a0be81d14a706389c40e66ac0cde32c2';
