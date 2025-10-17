@@ -3,8 +3,9 @@ import 'package:udsp59/styles/form_factor.dart';
 
 TextStyle textStyleAppTitle(BuildContext context) {
   return TextStyle(
-    fontSize:
-        MediaQuery.of(context).size.width > FormFactor.tightPhone ? 32 : 22,
+    fontSize: MediaQuery.of(context).size.width > FormFactor.tightPhone
+        ? 32
+        : 22,
     fontWeight: FontWeight.bold,
     color: Theme.of(context).colorScheme.inverseSurface,
   );

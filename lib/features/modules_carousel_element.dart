@@ -7,10 +7,7 @@ import 'package:material_icons_named/material_icons_named.dart';
 class ModulesCarouselElement extends StatelessWidget {
   final Module module;
 
-  const ModulesCarouselElement({
-    super.key,
-    required this.module,
-  });
+  const ModulesCarouselElement({super.key, required this.module});
 
   // This widget is the root of your application.
   @override
@@ -45,8 +42,9 @@ class ModulesCarouselElement extends StatelessWidget {
                 module.title,
                 semanticsLabel: "Consulter le module : ${module.title}",
                 overflow: TextOverflow.ellipsis,
-                maxLines:
-                    MediaQuery.textScalerOf(context).proxyFactor > 1 ? 1 : 2,
+                maxLines: MediaQuery.textScalerOf(context).proxyFactor > 1
+                    ? 1
+                    : 2,
                 style: textStyleModule(context),
               ),
             ),

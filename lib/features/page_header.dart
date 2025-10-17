@@ -5,10 +5,7 @@ import 'package:udsp59/styles/text_style.dart';
 class PageHeader extends StatelessWidget {
   final String pageTitle;
 
-  const PageHeader({
-    super.key,
-    required this.pageTitle,
-  });
+  const PageHeader({super.key, required this.pageTitle});
 
   @override
   Widget build(BuildContext context) {

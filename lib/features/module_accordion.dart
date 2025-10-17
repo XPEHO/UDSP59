@@ -5,10 +5,7 @@ import 'package:udsp59/features/module_accordion_part.dart';
 class ModuleAccordion extends StatelessWidget {
   final Module module;
 
-  const ModuleAccordion({
-    super.key,
-    required this.module,
-  });
+  const ModuleAccordion({super.key, required this.module});
 
   @override
   Widget build(BuildContext context) {

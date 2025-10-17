@@ -154,10 +154,7 @@ class Dot extends StatelessWidget {
       duration: const Duration(milliseconds: 200),
       width: size,
       height: size,
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-      ),
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
     );
   }
 }

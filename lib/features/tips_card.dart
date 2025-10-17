@@ -5,10 +5,7 @@ import 'package:udsp59/styles/text_style.dart';
 class TipsCard extends StatelessWidget {
   final String tips;
 
-  const TipsCard({
-    super.key,
-    required this.tips,
-  });
+  const TipsCard({super.key, required this.tips});
 
   // This widget is the root of your application.
   @override
@@ -22,9 +19,7 @@ class TipsCard extends StatelessWidget {
           textAlign: TextAlign.center,
           style: textStyleTipsCardTitle(context),
         ),
-        const SizedBox(
-          height: 16,
-        ),
+        const SizedBox(height: 16),
         AnimatedSize(
           duration: const Duration(milliseconds: 300),
           clipBehavior: Clip.none,

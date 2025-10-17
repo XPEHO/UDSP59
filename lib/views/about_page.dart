@@ -19,9 +19,7 @@ class AboutPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const PageHeader(
-                pageTitle: 'aboutTitle',
-              ),
+              const PageHeader(pageTitle: 'aboutTitle'),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                 child: Column(
@@ -32,9 +30,7 @@ class AboutPage extends StatelessWidget {
                       tr('aboutSubtitle1'),
                       style: textStyleSubtitle(context),
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    const SizedBox(height: 15),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Column(
@@ -53,9 +49,7 @@ class AboutPage extends StatelessWidget {
                               'aboutPart1Span7',
                             ],
                           ),
-                          const SizedBox(
-                            height: 10,
-                          ),
+                          const SizedBox(height: 10),
                           MixedParagraph(
                             context,
                             textKeys: const [
@@ -68,9 +62,7 @@ class AboutPage extends StatelessWidget {
                               'aboutPart2Span7',
                             ],
                           ),
-                          const SizedBox(
-                            height: 10,
-                          ),
+                          const SizedBox(height: 10),
                           MixedParagraph(
                             context,
                             textKeys: const [
@@ -84,16 +76,12 @@ class AboutPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    const SizedBox(height: 20),
                     Text(
                       tr('aboutSubtitle2'),
                       style: textStyleSubtitle(context),
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                    const SizedBox(height: 15),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [

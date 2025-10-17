@@ -21,10 +21,7 @@ class UrlLinkedIcon extends StatelessWidget {
       onTap: () async {
         final Uri uri = Uri.parse(url);
         if (await canLaunchUrl(uri)) {
-          if (!await launchUrl(
-            uri,
-            mode: LaunchMode.externalApplication,
-          )) {
+          if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
             throw Exception('Could not launch $url');
           }
         }
