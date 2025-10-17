@@ -7,10 +7,7 @@ import 'package:udsp59/styles/form_factor.dart';
 class ModulesCarousel extends StatefulWidget {
   final List<Module> modules;
 
-  const ModulesCarousel({
-    super.key,
-    required this.modules,
-  });
+  const ModulesCarousel({super.key, required this.modules});
 
   @override
   State<ModulesCarousel> createState() => _ModulesCarouselState();

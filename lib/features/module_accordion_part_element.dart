@@ -7,10 +7,7 @@ import 'package:udsp59/styles/text_style.dart';
 class ModuleAccordionPartElement extends ConsumerWidget {
   final ModulePartElement element;
 
-  const ModuleAccordionPartElement({
-    super.key,
-    required this.element,
-  });
+  const ModuleAccordionPartElement({super.key, required this.element});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,16 +22,9 @@ class ModuleAccordionPartElement extends ConsumerWidget {
             textAlign: TextAlign.start,
           ),
         ),
+        if (imageUrl != "") const SizedBox(width: 10),
         if (imageUrl != "")
-          const SizedBox(
-            width: 10,
-          ),
-        if (imageUrl != "")
-          Image.network(
-            imageUrl,
-            fit: BoxFit.contain,
-            width: 80,
-          ),
+          Image.network(imageUrl, fit: BoxFit.contain, width: 80),
       ],
     );
   }

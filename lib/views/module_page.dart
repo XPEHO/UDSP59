@@ -36,10 +36,7 @@ class ModulePage extends ConsumerWidget {
                         semanticLabel:
                             "Image illustrant le module : ${module.title}",
                       ),
-                    if (imageUrl != "")
-                      const SizedBox(
-                        height: 25,
-                      ),
+                    if (imageUrl != "") const SizedBox(height: 25),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
@@ -47,9 +44,7 @@ class ModulePage extends ConsumerWidget {
                         style: textStyleSubtitle(context),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     ModuleAccordion(module: module),
                   ],
                 ),

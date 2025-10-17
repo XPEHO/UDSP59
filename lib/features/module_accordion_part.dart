@@ -118,9 +118,7 @@ class _ModuleAccordionPartState extends ConsumerState<ModuleAccordionPart>
                 ),
                 axis: Axis.vertical,
                 child: Container(
-                  margin: const EdgeInsets.only(
-                    top: 10,
-                  ),
+                  margin: const EdgeInsets.only(top: 10),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(30, 0, 30, 5),
                     child: Column(
@@ -131,16 +129,12 @@ class _ModuleAccordionPartState extends ConsumerState<ModuleAccordionPart>
                             fit: BoxFit.contain,
                             height: 100,
                           ),
-                        if (imageUrl != "")
-                          const SizedBox(
-                            height: 10,
-                          ),
+                        if (imageUrl != "") const SizedBox(height: 10),
                         Column(
                           children: widget.modulePart.elements
                               .map(
-                                (elt) => ModuleAccordionPartElement(
-                                  element: elt,
-                                ),
+                                (elt) =>
+                                    ModuleAccordionPartElement(element: elt),
                               )
                               .toList(),
                         ),

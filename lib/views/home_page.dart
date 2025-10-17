@@ -20,7 +20,9 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final List<Module> modules = ref.watch(modulesProvider).when(
+    final List<Module> modules = ref
+        .watch(modulesProvider)
+        .when(
           data: (List<Module> modules) => modules,
           loading: () => [],
           error: (error, stack) {
@@ -103,14 +105,16 @@ class HomePage extends ConsumerWidget {
                       ),
                     ),
                     padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).size.width >
+                      bottom:
+                          MediaQuery.of(context).size.width >
                                   FormFactor.tightPhone &&
                               MediaQuery.textScalerOf(context).proxyFactor <= 1
                           ? 110
                           : 160,
                     ),
                     constraints: BoxConstraints(
-                      minHeight: MediaQuery.of(context).size.height -
+                      minHeight:
+                          MediaQuery.of(context).size.height -
                           MediaQuery.of(context).padding.top,
                     ),
                     child: Column(
@@ -118,36 +122,33 @@ class HomePage extends ConsumerWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         const TitleHeader(),
-                        const SizedBox(
-                          height: 30,
-                        ),
+                        const SizedBox(height: 30),
                         RichText(
                           text: TextSpan(
                             text: tr("homeHook"),
                             style: textStyleSubtitle(context).copyWith(
-                              fontSize: MediaQuery.textScalerOf(context)
-                                  .scale(textStyleSubtitle(context).fontSize!),
+                              fontSize: MediaQuery.textScalerOf(
+                                context,
+                              ).scale(textStyleSubtitle(context).fontSize!),
                             ),
                             children: [
                               TextSpan(
                                 text: " ${tr("homeHookPlus")}",
                                 style: textStyleSubtitleMore(context).copyWith(
-                                  fontSize:
-                                      MediaQuery.textScalerOf(context).scale(
-                                    textStyleSubtitleMore(context).fontSize!,
-                                  ),
+                                  fontSize: MediaQuery.textScalerOf(context)
+                                      .scale(
+                                        textStyleSubtitleMore(
+                                          context,
+                                        ).fontSize!,
+                                      ),
                                 ),
                               ),
-                              TextSpan(
-                                text: " ${tr("homeHookExclamation")}",
-                              ),
+                              TextSpan(text: " ${tr("homeHookExclamation")}"),
                             ],
                           ),
                           textAlign: TextAlign.center,
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
                         modules.isNotEmpty
                             ? ModulesCarousel(modules: modules)
                             : Text(
@@ -155,9 +156,7 @@ class HomePage extends ConsumerWidget {
                                 style: textStyleParagraph(context),
                                 textAlign: TextAlign.center,
                               ),
-                        const SizedBox(
-                          height: 30,
-                        ),
+                        const SizedBox(height: 30),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Text(
@@ -166,9 +165,7 @@ class HomePage extends ConsumerWidget {
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
                         const TipsCardSwitcher(),
                       ],
                     ),
@@ -180,10 +177,12 @@ class HomePage extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Flex(
-                          direction: MediaQuery.of(context).size.width >
+                          direction:
+                              MediaQuery.of(context).size.width >
                                       FormFactor.tightPhone &&
-                                  MediaQuery.textScalerOf(context)
-                                          .proxyFactor <=
+                                  MediaQuery.textScalerOf(
+                                        context,
+                                      ).proxyFactor <=
                                       1
                               ? Axis.horizontal
                               : Axis.vertical,
@@ -263,10 +262,12 @@ class HomePage extends ConsumerWidget {
                                 TextSpan(
                                   text: tr("byXpeho"),
                                   style: textStyleFooterText(context).copyWith(
-                                    fontSize:
-                                        MediaQuery.textScalerOf(context).scale(
-                                      textStyleFooterText(context).fontSize!,
-                                    ),
+                                    fontSize: MediaQuery.textScalerOf(context)
+                                        .scale(
+                                          textStyleFooterText(
+                                            context,
+                                          ).fontSize!,
+                                        ),
                                   ),
                                 ),
                                 TextSpan(
@@ -274,10 +275,9 @@ class HomePage extends ConsumerWidget {
                                   semanticsLabel:
                                       "XPEHO. Consulter le site de XPEHO, les créateurs de l'application",
                                   style: textStyleOwner(context).copyWith(
-                                    fontSize:
-                                        MediaQuery.textScalerOf(context).scale(
-                                      textStyleOwner(context).fontSize!,
-                                    ),
+                                    fontSize: MediaQuery.textScalerOf(
+                                      context,
+                                    ).scale(textStyleOwner(context).fontSize!),
                                   ),
                                 ),
                               ],

@@ -26,13 +26,15 @@ class TitleHeader extends StatelessWidget {
                   Image.asset(
                     'assets/logo.png',
                     semanticLabel: 'Logo de l\'association',
-                    height: MediaQuery.of(context).size.width >
+                    height:
+                        MediaQuery.of(context).size.width >
                             FormFactor.tightPhone
                         ? 100
                         : 70,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width >
+                    width:
+                        MediaQuery.of(context).size.width >
                             FormFactor.tightPhone
                         ? 10
                         : 0,
