@@ -43,54 +43,7 @@ class HomePage extends ConsumerWidget {
             },
           ),
           child: RefreshIndicator(
-            onRefresh: () async {
-              // Get the scaffold messenger
-              final scaffoldMessenger = ScaffoldMessenger.of(context);
-              // Get the shared preferences instance to manage the cache
-              final SharedPreferences prefs =
-                  await SharedPreferences.getInstance();
-
-              // Get the last reload date from the cache
-              final String? lastReload = prefs.getString('lastReload');
-              if (lastReload != null) {
-                // Prevent the user from spamming the refresh button
-                if (DateTime.now()
-                        .toUtc()
-                        .difference(DateTime.parse(lastReload))
-                        .inMinutes <
-                    1) {
-                  // Display a snackbar to inform the user
-                  scaffoldMessenger.showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                        "Doucement, y a pas le feu au lac !",
-                        style: TextStyle(color: Color(0xFF99201C)),
-                        textAlign: TextAlign.center,
-                      ),
-                      duration: Duration(seconds: 1),
-                    ),
-                  );
-                  return;
-                }
-              }
-
-              // Remove the tips and modules last read date from the cache
-              await prefs.remove('lastTipsRead');
-              await prefs.remove('lastModulesRead');
-              // Make the loading indicator last a bit longer
-              return Future.delayed(const Duration(milliseconds: 300), () {
-                // Invalidate the providers to force a refresh
-                ref.invalidate(lastTipsReadProvider);
-                ref.invalidate(lastModulesReadProvider);
-
-                ref.invalidate(tipsProvider);
-                ref.invalidate(modulesProvider);
-                prefs.setString(
-                  'lastReload',
-                  DateTime.now().toUtc().toString(),
-                );
-              });
-            },
+            onRefresh: () => _handleRefresh(context, ref),
             color: Colors.red,
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
@@ -170,124 +123,7 @@ class HomePage extends ConsumerWidget {
                       ],
                     ),
                   ),
-                  Positioned(
-                    bottom: 10 + MediaQuery.of(context).padding.bottom,
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Flex(
-                          direction:
-                              MediaQuery.of(context).size.width >
-                                      FormFactor.tightPhone &&
-                                  MediaQuery.textScalerOf(
-                                        context,
-                                      ).proxyFactor <=
-                                      1
-                              ? Axis.horizontal
-                              : Axis.vertical,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            TextButton(
-                              onPressed: () async {
-                                String url =
-                                    'https://github.com/XPEHO/UDSP59/blob/main/PRIVACY_POLICY.md';
-                                final Uri uri = Uri.parse(url);
-                                if (await canLaunchUrl(uri)) {
-                                  if (!await launchUrl(
-                                    uri,
-                                    mode: LaunchMode.externalApplication,
-                                  )) {
-                                    throw Exception('Could not launch $url');
-                                  }
-                                }
-                              },
-                              child: Text(
-                                tr("privacyPolicy"),
-                                semanticsLabel:
-                                    "Consulter la politique de confidentialité",
-                                textAlign: TextAlign.center,
-                                style: textStyleFooterLink(context),
-                              ),
-                            ),
-                            if (MediaQuery.of(context).size.width >
-                                    FormFactor.tightPhone &&
-                                MediaQuery.textScalerOf(context).proxyFactor <=
-                                    1)
-                              Text(
-                                "·",
-                                textAlign: TextAlign.center,
-                                style: textStyleFooterText(context),
-                              ),
-                            TextButton(
-                              onPressed: () async {
-                                String url = 'https://udsp59formation.fr/';
-                                final Uri uri = Uri.parse(url);
-                                if (await canLaunchUrl(uri)) {
-                                  if (!await launchUrl(
-                                    uri,
-                                    mode: LaunchMode.externalApplication,
-                                  )) {
-                                    throw Exception('Could not launch $url');
-                                  }
-                                }
-                              },
-                              child: Text(
-                                tr("contactUs"),
-                                semanticsLabel:
-                                    "Consulter le site de l'association",
-                                textAlign: TextAlign.center,
-                                style: textStyleFooterLink(context),
-                              ),
-                            ),
-                          ],
-                        ),
-                        TextButton(
-                          onPressed: () async {
-                            String url = 'https://xpeho.com';
-                            final Uri uri = Uri.parse(url);
-                            if (await canLaunchUrl(uri)) {
-                              if (!await launchUrl(
-                                uri,
-                                mode: LaunchMode.externalApplication,
-                              )) {
-                                throw Exception('Could not launch $url');
-                              }
-                            }
-                          },
-                          child: RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: tr("byXpeho"),
-                                  style: textStyleFooterText(context).copyWith(
-                                    fontSize: MediaQuery.textScalerOf(context)
-                                        .scale(
-                                          textStyleFooterText(
-                                            context,
-                                          ).fontSize!,
-                                        ),
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "XPEHO",
-                                  semanticsLabel:
-                                      "XPEHO. Consulter le site de XPEHO, les créateurs de l'application",
-                                  style: textStyleOwner(context).copyWith(
-                                    fontSize: MediaQuery.textScalerOf(
-                                      context,
-                                    ).scale(textStyleOwner(context).fontSize!),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  _buildFooter(context),
                 ],
               ),
             ),
@@ -295,5 +131,129 @@ class HomePage extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _handleRefresh(BuildContext context, WidgetRef ref) async {
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final String? lastReload = prefs.getString('lastReload');
+    if (lastReload != null) {
+      if (DateTime.now()
+              .toUtc()
+              .difference(DateTime.parse(lastReload))
+              .inMinutes <
+          1) {
+        scaffoldMessenger.showSnackBar(
+          const SnackBar(
+            content: Text(
+              "Doucement, y a pas le feu au lac !",
+              style: TextStyle(color: Color(0xFF99201C)),
+              textAlign: TextAlign.center,
+            ),
+            duration: Duration(seconds: 1),
+          ),
+        );
+        return;
+      }
+    }
+
+    await prefs.remove('lastTipsRead');
+    await prefs.remove('lastModulesRead');
+
+    return Future.delayed(const Duration(milliseconds: 300), () {
+      ref.invalidate(lastTipsReadProvider);
+      ref.invalidate(lastModulesReadProvider);
+      ref.invalidate(tipsProvider);
+      ref.invalidate(modulesProvider);
+      prefs.setString('lastReload', DateTime.now().toUtc().toString());
+    });
+  }
+
+  Widget _buildFooter(BuildContext context) {
+    return Positioned(
+      bottom: 10 + MediaQuery.of(context).padding.bottom,
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Flex(
+            direction:
+                MediaQuery.of(context).size.width > FormFactor.tightPhone &&
+                    MediaQuery.textScalerOf(context).proxyFactor <= 1
+                ? Axis.horizontal
+                : Axis.vertical,
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextButton(
+                onPressed: () => _launchUrl(
+                  'https://github.com/XPEHO/UDSP59/blob/main/PRIVACY_POLICY.md',
+                ),
+                child: Text(
+                  tr("privacyPolicy"),
+                  semanticsLabel: "Consulter la politique de confidentialité",
+                  textAlign: TextAlign.center,
+                  style: textStyleFooterLink(context),
+                ),
+              ),
+              if (MediaQuery.of(context).size.width > FormFactor.tightPhone &&
+                  MediaQuery.textScalerOf(context).proxyFactor <= 1)
+                Text(
+                  "·",
+                  textAlign: TextAlign.center,
+                  style: textStyleFooterText(context),
+                ),
+              TextButton(
+                onPressed: () => _launchUrl('https://udsp59formation.fr/'),
+                child: Text(
+                  tr("contactUs"),
+                  semanticsLabel: "Consulter le site de l'association",
+                  textAlign: TextAlign.center,
+                  style: textStyleFooterLink(context),
+                ),
+              ),
+            ],
+          ),
+          TextButton(
+            onPressed: () => _launchUrl('https://xpeho.com'),
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: tr("byXpeho"),
+                    style: textStyleFooterText(context).copyWith(
+                      fontSize: MediaQuery.textScalerOf(
+                        context,
+                      ).scale(textStyleFooterText(context).fontSize!),
+                    ),
+                  ),
+                  TextSpan(
+                    text: "XPEHO",
+                    semanticsLabel:
+                        "XPEHO. Consulter le site de XPEHO, les créateurs de l'application",
+                    style: textStyleOwner(context).copyWith(
+                      fontSize: MediaQuery.textScalerOf(
+                        context,
+                      ).scale(textStyleOwner(context).fontSize!),
+                    ),
+                  ),
+                ],
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+        throw Exception('Could not launch $url');
+      }
+    }
   }
 }
